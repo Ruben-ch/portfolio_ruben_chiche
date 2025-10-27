@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Compétences & Stages - CHICHE Ruben</title>
-    <meta name="description" content="Tableau de compétences et attestations de stage - Portfolio de Ruben CHICHE">
+    <meta name="description" content="Tableau de compétences et attestation de stage - Portfolio Ruben CHICHE">
     <link rel="icon" href="images/logo-web-component.webp">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" media="all">
-    <link rel="stylesheet" href="css/Header.css" media="all">
-    <link rel="stylesheet" href="css/Acceuil.css" media="all">
-    <link rel="stylesheet" href="css/Footer.css" media="all">
+    <!-- même css que les autres pages pour cohérence -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Header.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Acceuil.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Footer.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Responsive.css" media="all">
 
-    <!-- Icons -->
+    <!-- icônes -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</head>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
 <body>
 
-<div class="container">    
+<div class="container">
     <div class="navigation">
         <div class="menu-toggle"></div>
         <ul class="list">
@@ -43,6 +46,7 @@
                 <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
                 <span class="text">Bilan</span>
             </a></li>
+            <!-- onglet actif -->
             <li class="list-item active" style="--color:#00b894"><a href="competences.html">
                 <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
                 <span class="text">Compétences & Stages</span>
@@ -51,35 +55,78 @@
     </div>
 </div>
 
-<!-- Section Compétences -->
-<section class="Presentation2">
-    <section class="Description">
-        <h1 class="TitrePresentation">Tableau de Compétences</h1>
+<!-- En-tête/intro (utilise les mêmes classes pour cohérence) -->
+<section class="Presentation2" style="padding-top:6%; padding-bottom:4%;">
+    <section class="Description" style="max-width:960px; margin:0 auto; padding: 2rem;">
+        <h1 class="TitrePresentation">Compétences & Attestations de stage</h1>
         <hr>
-        <p>
-            Voici mon tableau de compétences complet réalisé durant le BTS SIO option SISR.  
-            Il regroupe l’ensemble des compétences développées à travers mes projets, TP et périodes de stage.
+        <p style="margin-top:1rem; font-size:1.05rem; line-height:1.6;">
+            Sur cette page tu peux consulter mon <strong>tableau de compétences</strong> (PDF) récapitulant les compétences
+            acquises pendant le BTS SIO SISR ainsi que mon <strong>attestation de stage</strong> réalisée chez DB Cargo France.
         </p>
-        <a href="documents/Tableau_Competences_BTS_SIO_Ruben_CHICHE.pdf" target="_blank" class="boutons">
-            <ion-icon name="document-attach-outline"></ion-icon> &nbsp; Voir le tableau de compétences (PDF)
-        </a>
     </section>
 </section>
 
-<!-- Section Attestations -->
-<section class="Presentation2">
-    <section class="Description">
-        <h1 class="TitrePresentation">Attestation de Stage</h1>
-        <hr>
-        <p>
-            Vous pouvez consulter ci-dessous mon attestation de stage réalisée au sein de DB Cargo France.
-        </p>
-        <a href="documents/Attestation_Stage_DB_Cargo_Ruben_CHICHE.pdf" target="_blank" class="boutons">
-            <ion-icon name="document-attach-outline"></ion-icon> &nbsp; Voir l’attestation de stage (PDF)
-        </a>
-    </section>
+<!-- Section cartes (utilise la classe .certification déjà présente dans Acceuil.css pour un rendu propre) -->
+<section style="display:flex; justify-content:center; flex-wrap:wrap; gap:24px; padding: 40px 16px;">
+    <!-- Carte : Tableau de compétences -->
+    <article class="certification" style="max-width:880px; width:100%; display:flex; align-items:stretch;">
+        <div class="certification_image" style="background:#e9f6fb; min-width:160px; justify-content:center;">
+            <ion-icon name="grid-outline" style="font-size:48px; color:#2A7FB3;"></ion-icon>
+        </div>
+        <div class="certification_description" style="padding:28px;">
+            <p class="certification_titre">Tableau de compétences (BTS SIO SISR)</p>
+            <p style="margin-top:8px;">
+                Le tableau contient les blocs de compétences, le niveau atteint et les preuves (projets, TP, périodes de stage).
+                Télécharge ou visualise le PDF complet.
+            </p>
+            <div style="margin-top:16px;">
+                <a href="documents/Tableau_Competences_BTS_SIO_Ruben_CHICHE.pdf" target="_blank" rel="noreferrer" class="certification_bouton" style="text-decoration:none;">
+                    <ion-icon name="document-attach-outline" class="icon"></ion-icon>&nbsp;Voir / Télécharger le PDF
+                </a>
+                <!-- bouton téléchargement direct -->
+                <a href="documents/Tableau_Competences_BTS_SIO_Ruben_CHICHE.pdf" download class="boutons" style="margin-left:12px;">
+                    <ion-icon name="cloud-download-outline"></ion-icon>&nbsp;Télécharger
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- Carte : Attestation de stage -->
+    <article class="certification" style="max-width:880px; width:100%; display:flex; align-items:stretch;">
+        <div class="certification_image" style="background:#f7efe6; min-width:160px; justify-content:center;">
+            <ion-icon name="ribbon-outline" style="font-size:48px; color:#D17A2A;"></ion-icon>
+        </div>
+        <div class="certification_description" style="padding:28px;">
+            <p class="certification_titre">Attestation de stage</p>
+            <p style="margin-top:8px;">
+                Attestation de ma période en entreprise chez <strong>DB Cargo France</strong>.
+                Vous pouvez l'ouvrir en ligne ou la télécharger en PDF.
+            </p>
+            <div style="margin-top:16px;">
+                <a href="documents/Attestation_Stage_DB_Cargo_Ruben_CHICHE.pdf" target="_blank" rel="noreferrer" class="certification_bouton" style="text-decoration:none;">
+                    <ion-icon name="document-attach-outline" class="icon"></ion-icon>&nbsp;Voir / Télécharger le PDF
+                </a>
+                <a href="documents/Attestation_Stage_DB_Cargo_Ruben_CHICHE.pdf" download class="boutons" style="margin-left:12px;">
+                    <ion-icon name="cloud-download-outline"></ion-icon>&nbsp;Télécharger
+                </a>
+            </div>
+        </div>
+    </article>
 </section>
 
+<!-- Petite zone d'aperçu embarqué (iframe responsive) pour l'un des PDF - optionnel mais utile -->
+<section style="max-width:1000px; margin: 0 auto 60px auto; padding:0 16px;">
+    <div style="background:#fff; padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.08);">
+        <h2 style="font-size:1.1rem; margin-bottom:10px;">Aperçu rapide</h2>
+        <p style="margin:0 0 12px 0; color:#555;">Aperçu du tableau de compétences (si votre navigateur le supporte).</p>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:6px;">
+            <iframe src="documents/Tableau_Competences_BTS_SIO_Ruben_CHICHE.pdf" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" title="Aperçu tableau de compétences"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- footer copie conforme -->
 <footer class="footer" id="footer">
     <div class="inner">
         <div class="column is-logo">
@@ -95,6 +142,14 @@
                 <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
                 <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
                 <li><a href="competences.html" class="footer_a">Compétences & Stages</a></li>
+            </ul>
+        </div>
+        <div class="column is-nav">
+            <div class="column-title">Contact</div>
+            <ul>
+                <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
             </ul>
         </div>
     </div>
