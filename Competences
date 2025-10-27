@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Compétences & Stages - CHICHE Ruben</title>
+    <meta name="description" content="Tableau de compétences et attestations de stage - Portfolio de Ruben CHICHE">
+    <link rel="icon" href="images/logo-web-component.webp">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" media="all">
+    <link rel="stylesheet" href="css/Header.css" media="all">
+    <link rel="stylesheet" href="css/Acceuil.css" media="all">
+    <link rel="stylesheet" href="css/Footer.css" media="all">
+
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+<div class="container">    
+    <div class="navigation">
+        <div class="menu-toggle"></div>
+        <ul class="list">
+            <li class="list-item" style="--color:#67B3E4"><a href="index.html">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="text">Accueil</span>
+            </a></li>
+            <li class="list-item" style="--color:#f44336"><a href="dbcargo.html">
+                <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                <span class="text">Entreprise</span>
+            </a></li>
+            <li class="list-item" style="--color:#ffa117"><a href="realisations_pro.html">
+                <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                <span class="text">Réalisations</span>
+            </a></li>
+            <li class="list-item" style="--color:#2196f3"><a href="veille_technologique.html">
+                <span class="icon"><ion-icon name="globe-outline"></ion-icon></span>
+                <span class="text">Veille</span>
+            </a></li>
+            <li class="list-item" style="--color:#b145e9"><a href="bilan.html">
+                <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
+                <span class="text">Bilan</span>
+            </a></li>
+            <li class="list-item active" style="--color:#00b894"><a href="competences.html">
+                <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                <span class="text">Compétences & Stages</span>
+            </a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Section Compétences -->
+<section class="Presentation2">
+    <section class="Description">
+        <h1 class="TitrePresentation">Tableau de Compétences</h1>
+        <hr>
+        <p>
+            Voici mon tableau de compétences complet réalisé durant le BTS SIO option SISR.  
+            Il regroupe l’ensemble des compétences développées à travers mes projets, TP et périodes de stage.
+        </p>
+        <a href="documents/Tableau_Competences_BTS_SIO_Ruben_CHICHE.pdf" target="_blank" class="boutons">
+            <ion-icon name="document-attach-outline"></ion-icon> &nbsp; Voir le tableau de compétences (PDF)
+        </a>
+    </section>
+</section>
+
+<!-- Section Attestations -->
+<section class="Presentation2">
+    <section class="Description">
+        <h1 class="TitrePresentation">Attestation de Stage</h1>
+        <hr>
+        <p>
+            Vous pouvez consulter ci-dessous mon attestation de stage réalisée au sein de DB Cargo France.
+        </p>
+        <a href="documents/Attestation_Stage_DB_Cargo_Ruben_CHICHE.pdf" target="_blank" class="boutons">
+            <ion-icon name="document-attach-outline"></ion-icon> &nbsp; Voir l’attestation de stage (PDF)
+        </a>
+    </section>
+</section>
+
+<footer class="footer" id="footer">
+    <div class="inner">
+        <div class="column is-logo">
+            <div class="logo-info">
+                <div class="footer_text">CHICHE Ruben</div>
+                <span class="copyright">© 2026. All rights reserved.</span>
+            </div>
+        </div>
+        <div class="column is-nav">
+            <div class="column-title">Navigation</div>
+            <ul>
+                <li><a href="index.html" class="footer_a">Accueil</a></li>
+                <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
+                <li><a href="competences.html" class="footer_a">Compétences & Stages</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="js/Header.js"></script>
+</body>
+</html>
