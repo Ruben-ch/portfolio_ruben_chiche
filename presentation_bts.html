@@ -1,1 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>BTS SIO - CHICHE Ruben</title>
+    <meta name="description" content="Présentation du BTS SIO et de ses options SISR et SLAM - Portfolio de Ruben CHICHE">
+    <link rel="icon" href="images/logo-web-component.webp">
 
+    <!-- CSS commun -->
+    <link rel="stylesheet" href="css/style.css" media="all">
+    <link rel="stylesheet" href="css/Header.css" media="all">
+    <link rel="stylesheet" href="css/Footer.css" media="all">
+
+    <!-- Thème spécifique BTS SIO -->
+    <style>
+        body {
+            background: linear-gradient(120deg, #8ec5fc 0%, #e0c3fc 100%);
+            font-family: "Poppins", sans-serif;
+            margin-left: 75px;
+        }
+
+        .section-bts {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
+        .section-bts h1, .section-bts h2 {
+            text-align: center;
+            color: #3a3a8f;
+        }
+
+        .section-bts h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .section-bts h2 {
+            font-size: 1.6em;
+            margin-top: 40px;
+            color: #007acc;
+        }
+
+        .section-bts p {
+            line-height: 1.7;
+            font-size: 1.05em;
+            color: #333;
+            text-align: justify;
+        }
+
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .option-card {
+            background: linear-gradient(145deg, #ffffff, #f2f4ff);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            width: 480px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .option-card h3 {
+            color: #0047ab;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .option-card p {
+            text-align: justify;
+        }
+
+        .epreuves {
+            margin-top: 20px;
+        }
+
+        .epreuves table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .epreuves th, .epreuves td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .epreuves th {
+            background-color: #007acc;
+            color: white;
+        }
+
+        .epreuves tr:nth-child(even) {
+            background-color: #f7f9ff;
+        }
+
+        .icon {
+            font-size: 1.2em;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                margin-top: 60px;
+            }
+
+            .option-card {
+                width: 90%;
+            }
+        }
+    </style>
+
+    <!-- Icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="navigation">
+        <div class="menu-toggle"></div>
+        <ul class="list">
+            <li class="list-item" style="--color:#67B3E4"><a href="index.html">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="text">Accueil</span></a></li>
+            <li class="list-item" style="--color:#f44336"><a href="dbcargo.html">
+                <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                <span class="text">Entreprise</span></a></li>
+            <li class="list-item" style="--color:#ffa117"><a href="realisations_pro.html">
+                <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                <span class="text">Réalisations</span></a></li>
+            <li class="list-item" style="--color:#2196f3"><a href="veille_technologique.html">
+                <span class="icon"><ion-icon name="globe-outline"></ion-icon></span>
+                <span class="text">Veille</span></a></li>
+            <li class="list-item" style="--color:#b145e9"><a href="bilan.html">
+                <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
+                <span class="text">Bilan</span></a></li>
+            <li class="list-item active" style="--color:#8e44ad"><a href="bts_sio.html">
+                <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                <span class="text">BTS SIO</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<section class="section-bts">
+    <h1><ion-icon name="school-outline" class="icon"></ion-icon>Le BTS SIO</h1>
+    <p>
+        Le <strong>BTS SIO (Services Informatiques aux Organisations)</strong> est un diplôme national de niveau Bac +2
+        qui forme des spécialistes en informatique capables de répondre aux besoins techniques et organisationnels des entreprises.
+        Il se prépare en deux ans et propose deux parcours de spécialisation dès la deuxième année.
+    </p>
+
+    <h2>Les deux options du BTS SIO</h2>
+    <div class="options-container">
+        <div class="option-card">
+            <h3><ion-icon name="server-outline" class="icon"></ion-icon>Option SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</h3>
+            <p>
+                Cette option forme les étudiants à la mise en place et à la maintenance des infrastructures réseaux et systèmes d’une organisation.
+                Les étudiants apprennent à gérer les serveurs, sécuriser les réseaux, déployer des services et assurer le support technique.
+            </p>
+            <p><strong>Compétences développées :</strong></p>
+            <ul>
+                <li>Configuration de routeurs, switchs, serveurs</li>
+                <li>Administration Windows et Linux</li>
+                <li>Supervision et maintenance du réseau</li>
+                <li>Sécurisation des systèmes d’information</li>
+            </ul>
+        </div>
+
+        <div class="option-card">
+            <h3><ion-icon name="code-slash-outline" class="icon"></ion-icon>Option SLAM (Solutions Logicielles et Applications Métiers)</h3>
+            <p>
+                L’option SLAM s’adresse aux étudiants souhaitant se spécialiser dans le développement d’applications.
+                Elle met l’accent sur la conception, le développement, la maintenance et la sécurité des logiciels métiers.
+            </p>
+            <p><strong>Compétences développées :</strong></p>
+            <ul>
+                <li>Programmation (Java, PHP, Python, C#...)</li>
+                <li>Conception de bases de données</li>
+                <li>Création d’applications web et mobiles</li>
+                <li>Intégration et maintenance de solutions logicielles</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Les épreuves du BTS SIO</h2>
+    <div class="epreuves">
+        <table>
+            <thead>
+                <tr>
+                    <th>Épreuve</th>
+                    <th>Type</th>
+                    <th>Coefficient</th>
+                    <th>Durée</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Culture générale et expression</td>
+                    <td>Écrit</td>
+                    <td>2</td>
+                    <td>4h</td>
+                </tr>
+                <tr>
+                    <td>Expression et communication en anglais</td>
+                    <td>Oral / Écrit</td>
+                    <td>2</td>
+                    <td>–</td>
+                </tr>
+                <tr>
+                    <td>Mathématiques pour l’informatique</td>
+                    <td>Écrit</td>
+                    <td>3</td>
+                    <td>3h</td>
+                </tr>
+                <tr>
+                    <td>Économie, management et droit</td>
+                    <td>Écrit</td>
+                    <td>3</td>
+                    <td>4h</td>
+                </tr>
+                <tr>
+                    <td>Analyse économique, managériale et juridique des services informatiques</td>
+                    <td>Écrit</td>
+                    <td>3</td>
+                    <td>4h</td>
+                </tr>
+                <tr>
+                    <td>Conception et maintenance de solutions informatiques</td>
+                    <td>Projet / Oral</td>
+                    <td>5</td>
+                    <td>–</td>
+                </tr>
+                <tr>
+                    <td>Support et mise à disposition de services informatiques</td>
+                    <td>Pratique</td>
+                    <td>4</td>
+                    <td>–</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<footer class="footer" id="footer">
+    <div class="inner">
+        <div class="column is-logo">
+            <div class="logo-info">
+                <div class="footer_text">CHICHE Ruben</div>
+                <span class="copyright">© 2026. All rights reserved.</span>
+            </div>
+        </div>
+        <div class="column is-nav">
+            <div class="column-title">Navigation</div>
+            <ul>
+                <li><a href="index.html" class="footer_a">Accueil</a></li>
+                <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
+                <li><a href="bts_sio.html" class="footer_a">BTS SIO</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="js/Header.js"></script>
+</body>
+</html>
