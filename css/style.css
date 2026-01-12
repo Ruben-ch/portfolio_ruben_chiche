@@ -1,0 +1,502 @@
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(235, 235, 235);
+}
+
+h1 {
+    text-align: center;
+}
+
+.liens {
+    text-decoration: none;
+    color: black;
+}
+
+/* Présentatiion */
+/* Présentatiion */
+/* Présentatiion */
+/* Présentatiion */
+
+.Titre {
+    line-height: 150%;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 6%;
+    padding-top: 4%;
+    padding-left: 4%;
+}
+
+.Titre1 {
+    line-height: 150%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.Titre2 {
+    padding-top: 25px;
+    line-height: 108%;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.Titre3 {
+    line-height: 105%;
+    padding-top: 15px;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: left;
+}
+
+.IMG_Etudiant {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+#IMG_Etudiant {
+    padding-top: 8%;
+}
+
+@media (max-width: 1400px) and (min-width: 768px) {
+    .IMG_Etudiant {
+        display: none;
+    }
+
+    .Titre {
+        padding: 12%;
+    }
+
+    .Titre2 {
+        line-height: 108%;
+    }
+}
+
+@media (max-width: 800px) {
+    .Titre {
+        padding-right: 0%;
+    }
+
+    .IMG_Etudiant {
+        display: none;
+    }
+
+}
+
+/* Présentatiion */
+/* Présentatiion */
+/* Présentatiion */
+/* Présentatiion */
+
+
+
+#Pages {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#DescriptionFormationImg {
+    vertical-align: center;
+    position: relative;
+    margin: 0%;
+}
+
+#Customer {
+    position: static;
+    justify-content: right;
+    text-align: right;
+}
+
+
+
+.arrow {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+
+
+
+@media (max-width: 600px) {
+    .scrolldown {
+        display: none;
+    }
+}
+
+.scrolldown {
+    --color: rgb(0, 0, 0);
+    --sizeX: 30px;
+    --sizeY: 50px;
+    /*position: relative;*/
+    width: var(--sizeX);
+    height: var(--sizeY);
+    margin-left: var(sizeX / 2);
+    border: calc(var(--sizeX) / 10) solid var(--color);
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+    position: absolute;
+    left: 51.5%;
+    transform: translate(-50%, -50%);
+}
+
+.scrolldown::before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: var(--color);
+    border-radius: 100%;
+    animation: scrolldown-anim 2s infinite;
+    box-sizing: border-box;
+    box-shadow: 0px -5px 3px 1px #ffffff66;
+}
+
+@keyframes scrolldown-anim {
+    0% {
+        opacity: 0;
+        height: 6px;
+    }
+
+    40% {
+        opacity: 1;
+        height: 10px;
+    }
+
+    80% {
+        transform: translate(0, 20px);
+        height: 10px;
+        opacity: 0;
+    }
+
+    100% {
+        height: 3px;
+        opacity: 0;
+    }
+}
+
+.chevrons {
+    padding: 6px 0 0 0;
+    margin-left: -3px;
+    margin-top: 48px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chevrondown {
+    margin-top: -6px;
+    position: relative;
+    border: solid var(--color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) {
+    animation: pulse 500ms ease infinite alternate;
+}
+
+.chevrondown:nth-child(even) {
+    animation: pulse 500ms ease infinite alternate 250ms;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+/* Scroll top */
+/* Scroll top */
+/* Scroll top */
+/* Scroll top */
+#myBtn {
+    background-image: url('../images/arrow-up-outline.svg');
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgb(139, 139, 139);
+    cursor: pointer;
+    padding: 19px;
+    border-radius: 4px;
+}
+
+
+/* Scroll top */
+/* Scroll top */
+/* Scroll top */
+/* Scroll top */
+
+
+/* --- MODERNISATION COMPETENCES --- */
+
+/* 1. Section Hero (Intro) */
+.modern-hero {
+    text-align: center;
+    padding: 8% 2rem 4% 2rem;
+    background: radial-gradient(circle at top, #f3f4f6, transparent);
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.hero-title .highlight {
+    color: #2A7FB3; /* Votre bleu */
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: rgba(42, 127, 179, 0.2);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 2. Grille de Cartes */
+.cards-section {
+    padding: 0 2rem 4rem 2rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 3. Style des Cartes */
+.modern-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Icônes dans les cartes */
+.card-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 1.5rem;
+}
+
+.blue-theme {
+    background-color: #e3f2fd;
+    color: #2196f3;
+}
+
+.orange-theme {
+    background-color: #fff3e0;
+    color: #ff9800;
+}
+
+/* Contenu Texte Carte */
+.modern-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background-color: #f0f0f0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.modern-card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Pousse les boutons vers le bas */
+}
+
+/* 4. Boutons */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn-primary, .btn-ghost {
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #222;
+    color: white;
+    flex: 2;
+}
+
+.btn-primary:hover {
+    background-color: #000;
+    transform: scale(1.02);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid #ddd;
+    flex: 1;
+}
+
+.btn-ghost:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    border-color: #aaa;
+}
+
+/* 5. Aperçu PDF (Style Browser) */
+.preview-section {
+    max-width: 900px;
+    margin: 2rem auto 6rem auto;
+    padding: 0 2rem;
+}
+
+.browser-mockup {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.browser-header {
+    background: #f1f3f5;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.browser-address {
+    margin-left: 20px;
+    background: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #777;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modern-hero { padding-top: 25%; }
+    .card-actions { flex-direction: column; }
+    .btn-primary, .btn-ghost { width: 100%; flex: auto; box-sizing: border-box; }
+}
