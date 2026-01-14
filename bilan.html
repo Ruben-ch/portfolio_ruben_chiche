@@ -38,9 +38,17 @@
             font-family: 'Poppins', sans-serif;
             color: var(--dark);
             overflow-x: hidden;
+            /* CORRECTION 1 : Décalage du contenu pour laisser la place au menu */
+            margin-left: 75px; 
+            margin-top: 0;
         }
 
-        /* --- FOND SUBTIL (Pas d'animation lourde, juste de l'ambiance) --- */
+        /* CORRECTION 2 : Forcer le menu au premier plan */
+        .navigation {
+            z-index: 1000 !important;
+        }
+
+        /* --- FOND SUBTIL --- */
         .ambient-light {
             position: fixed;
             top: 0;
@@ -92,7 +100,7 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        /* --- ESTHÉTIQUE DES CARTES (Renommé pour éviter les conflits) --- */
+        /* --- ESTHÉTIQUE DES CARTES (CORRECTION 3 : Renommé en .bento-card) --- */
         .bento-card {
             background: #ffffff;
             border-radius: 24px;
@@ -113,7 +121,7 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             border-radius: 24px;
-            padding: 2px; /* épaisseur de la bordure dégradée */
+            padding: 2px;
             background: linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0)); 
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
@@ -239,6 +247,7 @@
         }
 
         @media (max-width: 768px) {
+            body { margin-left: 0; } /* Sur mobile, on annule la marge car le menu est souvent masqué ou en haut */
             .hero-bilan h1 { font-size: 2.5rem; }
             .bento-grid { grid-template-columns: 1fr; }
             .conclusion-card { padding: 30px; }
