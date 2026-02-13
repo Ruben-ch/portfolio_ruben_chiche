@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio - CHICHE Ruben | DB Cargo France</title>
+    <meta name="keywords" content="Portfolio,Alternance,mooc,pontoise,BTS,BTS SIO,BTS SIO SISR,SIO,SISR,BTSSIO,loic,ledoher,le doher,doher,javascript,web design,web developement,cyber-sécurité,Réseau,Reseau,Sécurité,securite,informatique,Informatique,SecNumAcadémie,DRSD" />
+    <meta name="description" content="Portfolio - CHICHE Ruben (BTS SIO SISR). Bienvenue sur mon PortFolio, vous pourrez y retrouver l'ensemble de mes compétences et réalisations professionnelles. " />
+    <meta name="author" content="CHICHE Ruben" />
+    <link rel="icon" href="images/logo-web-component.webp">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Header.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Footer.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/realisations_pro.css" media="all">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        /* --- Conteneur de la grille de projets --- */
+        .projets-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* --- La Carte Projet --- */
+        .projet-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: inherit;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tag.pro {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .card-btn {
+            margin-top: auto;
+            text-align: center;
+            background: linear-gradient(90deg, #67B3E4, #2196f3);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s;
+            display: block;
+        }
+
+        .card-btn:hover {
+            opacity: 0.9;
+            color: #fff;
+        }
+
+        /* --- MODIFICATION DEMANDÉE : STYLE DES TITRES DE SECTION --- */
+        .Titre_pro {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .Titre_pro p {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #2c3e50;
+            letter-spacing: 2px;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        /* Le trait souligné moderne */
+        .Titre_pro p::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #67B3E4, #2196f3);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Accueil</span>
+                    </a>
+                </li>
+                <li class="list-item" style="--color:#8e44ad"><a href="presentation_bts.html">
+                        <span class="icon">
+                            <ion-icon name="school-outline"></ion-icon>
+                        </span>
+                        <span class="text">BTS SIO</span>
+                    </a>
+                </li>
+                <li class="list-item " style="--color:#f44336"><a href="dbcargo.html">
+                        <span class="icon">
+                            <ion-icon name="briefcase-outline"></ion-icon>
+                        </span>
+                        <span class="text">Entreprise</span>
+                    </a>
+                </li>
+                <li class="list-item" style="--color:#00b894"><a href="competences.html">
+                        <span class="icon">
+                            <ion-icon name="bar-chart-outline"></ion-icon>
+                        </span>
+                        <span class="text">Compétences & Stages</span>
+                    </a>
+                </li>
+                <li class="list-item active" style="--color:#ffa117"><a href="realisations_pro.html">
+                        <span class="icon">
+                            <ion-icon name="layers-outline"></ion-icon>
+                        </span>
+                        <span class="text">Réalisations Professionnelles</span>
+                    </a>
+                </li>
+                <li class="list-item " style="--color:#2196f3"><a href="veille_technologique.html">
+                        <span class="icon">
+                            <ion-icon name="globe-outline"></ion-icon>
+                        </span>
+                        <span class="text">Veille Technologique</span>
+                    </a>
+                </li>
+                <li class="list-item " style="--color:#b145e9"><a href="bilan.html">
+                        <span class="icon">
+                            <ion-icon name="accessibility-outline"></ion-icon>
+                        </span>
+                        <span class="text">Bilan</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="Presentation">
+        <section class="Titre">
+            <h1 class="Titre2"> Réalisations <wbr> Professionnelles <br></h1>
+            <hr class="HRnormal">
+            <h1 class="Titre3"> Tous mes projets réalisés à l'école et en entreprise</h1>
+        </section>
+        <section class="IMG_Etudiant">
+            <img src="images/realisations_pro/Project.png" alt="IMG_Etudiant_Informatique" width="350px">
+        </section>
+
+        <a href="realisations_pro.html#menu_deroulant" class="arrowProjet">
+            <div class='scrolldown'>
+                <div class="chevrons">
+                    <div class='chevrondown'></div>
+                    <div class='chevrondown'></div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <nav class="menu_deroulant_projet" id="menu_deroulant">
+        <ul>
+            <li class="menu_deroulant_projet_li"><a href="realisations_pro.html#section1">Mes Projets</a></li>
+        </ul>
+    </nav>
+
+    <section class="Projets" id="section1">
+
+        <section class="Ecole">
+            <article class="Titre_pro">
+                <p>A l'école</p>
+            </article>
+            
+            <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.8rem;">📂 Système & Administration</h3>
+
+            <div class="projets-grid">
+                <div class="projet-card">
+                    <img src="images/realisations_pro/GLPI.png" alt="GLPI" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=GLPI'">
+                    <div class="card-content">
+                        <h3 class="card-title">Mise en place GLPI</h3>
+                        <p class="card-desc">Installation et configuration d'un serveur de gestion de parc et ticketing pour le suivi des incidents.</p>
+                        <div class="card-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">GLPI</span>
+                            <span class="tag">Apache</span>
+                        </div>
+                        <a href="projets/glpi.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/AD.png" alt="Active Directory" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Active+Directory'">
+                    <div class="card-content">
+                        <h3 class="card-title">Active Directory</h3>
+                        <p class="card-desc">Création d'un domaine Windows, gestion des utilisateurs, GPO et scripts d'ouverture de session.</p>
+                        <div class="card-tags">
+                            <span class="tag">Windows Server</span>
+                            <span class="tag">AD DS</span>
+                            <span class="tag">PowerShell</span>
+                        </div>
+                        <a href="projets/AD.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/pfsense.webp" alt="Pfsense" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=pfSense'">
+                    <div class="card-content">
+                        <h3 class="card-title">Sécurité Réseau</h3>
+                        <p class="card-desc">Mise en place d'un pare-feu pfSense, filtrage des paquets et configuration VPN.</p>
+                        <div class="card-tags">
+                            <span class="tag">Réseau</span>
+                            <span class="tag">pfSense</span>
+                            <span class="tag">Sécurité</span>
+                        </div>
+                        <a href="projets/pfsense.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/postfix.png" alt="Postfix" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Messagerie'">
+                    <div class="card-content">
+                        <h3 class="card-title">Serveur de messagerie</h3>
+                        <p class="card-desc">Mise en place d'une infrastructure mail complète "from scratch" sous Linux et configuration du client lourd.</p>
+                        <div class="card-tags">
+                            <span class="tag">Postfix</span>
+                            <span class="tag">Dovecot</span>
+                            <span class="tag">Thunderbird</span>
+                        </div>
+                        <a href="projets/postfix-dovecot.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/openvpn.png" alt="OpenVPN" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=OpenVPN'">
+                    <div class="card-content">
+                        <h3 class="card-title">Infrastructure VPN</h3>
+                        <p class="card-desc">Déploiement d'un serveur OpenVPN et gestion des certificats pour l'accès distant sécurisé.</p>
+                        <div class="card-tags">
+                            <span class="tag">OpenVPN</span>
+                            <span class="tag">EasyRSA</span>
+                            <span class="tag">Linux</span>
+                        </div>
+                        <a href="projets/openvpn.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/DNS-DHCP.jpeg" alt="DHCP DNS" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=DHCP+DNS'">
+                    <div class="card-content">
+                        <h3 class="card-title">Serveur DHCP & DNS</h3>
+                        <p class="card-desc">Administration de services réseaux critiques sous Debian (Bind9 & ISC-DHCP).</p>
+                        <div class="card-tags">
+                            <span class="tag">Debian</span>
+                            <span class="tag">Bind9</span>
+                            <span class="tag">DHCP</span>
+                        </div>
+                        <a href="projets/dhcp-dns.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/nginx.png" alt="DHCP DNS" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=DHCP+DNS'">
+                    <div class="card-content">
+                        <h3 class="card-title">Serveur Web Nginx</h3>
+                        <p class="card-desc">Mise en place d'un serveur Web sous Debian 11. Configuration en <strong>Reverse Proxy</strong> pour sécuriser l'accès.</p>
+                        <div class="card-tags">
+                            <span class="tag">HTTPS</span>
+                            <span class="tag">Debian</span>
+                            <span class="tag">Reverse Proxy</span>
+                        </div>
+                        <a href="projets/nginx.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card" style="border: 2px solid #aa00ff;">
+                    <img src="images/realisations_pro/final.png" alt="Infrastructure Globale" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Infra+Globale'">
+                    <div class="card-content">
+                        <h3 class="card-title" style="color: #aa00ff;">Infrastructure Globale</h3>
+                        <p class="card-desc">Synthèse du projet BTS SIO : Conception et interconnexion de tous les services (AD, GLPI, pfSense, VPN...).</p>
+                        <div class="card-tags">
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Intégration</span>
+                            <span class="tag">Sécurité</span>
+                        </div>
+                        <a href="projets/projet_final.html" class="card-btn" style="background: linear-gradient(90deg, #aa00ff, #7c4dff);">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: #2c3e50; margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem;">🌐 Réseau & Sécurité</h3>
+
+            <div class="projets-grid">
+                
+                <div class="projet-card">
+                    <img src="images/realisations_pro/ACL.jpg" alt="Cisco Packet Tracer" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Cisco+Packet+Tracer'">
+                    <div class="card-content">
+                        <h3 class="card-title">Sécurisation Réseau (ACL)</h3>
+                        <p class="card-desc">Mise en place de listes de contrôle d'accès (ACL) étendues sur équipement Cisco pour segmenter et sécuriser les flux.</p>
+                        <div class="card-tags">
+                            <span class="tag">ACL</span>
+                            <span class="tag">VLAN</span>
+                            <span class="tag">Packet Tracer</span>
+                        </div>
+                        <a href="projets/acl.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/hsrp.png" alt="Supervision" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Supervision+Nagios'">
+                    <div class="card-content">
+                        <h3 class="card-title">Haute Disponibilité HSRP</h3>
+                        <p class="card-desc">Redondance de routeurs et Load Balancing inter-VLAN avec Cisco HSRP et routage dynamique RIP.</p>
+                        <div class="card-tags">
+                            <span class="tag">HSRP</span>
+                            <span class="tag">Haute Disponibilité</span>
+                            <span class="tag">Load Balancing</span>
+                        </div>
+                        <a href="projets/hsrp.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/ospf.jpg" alt="Wi-Fi Sécurisé" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Wi-Fi+Radius'">
+                    <div class="card-content">
+                        <h3 class="card-title">Routage OSPF Inter-Sites</h3>
+                        <p class="card-desc">Architecture WAN 3 sites avec routage dynamique OSPF et centralisation DHCP via agents relais.</p>
+                        <div class="card-tags">
+                            <span class="tag">OSPF</span>
+                            <span class="tag">WAN</span>
+                            <span class="tag">DHCP Relay</span>
+                        </div>
+                        <a href="projets/ospf.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/protocole rip.png" alt="RIP et DHCP IPv6" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Analyse+Wireshark'">
+                    <div class="card-content">
+                        <h3 class="card-title">Routage Hybride IPv4/IPv6 (RIP)</h3>
+                        <p class="card-desc">Architecture redondante en triangle intégrant RIPv2 MD5, RIPng, NAT et DHCP.</p>
+                        <div class="card-tags">
+                            <span class="tag">RIPng</span>
+                            <span class="tag">Dual Stack</span>
+                            <span class="tag">Redondance</span>
+                        </div>
+                        <a href="projets/ripv2.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="Entreprise">
+            <article class="Titre_pro">
+                <p>En stage (Ministère de la Culture)</p>
+            </article>
+    
+            <div class="projets-grid">
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/monitoring.jpg" alt="Supervision" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Supervision & Audit</h3>
+                        <p class="card-desc">Analyse de flux Streamcore, cartographie N2 et gestion capacitaire des liens WAN.</p>
+                        <div class="card-tags">
+                            <span class="tag pro">Streamcore</span>
+                            <span class="tag pro">Draw.io</span>
+                            <span class="tag pro">Audit</span>
+                        </div>
+                        <a href="projets stage/supervision et monitoring.html" class="card-btn">Voir la mission <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+
+                
+            </div>
+
+            <div class="projet-card">
+    <img src="images/realisations_pro/dhcp stage.webp" alt="DHCP" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Scope+DHCP'">
+    <div class="card-content">
+        <h3 class="card-title">Mise en place Scope DHCP</h3>
+        <p class="card-desc">Création de scopes, configuration des options et gestion du Failover via Smart DHCP.</p>
+        <div class="card-tags">
+            <span class="tag pro">Smart DHCP</span>
+            <span class="tag pro">IPAM</span>
+        </div>
+        <a href="projets stage/dhcp_scope.html" class="card-btn">Voir la mission <ion-icon name="arrow-forward-outline"></ion-icon></a>
+    </div>
+</div>
+
+<div class="projet-card">
+    <img src="images/realisations_pro/switch conf.png" alt="Switch" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Config+Switch'">
+    <div class="card-content">
+        <h3 class="card-title">Configuration Switch</h3>
+        <p class="card-desc">Segmentation réseau, création de VLANs (1002/1120) et configuration des gateways.</p>
+        <div class="card-tags">
+            <span class="tag pro">Switching</span>
+            <span class="tag pro">VLAN</span>
+            <span class="tag pro">Routage</span>
+        </div>
+        <a href="projets stage/switch_config.html" class="card-btn">Voir la mission <ion-icon name="arrow-forward-outline"></ion-icon></a>
+    </div>
+</div>
+
+                <div class="projet-card">
+    <img src="images/realisations_pro/ticketing.jpeg" alt="Support IT" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Support+GLPI'">
+    
+    <div class="card-content">
+        <h3 class="card-title">Support & Ticketing</h3>
+        <p class="card-desc">Gestion des incidents N1 via ADN, administration des comptes et masterisation de postes.</p>
+        
+        <div class="card-tags">
+            <span class="tag pro">Ticketing</span>
+            <span class="tag pro">Active Directory</span>
+            <span class="tag pro">Maintenance</span>
+        </div>
+        
+        <a href="projets stage/support_ministere.html" class="card-btn">Voir la mission <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                
+</div>
+
+    </div>
+
+        <section class="Entreprise">
+            <article class="Titre_pro">
+                <p>En alternance (DB Cargo)</p>
+            </article>
+            
+            <div class="projets-grid">
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/migration.png" alt="Migration" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Migration+Win11'">
+                    <div class="card-content">
+                        <h3 class="card-title">Migration Windows 11</h3>
+                        <p class="card-desc">Déploiement de l'OS sur 50 postes, sauvegarde des données et réinstallation des logiciels métiers.</p>
+                        <div class="card-tags">
+                            <span class="tag pro">Déploiement</span>
+                            <span class="tag pro">Support N2</span>
+                        </div>
+                        <a href="#" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/scripting.png" alt="Scripting" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Scripting'">
+                    <div class="card-content">
+                        <h3 class="card-title">Automatisation Logs</h3>
+                        <p class="card-desc">Script Python pour l'extraction et l'analyse automatique des logs serveurs critiques.</p>
+                        <div class="card-tags">
+                            <span class="tag pro">Python</span>
+                            <span class="tag pro">Bash</span>
+                            <span class="tag pro">Automatisation</span>
+                        </div>
+                        <a href="#" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/wifi.png" alt="Wifi" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Audit+WiFi'">
+                    <div class="card-content">
+                        <h3 class="card-title">Audit Wi-Fi</h3>
+                        <p class="card-desc">Cartographie de la couverture Wi-Fi des entrepôts et optimisation des points d'accès.</p>
+                        <div class="card-tags">
+                            <span class="tag pro">Réseau</span>
+                            <span class="tag pro">Cisco</span>
+                        </div>
+                        <a href="#" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+</section>
+    </section>
+
+    <script src="js/Scroll_Up.js"></script>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+    <script src="js/Active_Menu_Deroulant.js"></script>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i>
+                            rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/Header.js"></script>
+    <script src="js/MessageRetour.js"></script>
+</body>
+
+</html>

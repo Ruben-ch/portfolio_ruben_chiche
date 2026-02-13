@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Infrastructure Globale - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION */
+        .infra-hero {
+            /* Dégradé Violet Architecture */
+            background: linear-gradient(135deg, #240b36 0%, #c31432 100%); /* Fallback */
+            background: linear-gradient(135deg, #2e003e 0%, #3d0556 50%, #8e24aa 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .infra-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Motif maillage réseau */
+            background-image: radial-gradient(#00e5ff 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .infra-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            /* Dégradé Cyan Futuriste */
+            background: -webkit-linear-gradient(#00e5ff, #2979ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .infra-subtitle {
+            font-size: 1.2rem;
+            color: #e1bee7;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Badges Techno */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(142, 36, 170, 0.2);
+            border: 1px solid rgba(224, 64, 251, 0.5);
+            color: #e1bee7;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU PRINCIPAL */
+        .infra-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .infra-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #aa00ff; /* Violet */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .infra-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* GRID ARCHITECTURE (Spécifique à cette page) */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .arch-item {
+            background: #fbf5ff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #aa00ff;
+            transition: all 0.3s;
+        }
+
+        .arch-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(170, 0, 255, 0.1);
+        }
+
+        .arch-icon {
+            font-size: 2rem;
+            color: #aa00ff;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .arch-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #4a148c;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR FLOTTANT */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #aa00ff;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(170, 0, 255, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #7c4dff;
+        }
+
+        @media (max-width: 600px) {
+            .infra-title { font-size: 2rem; }
+            .infra-card { padding: 25px; }
+            .infra-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="infra-hero">
+        <h1 class="infra-title">Infrastructure Réseau</h1>
+        <p class="infra-subtitle">Projet Global - Conception & Intégration Complète</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-sitemap"></i> Interconnexion</span>
+            <span class="tech-badge"><i class="fa fa-server"></i> Multi-OS</span>
+            <span class="tech-badge"><i class="fa fa-shield"></i> Sécurité</span>
+            <span class="tech-badge"><i class="fa fa-cogs"></i> Automatisation</span>
+        </div>
+    </header>
+
+    <main class="infra-container">
+        
+        <section class="infra-card">
+            <h2 class="section-title"><ion-icon name="globe-outline" style="color:#aa00ff;"></ion-icon> Vue d'ensemble (Projet E4)</h2>
+            <div class="infra-text">
+                <p>
+                    Ce rapport global synthétise l'architecture réseau conçue et mise en œuvre pour répondre aux exigences de l'épreuve E4 du BTS SIO. Il ne s'agit pas seulement d'installer des services isolés, mais de créer un <strong>écosystème cohérent, sécurisé et fonctionnel</strong>.
+                </p>
+                <p>
+                    L'infrastructure simule un réseau d'entreprise complet intégrant une passerelle de sécurité, des services d'infrastructure (DHCP/DNS), une gestion centralisée des utilisateurs (AD) et des outils de support (GLPI).
+                </p>
+            </div>
+        </section>
+
+        <section class="infra-card">
+            <h2 class="section-title">
+                <ion-icon name="map-outline" style="color:#aa00ff;"></ion-icon> 
+                Schéma de l'Architecture
+            </h2>
+            <div style="text-align: center;">
+                <img src="../images/realisations_pro/Diagramme_infra.drawio.png" 
+                     alt="Schéma Infrastructure Réseau" 
+                     style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #eee;">
+            </div>
+        </section>
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Composants de l'Architecture</h2>
+        
+        <div class="arch-grid">
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="shield-checkmark"></ion-icon></div>
+                <h3 class="arch-title">Sécurité & Routage</h3>
+                <p><strong>pfSense</strong> agit comme la clé de voûte du réseau. Il assure le routage entre les VLANs, le filtrage strict des paquets (Firewall) et sert de point de terminaison pour les tunnels VPN.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="hardware-chip"></ion-icon></div>
+                <h3 class="arch-title">Cœur de Réseau</h3>
+                <p>Un serveur <strong>Debian</strong> dédié héberge les services critiques <strong>DHCP & DNS</strong> (Bind9), garantissant l'adressage dynamique et la résolution de noms pour tout le parc.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="people"></ion-icon></div>
+                <h3 class="arch-title">Gestion des Identités</h3>
+                <p><strong>Windows Server 2022</strong> avec Active Directory centralise les comptes utilisateurs et ordinateurs. Les stratégies de groupe (GPO) sécurisent et standardisent les postes clients.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="build"></ion-icon></div>
+                <h3 class="arch-title">Gestion de Parc (ITSM)</h3>
+                <p>La solution <strong>GLPI</strong> permet le suivi des incidents (Ticketing) et l'inventaire automatique du matériel, offrant une vision claire de l'état du parc informatique.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="globe"></ion-icon></div>
+                <h3 class="arch-title">Accès Distant & Web</h3>
+                <p>Un serveur <strong>OpenVPN</strong> sécurise l'accès pour les télétravailleurs, tandis qu'un serveur Web <strong>Nginx</strong> héberge les applications internes.</p>
+            </div>
+        </div>
+
+        <section class="infra-card" style="margin-top: 50px; background: #2e003e; color: white; border: none;">
+            <h2 class="section-title" style="color: white;"><ion-icon name="checkmark-done-circle" style="color:#aa00ff;"></ion-icon> Conclusion & Validation</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                Ce projet global démontre ma capacité à concevoir une infrastructure hétérogène (Windows/Linux) complexe. L'ensemble des services communique correctement : les flux sont filtrés, les utilisateurs authentifiés et le support opérationnel.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tech-badge" style="background: #aa00ff; border:none; color:white;">Architecture SIO</span>
+                <span class="tech-badge" style="background: #aa00ff; border:none; color:white;">Intégration</span>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

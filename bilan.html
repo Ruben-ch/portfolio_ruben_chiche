@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bilan & Soft Skills - CHICHE Ruben</title>
+    <meta name="keywords" content="Portfolio, BTS SIO, Bilan, Soft Skills, Compétences, Ruben CHICHE" />
+    <meta name="description" content="Bilan de mes deux années de BTS SIO et compétences transversales acquises (Soft Skills)." />
+    <meta name="author" content="CHICHE Ruben" />
+    <link rel="icon" href="images/logo-web-component.webp">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Header.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Footer.css" media="all">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        /* --- RESET & BASE --- */
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #dfe6e9;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        body {
+            background-color: #f8f9fa !important;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            /* CORRECTION 1 : Décalage du contenu pour laisser la place au menu */
+            margin-left: 75px; 
+            margin-top: 0;
+        }
+
+        /* CORRECTION 2 : Forcer le menu au premier plan */
+        .navigation {
+            z-index: 1000 !important;
+        }
+
+        /* --- FOND SUBTIL --- */
+        .ambient-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(108, 92, 231, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 184, 148, 0.08), transparent 25%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER REVISITÉ --- */
+        .hero-bilan {
+            text-align: center;
+            padding: 120px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-bilan h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2d3436 0%, #6c5ce7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bilan p {
+            font-size: 1.1rem;
+            color: #636e72;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- LAYOUT "BENTO GRID" --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* --- ESTHÉTIQUE DES CARTES (CORRECTION 3 : Renommé en .bento-card) --- */
+        .bento-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Effet de bordure subtil au survol */
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0)); 
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            transition: background 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        /* Activation de la bordure colorée au hover selon le type */
+        .bento-card.purple:hover::before { background: linear-gradient(135deg, #a55eea, transparent); }
+        .bento-card.blue:hover::before { background: linear-gradient(135deg, #4b7bec, transparent); }
+        .bento-card.green:hover::before { background: linear-gradient(135deg, #20bf6b, transparent); }
+        .bento-card.orange:hover::before { background: linear-gradient(135deg, #fa8231, transparent); }
+        .bento-card.red:hover::before { background: linear-gradient(135deg, #fc5c65, transparent); }
+
+        /* Icones minimalistes */
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.03);
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover .card-icon {
+            background: var(--dark);
+            color: white;
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        /* Typographie Carte */
+        .bento-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2d3436;
+        }
+
+        .bento-card p {
+            font-size: 0.95rem;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Indicateur visuel discret en bas */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 20px;
+            opacity: 0.5;
+        }
+        .purple .status-dot { background-color: #a55eea; }
+        .blue .status-dot { background-color: #4b7bec; }
+        .green .status-dot { background-color: #20bf6b; }
+        .orange .status-dot { background-color: #fa8231; }
+        .red .status-dot { background-color: #fc5c65; }
+
+        /* --- SECTION CONCLUSION SPÉCIALE --- */
+        .conclusion-wrapper {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .conclusion-card {
+            background: linear-gradient(135deg, #2d3436, #000000);
+            border-radius: 30px;
+            padding: 50px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Petit effet "grain" ou lumière sur la conclusion */
+        .conclusion-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .conclusion-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .conclusion-card p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* --- ANIMATIONS CSS PURES --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            body { margin-left: 0; } /* Sur mobile, on annule la marge car le menu est souvent masqué ou en haut */
+            .hero-bilan h1 { font-size: 2.5rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .conclusion-card { padding: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ambient-light"></div>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+                <ul class="list">
+                    <li class="list-item" style="--color:#67B3E4"><a href="index.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="text">Accueil</span>
+                        </a>
+                    </li>
+                    <li class="list-item" style="--color:#8e44ad"><a href="presentation_bts.html">
+                        <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                        <span class="text">BTS SIO</span>
+                        </a>
+                    </li>
+                    <li class="list-item" style="--color:#f44336"><a href="dbcargo.html">
+                        <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                        <span class="text">Entreprise</span>
+                        </a>
+                    </li>
+                    <li class="list-item" style="--color:#00b894"><a href="competences.html">
+                        <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                        <span class="text">Compétences & Stages</span>
+                        </a>
+                    </li>
+                    <li class="list-item " style="--color:#ffa117"><a href="realisations_pro.html">
+                        <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                        <span class="text">Réalisations Pro</span>
+                        </a>
+                    </li>
+                    <li class="list-item " style="--color:#2196f3"><a href="veille_technologique.html">
+                        <span class="icon"><ion-icon name="globe-outline"></ion-icon></span>
+                        <span class="text">Veille Technologique</span>
+                        </a>
+                    </li>
+                    <li class="list-item active" style="--color:#b145e9"><a href="bilan.html">
+                        <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
+                        <span class="text">Bilan</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero-bilan">
+        <h1>Bilan de <span style="font-weight: 300; font-style: italic;">Formation</span></h1>
+        <p>
+            Synthèse de deux années d'immersion technique et humaine. 
+            Développement de compétences transversales et consolidation d'une expertise SISR chez DB Cargo France.
+        </p>
+    </section>
+
+    <section class="bento-grid">
+
+        <article class="bento-card purple">
+            <div class="card-icon"><ion-icon name="briefcase-outline"></ion-icon></div>
+            <h3>Professionnalisation</h3>
+            <p>Découverte des codes de l'entreprise, posture professionnelle et fiabilité technique en environnement réel.</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card blue">
+            <div class="card-icon"><ion-icon name="people-outline"></ion-icon></div>
+            <h3>Travail d'équipe</h3>
+            <p>Partage des tâches, écoute active et cohésion. Capacité à collaborer sur des projets scolaires et industriels.</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card green">
+            <div class="card-icon"><ion-icon name="battery-charging-outline"></ion-icon></div>
+            <h3>Autonomie</h3>
+            <p>Transition vers une démarche proactive : recherche de solutions et anticipation des besoins avant sollicitation.</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card orange">
+            <div class="card-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+            <h3>Rigueur</h3>
+            <p>Application stricte des procédures de sécurité et gestion méticuleuse des données critiques (Stage Ministère & DB Cargo).</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card red">
+            <div class="card-icon"><ion-icon name="chatbubbles-outline"></ion-icon></div>
+            <h3>Communication</h3>
+            <p>Vulgarisation technique pour les utilisateurs finaux et reporting clair auprès de la hiérarchie.</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card purple">
+            <div class="card-icon"><ion-icon name="happy-outline"></ion-icon></div>
+            <h3>Confiance</h3>
+            <p>Gain d'assurance grâce à la résolution d'incidents complexes. Capacité à défendre mes choix techniques.</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card blue">
+            <div class="card-icon"><ion-icon name="shuffle-outline"></ion-icon></div>
+            <h3>Adaptabilité</h3>
+            <p>Flexibilité face aux environnements variés, aux urgences utilisateurs et aux contraintes de production.</p>
+            <div class="status-dot"></div>
+        </article>
+
+        <article class="bento-card orange">
+            <div class="card-icon"><ion-icon name="server-outline"></ion-icon></div>
+            <h3>Exploitation Réseau</h3>
+            <p>Maîtrise de l'administration des infrastructures actives (Switchs, Routeurs, Wi-Fi) et garantie de continuité de service.</p>
+            <div class="status-dot"></div>
+        </article>
+
+    </section>
+
+    <section class="conclusion-wrapper">
+        <div class="conclusion-card">
+            <h2>Prêt pour l'avenir</h2>
+            <p>
+                Ces deux années de BTS SIO m'ont permis de transformer ma passion pour l'informatique en véritables compétences professionnelles. 
+                Je suis aujourd'hui prêt à relever de nouveaux défis en administration systèmes et réseaux, 
+                fort d'un bagage technique solide et de qualités humaines éprouvées.
+            </p>
+        </div>
+    </section>
+
+    <script src="js/Scroll_Up.js"></script>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i>
+                        rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="js/Header.js"></script>
+    <script src="js/MessageRetour.js"></script>
+
+</body>
+</html>

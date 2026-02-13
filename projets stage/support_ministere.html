@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Support & Ticketing - Ministère de la Culture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body { background-color: #f4f6f9; margin: 0; padding: 0; margin-left: 75px; font-family: 'Poppins', sans-serif; }
+        @media (max-width: 768px) { body { margin-left: 0; padding-top: 60px; } }
+
+        /* HERO SECTION - Style Support / GLPI */
+        .support-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Bleu nuit profond */
+            color: #38bdf8; /* Bleu Cyan */
+            padding: 80px 20px 100px; text-align: center; position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); margin-bottom: -50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .support-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#38bdf8 1px, transparent 1px); background-size: 30px 30px; opacity: 0.1; pointer-events: none;
+        }
+        .hero-title { font-size: 2.8rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
+        .hero-subtitle { font-size: 1.2rem; color: #bae6fd; margin-top: 15px; font-weight: 300; }
+
+        .content-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 10; }
+        
+        /* Card Style */
+        .main-card { background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; border-top: 5px solid #0ea5e9; }
+        .section-title { font-size: 1.8rem; color: #0f172a; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+
+        /* Grid features */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 20px; }
+        .feature-item { background: #f0f9ff; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #bae6fd; transition: all 0.3s ease; }
+        .feature-item:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15); border-color: #0ea5e9; }
+        .feature-icon { font-size: 2.5rem; color: #0284c7; margin-bottom: 15px; }
+        .feature-title { font-weight: 700; color: #0f172a; margin-bottom: 10px; }
+
+        /* Ticket Log Simulation */
+        .ticket-log {
+            background-color: #1e293b; color: #e2e8f0; padding: 0; border-radius: 10px; 
+            font-family: 'Consolas', monospace; font-size: 0.85rem; overflow: hidden;
+            margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .log-header { background: #0f172a; padding: 10px 20px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; color: #94a3b8; font-size: 0.8rem; }
+        .log-body { padding: 20px; }
+        .log-entry { margin-bottom: 12px; border-left: 3px solid #334155; padding-left: 10px; }
+        .log-time { color: #64748b; font-size: 0.75rem; }
+        .log-action { color: #38bdf8; font-weight: bold; }
+        .log-detail { color: #cbd5e1; }
+        .status-resolved { color: #4ade80; } /* Vert pour résolu */
+
+        /* Badges */
+        .tech-stack { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+        .tech-badge { background: rgba(56, 189, 248, 0.1); border: 1px solid #38bdf8; color: #38bdf8; padding: 8px 20px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; }
+
+        .btn-floating { position: fixed; bottom: 30px; right: 30px; background: #0f172a; color: #38bdf8; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; transition: all 0.3s; text-decoration: none; border: 1px solid #38bdf8; }
+        .btn-floating:hover { transform: scale(1.1); background: #38bdf8; color: #0f172a; }
+    </style>
+</head>
+<body>
+    <div class="container"><div class="navigation"><div class="menu-toggle"></div><ul class="list"><li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li><li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li><li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li><li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li><li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li><li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li><li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li></ul></div></div>
+
+    <header class="support-hero">
+        <h1 class="hero-title">Support & Maintenance</h1>
+        <p class="hero-subtitle">Gestion de Parc & Ticketing N1 au Ministère de la Culture</p>
+        <div class="tech-stack">
+            <span class="tech-badge">ADN / ITSM</span>
+            <span class="tech-badge">Active Directory</span>
+            <span class="tech-badge">Windows 10/11</span>
+            <span class="tech-badge">PMAD</span>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <section class="main-card">
+            <h2 class="section-title"><ion-icon name="people-circle-outline"></ion-icon> Contexte de la Mission</h2>
+            <p>Intégré au pôle Support du <strong>Ministère de la Culture</strong>, j'ai assuré le maintien en condition opérationnelle (MCO) des postes de travail des agents. Cette mission demandait une grande réactivité, un sens du service aigu et une rigueur dans le suivi des incidents via l'outil de ticketing.</p>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Interventions Clés</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="ticket-outline"></ion-icon></div>
+                <h3 class="feature-title">Gestion des Tickets</h3>
+                <p>Réception, qualification et résolution des incidents N1 via <strong>ADN</strong>. Escalade des problèmes complexes vers le N2 avec documentation précise.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="desktop-outline"></ion-icon></div>
+                <h3 class="feature-title">Installation & Masterisation</h3>
+                <p>Préparation des nouveaux postes (Laptop/Desktop) : déploiement de l'image système (Master), jonction au domaine et installation des logiciels métiers.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="key-outline"></ion-icon></div>
+                <h3 class="feature-title">Gestion des Comptes</h3>
+                <p>Administration des utilisateurs via <strong>Active Directory</strong> : création de comptes, réinitialisation de mots de passe et gestion des droits d'accès.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="headset-outline"></ion-icon></div>
+                <h3 class="feature-title">Assistance Utilisateur</h3>
+                <p>Support direct et Prise en Main à Distance (PMAD) pour dépanner les agents sur les outils bureautiques, le VPN ou la messagerie.</p>
+            </div>
+        </div>
+
+        <div class="ticket-log">
+            <div class="log-header">
+                <span>SYSTEM: ADN - Ticket #2024-8594</span>
+                <span>STATUS: <span class="status-resolved">RESOLVED</span></span>
+            </div>
+            <div class="log-body">
+                <div class="log-entry">
+                    <div class="log-time">[08:30:15] <span class="log-action">New Ticket Created</span></div>
+                    <div class="log-detail">User: J.DUPONT | Subject: "Impossible d'accéder au lecteur réseau P:"</div>
+                </div>
+                <div class="log-entry" style="border-color: #38bdf8;">
+                    <div class="log-time">[08:45:22] <span class="log-action">Technician Assigned (Moi)</span></div>
+                    <div class="log-detail">Status changed to: Processing. Priority: Medium.</div>
+                </div>
+                <div class="log-entry">
+                    <div class="log-time">[09:10:05] <span class="log-action">Diagnosis</span></div>
+                    <div class="log-detail">Vérification Active Directory. L'utilisateur a perdu les droits sur le groupe de sécurité "Service_Compta".</div>
+                </div>
+                <div class="log-entry">
+                    <div class="log-time">[09:15:30] <span class="log-action">Action Taken</span></div>
+                    <div class="log-detail">> Add-ADGroupMember -Identity "Service_Compta" -Members "j.dupont"<br>> GPUPDATE /FORCE lancé sur le poste client.</div>
+                </div>
+                <div class="log-entry" style="border-color: #4ade80;">
+                    <div class="log-time">[09:20:00] <span class="log-action">Resolution</span></div>
+                    <div class="log-detail">Accès rétabli confirmé par l'utilisateur. Ticket clos.</div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour"><ion-icon name="arrow-undo"></ion-icon></a>
+    
+    <footer class="footer" id="footer"><div class="inner"><div class="column is-logo"><div class="logo-info"><div class="footer_text">CHICHE Ruben</div><span class="copyright">© 2026. All rights reserved.</span></div></div><div class="column is-nav"><div class="column-title">Navigation</div><ul><li><a href="../index.html" class="footer_a">Accueil</a></li><li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li><li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li></ul></div><div class="column is-nav"><div class="column-title">Contact</div><ul><li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li><li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li><li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li></ul></div><div class="column is-nav"><div class="column-title">Informations</div><ul><li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li><li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li></ul></div></div></footer>
+    <script src="../js/Header.js"></script><script src="../js/MessageRetour.js"></script><script src="../js/Scroll_Up.js"></script>
+</body>
+</html>

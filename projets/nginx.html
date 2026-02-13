@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Nginx Reverse Proxy - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* --- REPRISE DU STYLE EXISTANT --- */
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION - Variation Verte pour Nginx */
+        .infra-hero {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .infra-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .infra-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .infra-subtitle {
+            font-size: 1.2rem;
+            color: #e0f2f1;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU */
+        .infra-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .infra-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #009688; /* Vert Nginx */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .infra-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* CONFIG CODE BLOCK - NOUVEAU STYLE */
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            border-left: 4px solid #38ef7d;
+            margin-top: 20px;
+        }
+        .code-keyword { color: #c586c0; }
+        .code-var { color: #9cdcfe; }
+        .code-string { color: #ce9178; }
+
+        /* GRID FEATURES */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .arch-item {
+            background: #f0fdf4; /* Fond vert très clair */
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #009688;
+            transition: all 0.3s;
+        }
+
+        .arch-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 150, 136, 0.1);
+        }
+
+        .arch-icon {
+            font-size: 2rem;
+            color: #009688;
+            margin-bottom: 15px;
+        }
+
+        .arch-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #00695c;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #009688;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 150, 136, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #00796b;
+        }
+
+        @media (max-width: 600px) {
+            .infra-title { font-size: 2rem; }
+            .infra-card { padding: 25px; }
+            .infra-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="infra-hero">
+        <h1 class="infra-title">Serveur Web Nginx</h1>
+        <p class="infra-subtitle">Reverse Proxy & Hébergement Sécurisé</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-linux"></i> Debian 11</span>
+            <span class="tech-badge"><i class="fa fa-server"></i> Nginx</span>
+            <span class="tech-badge"><i class="fa fa-lock"></i> SSL/TLS</span>
+            <span class="tech-badge"><i class="fa fa-exchange"></i> Reverse Proxy</span>
+        </div>
+    </header>
+
+    <main class="infra-container">
+        
+        <section class="infra-card">
+            <h2 class="section-title"><ion-icon name="information-circle-outline" style="color:#009688;"></ion-icon> Contexte du Projet</h2>
+            <div class="infra-text">
+                <p>
+                    Dans le cadre de l'architecture réseau sécurisée (VLAN 50 - Zone Serveurs), le serveur Web est un composant critique. J'ai choisi la solution <strong>Nginx</strong> plutôt qu'Apache pour sa légèreté et sa capacité à gérer un grand nombre de connexions simultanées grâce à son architecture asynchrone.
+                </p>
+                <p>
+                    Ce serveur a une double fonction : il héberge les applications internes (Site Vitrine, Intranet) et agit comme un <strong>Reverse Proxy</strong> pour sécuriser et fluidifier l'accès aux services backend comme l'outil de ticketing GLPI.
+                </p>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Rôles & Fonctionnalités</h2>
+        
+        <div class="arch-grid">
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="git-network-outline"></ion-icon></div>
+                <h3 class="arch-title">Reverse Proxy</h3>
+                <p>Le serveur intercepte les requêtes des clients et les redirige vers les services appropriés. Cela masque l'architecture interne et ajoute une couche de sécurité.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="layers-outline"></ion-icon></div>
+                <h3 class="arch-title">Virtual Hosts</h3>
+                <p>Utilisation des "Server Blocks" pour héberger plusieurs sites (ex: <code>glpi.entreprise.local</code> et <code>www.entreprise.local</code>) sur une seule adresse IP.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="lock-closed-outline"></ion-icon></div>
+                <h3 class="arch-title">Sécurité HTTPS</h3>
+                <p>Mise en place de certificats SSL/TLS pour chiffrer les communications. Redirection automatique du trafic HTTP (port 80) vers HTTPS (port 443).</p>
+            </div>
+        </div>
+
+        <section class="infra-card" style="margin-top: 40px;">
+            <h2 class="section-title"><ion-icon name="code-slash-outline" style="color:#009688;"></ion-icon> Configuration Technique</h2>
+            <div class="infra-text">
+                <p>
+                    Voici un extrait commenté de la configuration d'un <em>Virtual Host</em> agissant en tant que Reverse Proxy pour le service GLPI. Notez la gestion des en-têtes (headers) pour transmettre les bonnes informations au backend.
+                </p>
+                
+                <div class="code-block">
+<pre>
+<span class="code-keyword">server</span> {
+    <span class="code-keyword">listen</span> 80;
+    <span class="code-keyword">server_name</span> glpi.entreprise.local;
+    <span class="code-keyword">return</span> 301 https://$host$request_uri; <span class="code-comment"># Redirection HTTPS forcée</span>
+}
+
+<span class="code-keyword">server</span> {
+    <span class="code-keyword">listen</span> 443 ssl;
+    <span class="code-keyword">server_name</span> glpi.entreprise.local;
+
+    <span class="code-keyword">ssl_certificate</span> /etc/nginx/ssl/glpi.crt;
+    <span class="code-keyword">ssl_certificate_key</span> /etc/nginx/ssl/glpi.key;
+
+    <span class="code-keyword">location</span> / {
+        <span class="code-keyword">proxy_pass</span> http://192.168.50.30:80; <span class="code-comment"># IP du serveur GLPI interne</span>
+        <span class="code-keyword">proxy_set_header</span> Host $host;
+        <span class="code-keyword">proxy_set_header</span> X-Real-IP $remote_addr;
+        <span class="code-keyword">proxy_set_header</span> X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="infra-card" style="background: #e0f2f1; border: none; border-left: 5px solid #009688;">
+            <h2 class="section-title"><ion-icon name="ribbon-outline" style="color:#009688;"></ion-icon> Bilan Personnel</h2>
+            <div class="infra-text">
+                <p>
+                    La mise en place de ce serveur Nginx m'a permis de comprendre la différence fondamentale entre un proxy et un reverse proxy. J'ai également pu appréhender la gestion des certificats SSL (générés via OpenSSL pour le labo) et l'importance des fichiers de logs (<code>/var/log/nginx/access.log</code>) pour le débogage lors des erreurs 502 Bad Gateway.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="javascript:history.back()" class="btn-floating" title="Retour">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

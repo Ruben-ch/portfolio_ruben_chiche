@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Serveur de Messagerie - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION */
+        .mail-hero {
+            /* Dégradé Indigo Profond */
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 0%, #2c3e50 100%); /* Fallback */
+            background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .mail-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(253, 200, 48, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .mail-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            /* Dégradé Or */
+            background: -webkit-linear-gradient(#FDC830, #F37335);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .mail-subtitle {
+            font-size: 1.2rem;
+            color: #ffecd2;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Badges Techno */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(253, 200, 48, 0.5); /* Bordure Or */
+            color: #ffecd2;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU PRINCIPAL */
+        .mail-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .mail-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #F37335; /* Orange/Or */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mail-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* GRID FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background: #fffbf0; /* Fond crème très léger */
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #ffe5b4;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #F37335;
+            background: white;
+            box-shadow: 0 10px 20px rgba(243, 115, 53, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #F37335;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR FLOTTANT */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #F37335;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(243, 115, 53, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #e67e22;
+        }
+
+        @media (max-width: 600px) {
+            .mail-title { font-size: 2rem; }
+            .mail-card { padding: 25px; }
+            .mail-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="mail-hero">
+        <h1 class="mail-title">Serveur Messagerie</h1>
+        <p class="mail-subtitle">Postfix & Dovecot - Infrastructure Mail - BTS SIO</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-linux"></i> Linux</span>
+            <span class="tech-badge"><i class="fa fa-envelope"></i> Postfix (MTA)</span>
+            <span class="tech-badge"><i class="fa fa-inbox"></i> Dovecot (IMAP)</span>
+            <span class="tech-badge"><i class="fa fa-globe"></i> Roundcube</span>
+        </div>
+    </header>
+
+    <main class="mail-container">
+        
+        <section class="mail-card">
+            <h2 class="section-title"><ion-icon name="school-outline" style="color:#F37335;"></ion-icon> Contexte Pédagogique</h2>
+            <div class="mail-text">
+                <p>
+                    Comprendre le fonctionnement de l'email est fondamental pour un administrateur système. Ce projet visait à construire une chaîne de messagerie complète "from scratch", sans dépendre de solutions clé en main (comme Exchange ou G-Suite).
+                </p>
+                <p>
+                    <strong>Mission :</strong> Installer, configurer et sécuriser un serveur de messagerie capable d'envoyer (SMTP) et de recevoir (IMAP/POP) des courriels, tout en garantissant leur délivrabilité (DNS, SPF, DKIM).
+                </p>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Architecture du Service</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="paper-plane-outline"></ion-icon></div>
+                <h3 class="feature-title">Postfix (MTA)</h3>
+                <p>Configuration de l'agent de transfert pour le routage des mails (SMTP port 25/587) et la gestion de la file d'attente.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="file-tray-full-outline"></ion-icon></div>
+                <h3 class="feature-title">Dovecot (MDA)</h3>
+                <p>Mise en place du serveur IMAP/POP3 (port 143/993) pour permettre aux utilisateurs de consulter et stocker leurs messages.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="desktop-outline"></ion-icon></div>
+                <h3 class="feature-title">Webmail</h3>
+                <p>Déploiement d'une interface web (Roundcube ou Rainloop) liée à une base de données pour l'accès utilisateur via navigateur.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+                <h3 class="feature-title">Sécurité & DNS</h3>
+                <p>Configuration des enregistrements DNS critiques (MX, SPF, DKIM, DMARC) pour éviter que les mails ne finissent en SPAM.</p>
+            </div>
+        </div>
+
+        <section class="mail-card" style="margin-top: 50px; background: #141E30; color: white; border: none;">
+            <h2 class="section-title" style="color: white;"><ion-icon name="trophy-outline" style="color:#F37335;"></ion-icon> Compétences Acquises</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                Ce projet complexe m'a permis de démystifier le trajet d'un email. J'ai acquis une expertise sur les protocoles SMTP/IMAP, la gestion fine des zones DNS et l'importance du chiffrement SSL/TLS pour les échanges de données.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tech-badge" style="background: #F37335; border:none; color:#141E30;">Administration Linux</span>
+                <span class="tech-badge" style="background: #F37335; border:none; color:#141E30;">Protocoles Réseau</span>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

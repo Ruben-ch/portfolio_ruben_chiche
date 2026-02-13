@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Routage OSPF & DHCP - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* --- STYLE GENERAL --- */
+        body {
+            background-color: #f4f6f9;
+            margin: 0; padding: 0; margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body { margin-left: 0; padding-top: 60px; }
+        }
+
+        /* HERO SECTION - Variation Indigo pour OSPF */
+        .infra-hero {
+            background: linear-gradient(135deg, #303f9f 0%, #5c6bc0 100%); /* Indigo Theme */
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .infra-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 40px 40px; opacity: 0.15; pointer-events: none;
+        }
+
+        .infra-title {
+            font-size: 3.5rem; font-weight: 800; margin: 0;
+            text-transform: uppercase; letter-spacing: 2px;
+            line-height: 1.2; text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .infra-subtitle {
+            font-size: 1.2rem; color: #e8eaf6; margin-top: 15px; font-weight: 300;
+        }
+
+        .tech-stack {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white; padding: 8px 20px; border-radius: 50px;
+            font-weight: 600; font-size: 0.9rem; backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU */
+        .infra-container {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px 60px;
+            position: relative; z-index: 10;
+        }
+
+        .infra-card {
+            background: white; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px;
+            margin-bottom: 40px; border-top: 5px solid #3949ab; /* Bordure Indigo */
+        }
+
+        .section-title {
+            font-size: 1.8rem; color: #1e293b; margin-bottom: 25px;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .infra-text {
+            font-size: 1.05rem; line-height: 1.8; color: #475569; text-align: justify;
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: #1e1e1e; color: #d4d4d4; padding: 20px;
+            border-radius: 10px; font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem; overflow-x: auto;
+            border-left: 4px solid #5c6bc0; margin-top: 20px;
+        }
+        .code-keyword { color: #569cd6; font-weight: bold; }
+        .code-var { color: #9cdcfe; }
+        .code-highlight { color: #c586c0; font-weight: bold; }
+
+        /* GRID FEATURES */
+        .arch-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 30px;
+        }
+
+        .arch-item {
+            background: #e8eaf6; /* Indigo très clair */
+            padding: 30px; border-radius: 15px;
+            border-left: 5px solid #3949ab; transition: all 0.3s;
+        }
+
+        .arch-item:hover {
+            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(57, 73, 171, 0.15);
+        }
+
+        .arch-icon { font-size: 2rem; color: #3949ab; margin-bottom: 15px; }
+        .arch-title { font-weight: 700; font-size: 1.2rem; color: #283593; margin-bottom: 10px; }
+
+        /* IMAGE STYLE */
+        .project-img {
+            width: 100%; border-radius: 10px; border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+        }
+
+        /* BOUTON RETOUR */
+        .btn-floating {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #3949ab; color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; box-shadow: 0 5px 15px rgba(57, 73, 171, 0.4);
+            z-index: 1000; transition: all 0.3s; text-decoration: none;
+        }
+        .btn-floating:hover { transform: scale(1.1); background: #283593; }
+
+        @media (max-width: 600px) {
+            .infra-title { font-size: 2rem; }
+            .infra-card { padding: 25px; }
+            .infra-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="infra-hero">
+        <h1 class="infra-title">Routage WAN & OSPF</h1>
+        <p class="infra-subtitle">Interconnexion de Sites & DHCP Relay</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-globe"></i> WAN</span>
+            <span class="tech-badge"><i class="fa fa-sitemap"></i> OSPF Area 0</span>
+            <span class="tech-badge"><i class="fa fa-server"></i> DHCP Centralisé</span>
+            <span class="tech-badge"><i class="fa fa-cogs"></i> IP Helper</span>
+        </div>
+    </header>
+
+    <main class="infra-container">
+        
+        <section class="infra-card">
+            <h2 class="section-title"><ion-icon name="information-circle-outline" style="color:#3949ab;"></ion-icon> Contexte du Projet</h2>
+            <div class="infra-text">
+                <p>
+                    L'objectif de ce projet était de concevoir une infrastructure réseau intersites robuste reliant trois capitales européennes : <strong>Dublin, Londres et Amsterdam</strong>. La contrainte principale était d'assurer une communication fluide via des liaisons séries WAN tout en centralisant l'administration des adresses IP.
+                </p>
+                <p>
+                    J'ai déployé un routage dynamique <strong>OSPF (Open Shortest Path First)</strong> dans une zone unique (Area 0) pour gérer la topologie maillée. De plus, pour simplifier la gestion, le site de Dublin héberge le serveur DHCP maître, tandis que les routeurs de Londres et Amsterdam agissent comme des agents relais pour distribuer les IP à leurs LANs respectifs.
+                </p>
+                <img src="../images/schema_ospf_wan.png" alt="Architecture OSPF Multi-sites" class="project-img">
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Architecture & Protocoles</h2>
+        
+        <div class="arch-grid">
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="analytics-outline"></ion-icon></div>
+                <h3 class="arch-title">Routage OSPF</h3>
+                <p>Utilisation du protocole à état de lien (Link-State) pour calculer automatiquement les meilleures routes (coût) entre les sites via l'algorithme SPF (Dijkstra).</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="server-outline"></ion-icon></div>
+                <h3 class="arch-title">DHCP Centralisé</h3>
+                <p>Optimisation des ressources : un seul routeur (Dublin) gère les pools d'adresses IP pour l'ensemble des trois sites géographiques.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="paper-plane-outline"></ion-icon></div>
+                <h3 class="arch-title">IP Helper-Address</h3>
+                <p>Configuration des routeurs distants pour intercepter les requêtes DHCP (Broadcast) et les transmettre en Unicast vers le serveur central.</p>
+            </div>
+        </div>
+
+        <section class="infra-card" style="margin-top: 40px;">
+            <h2 class="section-title"><ion-icon name="terminal-outline" style="color:#3949ab;"></ion-icon> Configuration Cisco IOS</h2>
+            <div class="infra-text">
+                <p>
+                    Ci-dessous, la configuration du routeur <strong>Dublin</strong> (Serveur DHCP & OSPF) et celle du routeur <strong>Londres</strong> (Client OSPF & Relais DHCP).
+                </p>
+                
+                <div class="code-block">
+<pre>
+<span class="code-comment">! --- ROUTEUR DUBLIN (Serveur DHCP) ---</span>
+<span class="code-keyword">ip dhcp excluded-address</span> 172.16.2.1 172.16.2.5
+<span class="code-keyword">ip dhcp excluded-address</span> 172.16.1.1 172.16.1.5
+
+<span class="code-keyword">ip dhcp pool</span> LAN_DUBLIN
+ <span class="code-keyword">network</span> 172.16.2.0 255.255.255.0
+ <span class="code-keyword">default-router</span> 172.16.2.1
+ <span class="code-keyword">dns-server</span> 8.8.8.8
+
+<span class="code-keyword">ip dhcp pool</span> LAN_LONDRES
+ <span class="code-keyword">network</span> 172.16.1.0 255.255.255.0
+ <span class="code-keyword">default-router</span> 172.16.1.1
+ <span class="code-keyword">dns-server</span> 8.8.8.8
+
+<span class="code-keyword">router ospf</span> 1
+ <span class="code-keyword">network</span> 172.16.2.0 0.0.0.255 <span class="code-highlight">area 0</span>
+ <span class="code-keyword">network</span> 172.16.3.0 0.0.0.3 <span class="code-highlight">area 0</span>
+ <span class="code-keyword">network</span> 192.168.10.0 0.0.0.3 <span class="code-highlight">area 0</span>
+ <span class="code-keyword">passive-interface</span> GigabitEthernet0/0
+
+<span class="code-comment">! --- ROUTEUR LONDRES (Relais DHCP) ---</span>
+<span class="code-keyword">interface</span> GigabitEthernet0/0
+ <span class="code-keyword">description</span> LAN_LONDRES
+ <span class="code-keyword">ip address</span> 172.16.1.1 255.255.255.0
+ <span class="code-keyword">ip helper-address</span> 172.16.2.1
+ <span class="code-keyword">duplex auto</span>
+ <span class="code-keyword">speed auto</span>
+
+<span class="code-keyword">router ospf</span> 1
+ <span class="code-keyword">router-id</span> 2.2.2.2
+ <span class="code-keyword">network</span> 172.16.1.0 0.0.0.255 <span class="code-highlight">area 0</span>
+ <span class="code-keyword">network</span> 172.16.3.0 0.0.0.3 <span class="code-highlight">area 0</span>
+ <span class="code-keyword">network</span> 192.168.10.4 0.0.0.3 <span class="code-highlight">area 0</span>
+</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="infra-card" style="background: #e8eaf6; border: none; border-left: 5px solid #3949ab;">
+            <h2 class="section-title"><ion-icon name="ribbon-outline" style="color:#3949ab;"></ion-icon> Bilan Technique</h2>
+            <div class="infra-text">
+                <p>
+                    Ce TP a consolidé ma compréhension du routage dynamique : contrairement au routage statique, OSPF s'adapte automatiquement si une liaison série tombe (convergence). J'ai aussi appris à configurer le <strong>DHCP Relay</strong>, une fonctionnalité indispensable en entreprise pour éviter de multiplier les serveurs DHCP sur chaque site distant.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="javascript:history.back()" class="btn-floating" title="Retour">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

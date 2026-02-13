@@ -1,0 +1,427 @@
+/* ====================================
+   RESPONSIVE IMPROVEMENTS
+   ==================================== */
+
+/* Section Présentation - Hero */
+@media (max-width: 1200px) {
+  .Presentation {
+    padding-top: 8%;
+    padding-bottom: 8%;
+  }
+  
+  .IMG_Etudiant img {
+    width: 450px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .Presentation,
+  .Presentation2 {
+    flex-direction: column;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+  }
+  
+  .Titre1, .Titre2, .Titre3 {
+    font-size: 1.8rem;
+  }
+  
+  .IMG_Etudiant {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  
+  .IMG_Etudiant img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .Description {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Titre1, .Titre2, .Titre3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .TitrePresentation h1 {
+    font-size: 1.8rem;
+    padding-top: 2%;
+  }
+  
+  .TitrePresentation p {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+  
+  .IMG_Etudiant img {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .Titre1, .Titre2, .Titre3 {
+    font-size: 1.3rem;
+  }
+  
+  .TitrePresentation h1 {
+    font-size: 1.5rem;
+  }
+  
+  .IMG_Etudiant img {
+    max-width: 280px;
+  }
+}
+
+/* Boutons responsive */
+@media (max-width: 768px) {
+  .boutons {
+    font-size: 18px;
+    min-width: 120px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .boutons {
+    font-size: 16px;
+    min-width: 100px;
+    padding: 8px 12px;
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* Certifications responsive */
+@media (max-width: 1200px) {
+  .certification {
+    width: 90%;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .certification {
+    width: 100%;
+    margin: 20px 10px;
+    flex-direction: column;
+  }
+  
+  .certification_image {
+    max-width: 100%;
+    padding: 20px;
+    justify-content: center;
+    display: flex !important;
+  }
+  
+  .certification_description {
+    padding: 20px;
+    font-size: medium;
+  }
+  
+  .certification_titre {
+    font-size: large;
+  }
+}
+
+@media (max-width: 576px) {
+  .certification {
+    margin: 15px 5px;
+  }
+  
+  .certification_description {
+    padding: 15px;
+  }
+  
+  .certification_bouton {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%;
+  }
+}
+
+/* Frise chronologique responsive */
+@media (max-width: 1024px) {
+  .frise_chronologique {
+    font-size: 18px;
+  }
+  
+  .frise {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .frise_chronologique {
+    font-size: 16px;
+    padding: 1rem;
+  }
+  
+  .frise {
+    --col-gap: 1rem;
+    width: 100%;
+  }
+  
+  .frise .carte {
+    margin-inline: 0.5rem;
+  }
+  
+  .frise .carte .date {
+    font-size: 1rem;
+  }
+  
+  .frise .carte .title {
+    font-size: 1.1rem;
+    padding-block-start: 1rem;
+  }
+  
+  .frise .carte .descr {
+    font-size: 0.95rem;
+  }
+  
+  #site1, #site2 {
+    font-size: small;
+    padding: 8px 16px;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .frise {
+    grid-template-columns: var(--line-w) 1fr;
+  }
+  
+  .frise .carte:nth-child(even) {
+    grid-column: 2;
+  }
+  
+  .frise .carte:nth-child(even) .date {
+    border-radius: calc(var(--dateH) / 2) 0 0 calc(var(--dateH) / 2);
+  }
+  
+  .frise .carte:nth-child(even) .date::before {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    right: 0;
+    left: auto;
+  }
+  
+  .frise .carte:nth-child(even) .date::after {
+    transform: translate(50%, -50%);
+    right: calc(100% + var(--col-gap) + var(--line-w) / 2);
+    left: auto;
+  }
+  
+  .frise .carte .date {
+    font-size: 0.9rem;
+    --dateH: 2.5rem;
+  }
+  
+  .frise .carte .title {
+    font-size: 1rem;
+  }
+  
+  .frise .carte .descr {
+    font-size: 0.85rem;
+  }
+}
+
+/* Footer responsive */
+@media (max-width: 992px) {
+  .footer .inner {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .footer .column {
+    flex: 0 0 45%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer .column {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer ul {
+    text-align: center;
+  }
+  
+  .footer_text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .footer .inner {
+    padding: 0;
+  }
+  
+  .column-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer_a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Scroll down arrow */
+@media (max-width: 768px) {
+  .scrolldown {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 576px) {
+  .scrolldown {
+    transform: scale(0.6);
+  }
+}
+
+/* Navigation responsive (si vous avez un menu) */
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .list {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .list-item {
+    margin: 0;
+  }
+}
+
+/* Amélioration de la lisibilité sur petits écrans */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* Container et marges globales */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Gestion des images en général */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Timeline alternative (si utilisée) */
+@media (max-width: 768px) {
+  .timeline {
+    margin: 2em auto;
+  }
+  
+  .timeline:before {
+    left: 1em;
+  }
+  
+  .timeline-event-copy {
+    left: 3em;
+    width: calc(100% - 4em);
+    padding: 1em;
+  }
+  
+  .timeline-event-icon {
+    left: 1em;
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline-event-copy h3 {
+    font-size: 1.3em;
+  }
+  
+  .timeline-event-copy h4 {
+    font-size: 1em;
+  }
+}
+
+/* Wrapper frise alternative */
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+  
+  .wrapper .row {
+    margin: 10px 0;
+  }
+}
+
+/* Optimisation des espacements */
+@media (max-width: 768px) {
+  .Presentation,
+  .Presentation2,
+  .frise_chronologique {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .Presentation,
+  .Presentation2,
+  .frise_chronologique {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Fix pour le scroll button */
+#myBtn {
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+@media (max-width: 576px) {
+  #myBtn {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+}

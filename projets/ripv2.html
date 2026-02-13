@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Routage RIPv2, IPv6 & NAT - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* --- STYLE GENERAL --- */
+        body {
+            background-color: #f4f6f9;
+            margin: 0; padding: 0; margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body { margin-left: 0; padding-top: 60px; }
+        }
+
+        /* HERO SECTION - Variation Orange pour RIP/IPv6 */
+        .infra-hero {
+            background: linear-gradient(135deg, #e65100 0%, #ff9800 100%); /* Orange Theme */
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .infra-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 40px 40px; opacity: 0.15; pointer-events: none;
+        }
+
+        .infra-title {
+            font-size: 3.5rem; font-weight: 800; margin: 0;
+            text-transform: uppercase; letter-spacing: 2px;
+            line-height: 1.2; text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .infra-subtitle {
+            font-size: 1.2rem; color: #fff3e0; margin-top: 15px; font-weight: 300;
+        }
+
+        .tech-stack {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white; padding: 8px 20px; border-radius: 50px;
+            font-weight: 600; font-size: 0.9rem; backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU */
+        .infra-container {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px 60px;
+            position: relative; z-index: 10;
+        }
+
+        .infra-card {
+            background: white; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px;
+            margin-bottom: 40px; border-top: 5px solid #ef6c00; /* Bordure Orange */
+        }
+
+        .section-title {
+            font-size: 1.8rem; color: #1e293b; margin-bottom: 25px;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .infra-text {
+            font-size: 1.05rem; line-height: 1.8; color: #475569; text-align: justify;
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: #1e1e1e; color: #d4d4d4; padding: 20px;
+            border-radius: 10px; font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem; overflow-x: auto;
+            border-left: 4px solid #ff9800; margin-top: 20px;
+        }
+        .code-keyword { color: #569cd6; font-weight: bold; }
+        .code-var { color: #9cdcfe; }
+        .code-highlight { color: #ce9178; font-weight: bold; }
+
+        /* GRID FEATURES */
+        .arch-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 30px;
+        }
+
+        .arch-item {
+            background: #fff3e0; /* Orange très clair */
+            padding: 30px; border-radius: 15px;
+            border-left: 5px solid #ef6c00; transition: all 0.3s;
+        }
+
+        .arch-item:hover {
+            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(239, 108, 0, 0.15);
+        }
+
+        .arch-icon { font-size: 2rem; color: #ef6c00; margin-bottom: 15px; }
+        .arch-title { font-weight: 700; font-size: 1.2rem; color: #e65100; margin-bottom: 10px; }
+
+        /* IMAGE STYLE */
+        .project-img {
+            width: 100%; border-radius: 10px; border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+        }
+
+        /* BOUTON RETOUR */
+        .btn-floating {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #ef6c00; color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; box-shadow: 0 5px 15px rgba(239, 108, 0, 0.4);
+            z-index: 1000; transition: all 0.3s; text-decoration: none;
+        }
+        .btn-floating:hover { transform: scale(1.1); background: #e65100; }
+
+        @media (max-width: 600px) {
+            .infra-title { font-size: 2rem; }
+            .infra-card { padding: 25px; }
+            .infra-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="infra-hero">
+        <h1 class="infra-title">Routage Hybride & IPv6</h1>
+        <p class="infra-subtitle">RIPv2, RIPng, NAT & DHCP</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-cogs"></i> RIPv2 MD5</span>
+            <span class="tech-badge"><i class="fa fa-globe"></i> IPv6 (RIPng)</span>
+            <span class="tech-badge"><i class="fa fa-random"></i> NAT/PAT</span>
+            <span class="tech-badge"><i class="fa fa-server"></i> DHCPv4</span>
+        </div>
+    </header>
+
+    <main class="infra-container">
+        
+        <section class="infra-card">
+            <h2 class="section-title"><ion-icon name="information-circle-outline" style="color:#ef6c00;"></ion-icon> Contexte du Projet</h2>
+            <div class="infra-text">
+                <p>
+                    Ce projet complexe, réalisé sous Cisco Packet Tracer, vise à concevoir une architecture réseau redondante "Dual Stack" (IPv4 et IPv6). La topologie repose sur trois routeurs (R1, R2, R3) interconnectés en triangle, permettant une continuité de service en cas de rupture d'un lien.
+                </p>
+                <p>
+                    L'objectif principal était de maîtriser la cohabitation des protocoles de routage : <strong>RIPv2</strong> (sécurisé par MD5) pour l'adressage classique et <strong>RIPng</strong> pour le déploiement de l'IPv6. De plus, j'ai implémenté les services essentiels aux utilisateurs : DHCP pour l'attribution automatique des IP et NAT/PAT pour la traduction d'adresses vers le WAN.
+                </p>
+                <img src="../images/realisations_pro/RIPv2, RIPng, NAT et DHCP.png" alt="Topologie Triangle RIPng" class="project-img">
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Technologies Mises en Œuvre</h2>
+        
+        <div class="arch-grid">
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="lock-closed-outline"></ion-icon></div>
+                <h3 class="arch-title">Sécurité du Routage</h3>
+                <p>Configuration de l'authentification MD5 via Key-Chain sur RIPv2 pour empêcher l'injection de fausses routes dans la table de routage.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="infinite-outline"></ion-icon></div>
+                <h3 class="arch-title">Routage IPv6 (RIPng)</h3>
+                <p>Mise en place de l'adressage <code>2001:db8::/64</code> et activation du processus RIP Next Generation pour le routage des paquets IPv6.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></div>
+                <h3 class="arch-title">Services LAN (NAT/DHCP)</h3>
+                <p>Déploiement de serveurs DHCP locaux sur chaque routeur et configuration du NAT Overload (PAT) pour l'accès extérieur.</p>
+            </div>
+        </div>
+
+        <section class="infra-card" style="margin-top: 40px;">
+            <h2 class="section-title"><ion-icon name="terminal-outline" style="color:#ef6c00;"></ion-icon> Configuration Cisco IOS</h2>
+            <div class="infra-text">
+                <p>
+                    Voici un extrait des configurations appliquées, montrant l'activation simultanée de IPv4 (avec sécurité) et IPv6 sur les interfaces.
+                </p>
+                
+                <div class="code-block">
+<pre>
+<span class="code-comment">! --- Configuration IPv6 & RIPng ---</span>
+<span class="code-keyword">ipv6 unicast-routing</span>
+<span class="code-keyword">interface</span> GigabitEthernet0/0
+ <span class="code-keyword">ipv6 address</span> 2001:db8:12::1/64
+ <span class="code-keyword">ipv6 rip</span> PROCESS_RIPNG <span class="code-keyword">enable</span>
+
+<span class="code-keyword">ipv6 router rip</span> PROCESS_RIPNG
+
+<span class="code-comment">! --- Configuration IPv4, RIPv2 & Auth MD5 ---</span>
+<span class="code-keyword">key chain</span> RIP_KEY
+ <span class="code-keyword">key</span> 1
+  <span class="code-keyword">key-string</span> cisco123
+
+<span class="code-keyword">interface</span> GigabitEthernet0/0
+ <span class="code-keyword">ip address</span> 10.0.0.1 255.255.255.252
+ <span class="code-keyword">ip rip authentication mode md5</span>
+ <span class="code-keyword">ip rip authentication key-chain</span> RIP_KEY
+
+<span class="code-keyword">router rip</span>
+ <span class="code-keyword">version</span> 2
+ <span class="code-keyword">network</span> 10.0.0.0
+ <span class="code-keyword">network</span> 172.16.0.0
+ <span class="code-keyword">no auto-summary</span>
+
+<span class="code-comment">! --- Services DHCP & NAT ---</span>
+<span class="code-keyword">ip dhcp pool</span> LAN_R1
+ <span class="code-keyword">network</span> 172.16.10.0 255.255.255.0
+ <span class="code-keyword">default-router</span> 172.16.10.1
+
+<span class="code-keyword">ip nat inside source list</span> 1 <span class="code-keyword">interface</span> Serial0/0/0 <span class="code-keyword">overload</span>
+<span class="code-keyword">access-list</span> 1 <span class="code-keyword">permit</span> 172.16.10.0 0.0.0.255
+</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="infra-card" style="background: #fff3e0; border: none; border-left: 5px solid #ef6c00;">
+            <h2 class="section-title"><ion-icon name="ribbon-outline" style="color:#ef6c00;"></ion-icon> Bilan Technique</h2>
+            <div class="infra-text">
+                <p>
+                    Ce TP a démontré l'efficacité de la topologie en triangle : la convergence des routes RIP permet une continuité parfaite même si une liaison inter-routeurs est coupée. J'ai acquis une solide compréhension de la syntaxe IPv6 et des différences de configuration avec IPv4 (activation par interface vs déclaration réseau).
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="javascript:history.back()" class="btn-floating" title="Retour">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

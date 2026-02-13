@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet DHCP & DNS - Infrastructure Réseau - BTS SIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION */
+        .net-hero {
+            /* Dégradé Vert Teal / Sombre */
+            background: linear-gradient(135deg, #134E5E 0%, #71B280 100%);
+            /* Alternative plus moderne */
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .net-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Motif circuit imprimé */
+            background-image: radial-gradient(#00b894 1px, transparent 1px);
+            background-size: 35px 35px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .net-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            /* Dégradé Vert Néon */
+            background: -webkit-linear-gradient(#55efc4, #00b894);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .net-subtitle {
+            font-size: 1.2rem;
+            color: #d1f2eb;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Badges Techno */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(0, 184, 148, 0.15);
+            border: 1px solid rgba(0, 184, 148, 0.5);
+            color: #a7f3d0;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU PRINCIPAL */
+        .net-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .net-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #00b894; /* Vert Émeraude */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .net-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* GRID FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background: #f0fdf9; /* Vert très très pâle */
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #ccfbf1;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #00b894;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #00b894;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR FLOTTANT */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #00b894;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #008f72;
+        }
+
+        @media (max-width: 600px) {
+            .net-title { font-size: 2rem; }
+            .net-card { padding: 25px; }
+            .net-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="net-hero">
+        <h1 class="net-title">Serveur DHCP & DNS</h1>
+        <p class="net-subtitle">Infrastructure Réseau Linux - Bind9 & ISC-DHCP - BTS SIO</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-linux"></i> Debian</span>
+            <span class="tech-badge"><i class="fa fa-globe"></i> Bind9 (DNS)</span>
+            <span class="tech-badge"><i class="fa fa-server"></i> ISC-DHCP</span>
+            <span class="tech-badge"><i class="fa fa-refresh"></i> DDNS</span>
+        </div>
+    </header>
+
+    <main class="net-container">
+        
+        <section class="net-card">
+            <h2 class="section-title"><ion-icon name="school-outline" style="color:#00b894;"></ion-icon> Contexte Pédagogique</h2>
+            <div class="net-text">
+                <p>
+                    Le bon fonctionnement d'un réseau repose sur deux piliers invisibles : l'adressage automatique (DHCP) et la résolution de noms (DNS). Ce projet consistait à remplacer les services basiques d'une "Box" opérateur par une infrastructure Linux professionnelle et résiliente.
+                </p>
+                <p>
+                    <strong>Objectif :</strong> Configurer un serveur Debian capable d'attribuer dynamiquement des IP tout en mettant à jour automatiquement les enregistrements DNS locaux (DDNS).
+                </p>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Services Déployés</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="globe-outline"></ion-icon></div>
+                <h3 class="feature-title">DNS (Bind9)</h3>
+                <p>Configuration des zones directes et inverses (master/slave). Gestion des redirections (CNAME) et des serveurs de messagerie (MX).</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="hardware-chip-outline"></ion-icon></div>
+                <h3 class="feature-title">DHCP Server</h3>
+                <p>Définition des étendues d'adresses (scopes), des baux et des réservations d'IP fixes pour les serveurs critiques via adresse MAC.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="sync-outline"></ion-icon></div>
+                <h3 class="feature-title">Liaison DDNS</h3>
+                <p>Mise en place d'une clé de sécurité (RNDC key) pour permettre au serveur DHCP de mettre à jour le DNS en temps réel.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="terminal-outline"></ion-icon></div>
+                <h3 class="feature-title">Résilience</h3>
+                <p>Tests de tolérance aux pannes et analyse des logs (syslog) pour garantir la continuité du service réseau.</p>
+            </div>
+        </div>
+
+        <section class="net-card" style="margin-top: 50px; background: #0f2027; color: white; border: none;">
+            <h2 class="section-title" style="color: white;"><ion-icon name="trophy-outline" style="color:#00b894;"></ion-icon> Compétences Acquises</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                J'ai appris à maîtriser les fichiers de configuration complexes sous Linux (`named.conf`, `dhcpd.conf`). Ce projet m'a donné une vision claire de la communication bas niveau entre machines et de l'importance de la résolution de noms en entreprise.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tech-badge" style="background: #00b894; border:none; color:#0f2027;">Services Réseau</span>
+                <span class="tech-badge" style="background: #00b894; border:none; color:#0f2027;">Administration Linux</span>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

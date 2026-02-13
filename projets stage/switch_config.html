@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Config Switch & Sécurité - Ministère de la Culture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body { background-color: #f4f6f9; margin: 0; padding: 0; margin-left: 75px; font-family: 'Poppins', sans-serif; }
+        @media (max-width: 768px) { body { margin-left: 0; padding-top: 60px; } }
+
+        /* HERO SECTION - Style CLI / Hardware */
+        .switch-hero {
+            background: linear-gradient(135deg, #050505 0%, #1a1a1a 100%);
+            color: #00ff00; 
+            padding: 80px 20px 100px; text-align: center; position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); margin-bottom: -50px;
+            font-family: 'Courier New', monospace;
+        }
+        .switch-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none;
+        }
+        .switch-title { font-size: 3rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .switch-subtitle { font-size: 1.2rem; color: #a2fca2; margin-top: 15px; font-weight: 300; font-family: 'Poppins', sans-serif; }
+
+        .switch-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 10; }
+        .switch-card { background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; border-top: 5px solid #c52d2f; /* Rouge Ministère */ }
+        .section-title { font-size: 1.8rem; color: #1e293b; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+
+        /* Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 20px; }
+        .feature-item { background: #f9f9f9; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #e0e0e0; transition: transform 0.3s; }
+        .feature-item:hover { transform: translateY(-5px); border-color: #c52d2f; background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .feature-icon { font-size: 2.5rem; color: #c52d2f; margin-bottom: 15px; }
+        .feature-title { font-weight: 700; color: #334155; margin-bottom: 10px; }
+
+        /* Terminal Style */
+        .terminal-block {
+            background-color: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.85rem; 
+            line-height: 1.5; border-left: 5px solid #00ff00; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .terminal-header { color: #888; margin-bottom: 10px; font-style: italic; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .cmd { color: #00ff00; }
+        .output { color: #a2fca2; }
+
+        .tech-stack { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+        .tech-badge { background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 8px 20px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; }
+
+        .btn-floating { position: fixed; bottom: 30px; right: 30px; background: #000; color: #00ff00; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 1000; transition: all 0.3s; text-decoration: none; border: 1px solid #00ff00; }
+        .btn-floating:hover { transform: scale(1.1); background: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <div class="container"><div class="navigation"><div class="menu-toggle"></div><ul class="list"><li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li><li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li><li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li><li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li><li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li><li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li><li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li></ul></div></div>
+
+    <header class="switch-hero">
+        <h1 class="switch-title">Infrastructure Réseau</h1>
+        <p class="switch-subtitle">Déploiement & Durcissement au Ministère de la Culture</p>
+        <div class="tech-stack">
+            <span class="tech-badge">Cisco IOS</span>
+            <span class="tech-badge">VLAN 802.1Q</span>
+            <span class="tech-badge">SSH v2</span>
+            <span class="tech-badge">Security Hardening</span>
+        </div>
+    </header>
+
+    <main class="switch-container">
+        <section class="switch-card">
+            <h2 class="section-title"><ion-icon name="business-outline"></ion-icon> Contexte du Stage</h2>
+            <p>Durant mon stage au sein du service informatique du <strong>Ministère de la Culture</strong>, j'ai été chargé de la configuration et de la sécurisation de commutateurs (switches) destinés à l'infrastructure de l'administration centrale. L'objectif était de garantir une étanchéité stricte des flux entre les différents services tout en appliquant les politiques de sécurité de l'État.</p>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Expertises Appliquées</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="shield-half-outline"></ion-icon></div>
+                <h3 class="feature-title">Hardening (Durcissement)</h3>
+                <p>Application des bonnes pratiques : désactivation des protocoles non sécurisés (HTTP, Telnet), chiffrement des mots de passe locaux et activation de <strong>SSHv2</strong> pour l'administration distante.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="list-outline"></ion-icon></div>
+                <h3 class="feature-title">Contrôle d'Accès Portuaire</h3>
+                <p>Mise en place du <strong>Port Security</strong> pour limiter l'accès réseau aux seuls matériels autorisés via le mécanisme <em>Sticky MAC</em> et fermeture systématique des ports inutilisés.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="git-network-outline"></ion-icon></div>
+                <h3 class="feature-title">Segmentation L2</h3>
+                <p>Isolation des flux métiers par la création de <strong>VLANs</strong> dédiés (Agents, ToIP, Wi-Fi public/privé) et configuration des interfaces en mode <em>Access</em> ou <em>Trunk</em>.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="document-text-outline"></ion-icon></div>
+                <h3 class="feature-title">Conformité Légale</h3>
+                <p>Configuration de la bannière <strong>MOTD</strong> personnalisée rappelant les clauses de confidentialité et les sanctions pénales en cas d'accès non autorisé au système.</p>
+            </div>
+        </div>
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour"><ion-icon name="arrow-undo"></ion-icon></a>
+    
+    <footer class="footer" id="footer"><div class="inner"><div class="column is-logo"><div class="logo-info"><div class="footer_text">CHICHE Ruben</div><span class="copyright">© 2026. All rights reserved.</span></div></div><div class="column is-nav"><div class="column-title">Navigation</div><ul><li><a href="../index.html" class="footer_a">Accueil</a></li><li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li><li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li></ul></div><div class="column is-nav"><div class="column-title">Contact</div><ul><li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li><li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li><li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li></ul></div><div class="column is-nav"><div class="column-title">Informations</div><ul><li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li><li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li></ul></div></div></footer>
+    <script src="../js/Header.js"></script><script src="../js/MessageRetour.js"></script></button>
+</body>
+</html>

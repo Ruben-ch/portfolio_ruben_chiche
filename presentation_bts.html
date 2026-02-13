@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>BTS SIO - CHICHE Ruben</title>
+    <meta name="description" content="Présentation du BTS SIO et de ses options SISR et SLAM - Portfolio de Ruben CHICHE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo-web-component.webp">
+
+    <link rel="stylesheet" href="css/style.css" media="all">
+    <link rel="stylesheet" href="css/Header.css" media="all">
+    <link rel="stylesheet" href="css/Footer.css" media="all">
+
+    <style>
+        /* --- ARRIERE-PLAN TEXTURÉ --- */
+        body {
+            /* Fond gris clair avec un motif de points très subtil pour la texture */
+            background-color: rgb(245, 247, 250);
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px; /* Taille du motif */
+            font-family: "Poppins", sans-serif;
+            margin-left: 75px;
+            color: #444;
+        }
+
+        /* --- HERO BANNER --- */
+        .hero-bts {
+            position: relative;
+            height: 55vh;
+            min-height: 400px;
+            /* Dégradé riche et profond */
+            background: linear-gradient(135deg, rgba(10, 20, 50, 0.85), rgba(70, 30, 100, 0.8)), url('images/bts_sio_banner.jpg') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: slideInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            /* Effet de texte brillant */
+            background: linear-gradient(to right, #ffffff, #c9d6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #e0e6ed;
+        }
+
+        /* Badge pour les options */
+        .hero-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Vague de transition */
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+        }
+
+        .custom-shape-divider-bottom .shape-fill {
+            fill: rgb(245, 247, 250);
+        }
+
+        /* --- CONTENU PRINCIPAL --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 80px;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #555;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+            border-left: 5px solid #8e44ad;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .section-title::before, .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background: linear-gradient(90deg, #67B3E4, #8e44ad);
+            border-radius: 2px;
+        }
+
+        /* --- CARTES AVEC ANIMATION & FILIGRANE --- */
+        .cards-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 100px;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            /* Transition fluide pour le mouvement */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        /* Mouvement au survol (Remis comme demandé) */
+        .option-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .option-card.sisr { border-left: 6px solid #2196f3; }
+        .option-card.slam { border-left: 6px solid #8e44ad; }
+
+        /* Icone géante en background (Watermark) */
+        .watermark-icon {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            font-size: 10rem;
+            opacity: 0.07;
+            transform: rotate(-15deg);
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+
+        /* Petit effet supplémentaire sur le watermark au survol */
+        .option-card:hover .watermark-icon {
+            transform: rotate(0deg) scale(1.1);
+            opacity: 0.1;
+        }
+
+        .option-card.sisr .watermark-icon { color: #2196f3; }
+        .option-card.slam .watermark-icon { color: #8e44ad; }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .option-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #333;
+        }
+
+        .option-card h3 ion-icon {
+            padding: 10px;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .option-card.sisr h3 ion-icon { background: linear-gradient(135deg, #2196f3, #64b5f6); box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3); }
+        .option-card.slam h3 ion-icon { background: linear-gradient(135deg, #8e44ad, #bb8fce); box-shadow: 0 4px 10px rgba(142, 68, 173, 0.3); }
+
+        .subtitle {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .option-card.sisr .subtitle { color: #2196f3; }
+        .option-card.slam .subtitle { color: #8e44ad; }
+
+        .option-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        .option-card li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+        
+        .option-card li:last-child { border-bottom: none; }
+
+        .option-card li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .option-card.sisr li::before { background-color: #2196f3; }
+        .option-card.slam li::before { background-color: #8e44ad; }
+
+        /* --- TABLEAU --- */
+        .table-wrapper {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th {
+            background: linear-gradient(90deg, #f8f9fa, #ffffff);
+            color: #2c3e50;
+            font-weight: 700;
+            padding: 20px 25px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+            border-bottom: 3px solid #eee;
+        }
+
+        td {
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tbody tr:nth-child(even) { background-color: #fafbfc; }
+        
+        td:last-child, th:last-child {
+            text-align: center;
+            font-weight: 700;
+            color: #8e44ad;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            body { margin-left: 0; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .cards-wrapper { gap: 30px; }
+            .section-title { font-size: 1.8rem; flex-direction: column; gap: 10px; }
+            .section-title::before, .section-title::after { width: 60px; }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="navigation">
+        <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item active" style="--color:#8e44ad"><a href="presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                    <span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                    <span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+                    <span class="text">Compétences & Stages</span>
+                </a></li>
+                <li class="list-item" style="--color:#ffa117"><a href="realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                    <span class="text">Réalisations Pro</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span>
+                    <span class="text">Veille Techno</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span>
+                    <span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header class="hero-bts">
+    <div class="hero-content">
+        <h1>Le BTS SIO</h1>
+        <p>Services Informatiques aux Organisations</p>
+        <span class="hero-badge">Option SISR & SLAM</span>
+    </div>
+    
+    <div class="custom-shape-divider-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</header>
+
+<section class="main-container">
+    
+    <div class="intro-text">
+        <p>
+            Le <strong>BTS Services Informatiques aux Organisations (SIO)</strong> forme les spécialistes de l'informatique de demain. 
+            C'est un diplôme d'État de niveau Bac+2 qui répond aux besoins des entreprises en matière de gestion, 
+            sécurisation et développement des systèmes d'information.
+        </p>
+    </div>
+
+    <h2 class="section-title">Les Options de Spécialisation</h2>
+
+    <div class="cards-wrapper">
+        <div class="option-card sisr">
+            <ion-icon name="server" class="watermark-icon"></ion-icon>
+            
+            <div class="card-content">
+                <h3><ion-icon name="server-outline"></ion-icon> Option SISR</h3>
+                <span class="subtitle">Solutions d’Infrastructure, Systèmes et Réseaux</span>
+                <p>L'expert du réseau et de la sécurité. Il assure le bon fonctionnement et la protection des équipements.</p>
+                <ul>
+                    <li>Administration Windows / Linux</li>
+                    <li>Configuration Réseaux & VLANs</li>
+                    <li>Cybersécurité & Supervision</li>
+                    <li>Virtualisation (VMware, Hyper-V)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="option-card slam">
+            <ion-icon name="code-slash" class="watermark-icon"></ion-icon>
+
+            <div class="card-content">
+                <h3><ion-icon name="code-slash-outline"></ion-icon> Option SLAM</h3>
+                <span class="subtitle">Solutions Logicielles et Applications Métiers</span>
+                <p>Le spécialiste du développement. Il conçoit des sites, des applications et des logiciels sur mesure.</p>
+                <ul>
+                    <li>Développement Web (HTML, CSS, JS, PHP)</li>
+                    <li>Programmation Objet (Java, C#, Python)</li>
+                    <li>Bases de données (SQL)</li>
+                    <li>Gestion de projet Agile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Détail des Épreuves</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Épreuve</th>
+                    <th>Forme</th>
+                    <th>Durée</th>
+                    <th>Coef.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Culture générale et expression</td><td>Écrit</td><td>4h</td><td>2</td></tr>
+                <tr><td>Anglais (Langue vivante)</td><td>Oral & écrit</td><td>—</td><td>2</td></tr>
+                <tr><td>Mathématiques pour l'informatique</td><td>Écrit</td><td>3h</td><td>3</td></tr>
+                <tr><td>Culture économique, juridique et managériale</td><td>Écrit</td><td>4h</td><td>3</td></tr>
+                <tr><td>E4 - Support et mise à disposition de services</td><td>Dossier / Oral</td><td>40min</td><td>4</td></tr>
+                <tr><td>E5 - Conception et développement (SISR/SLAM)</td><td>Projet / Pratique</td><td>—</td><td>4</td></tr>
+                <tr><td>E6 - Cybersécurité des services informatiques</td><td>Oral</td><td>30min</td><td>3</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i>
+                        rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/Header.js"></script>
+</body>
+</html>

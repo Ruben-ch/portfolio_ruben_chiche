@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Compétences & Stages - CHICHE Ruben</title>
+    <meta name="description" content="Tableau de compétences et attestation de stage - Portfolio Ruben CHICHE">
+    <link rel="icon" href="images/logo-web-component.webp">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Header.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Acceuil.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/Footer.css" media="all">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        /* --- STYLE DE BASE --- */
+        body {
+            background-color: #f0f2f5 !important;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- FOND ANIMÉ : 3 BLOBS (Vert, Orange, Bleu) --- */
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.85; 
+            animation: float 12s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+
+        /* Forme 1 : Verte (Haut Gauche) */
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 700px;
+            height: 700px;
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.7), rgba(85, 239, 196, 0.7));
+            animation-duration: 14s;
+        }
+
+        /* Forme 2 : Orange (Bas Droite) */
+        .blob-2 {
+            bottom: -5%;
+            right: -10%;
+            width: 650px;
+            height: 650px;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.7), rgba(243, 156, 18, 0.7));
+            animation-delay: -2s;
+            animation-duration: 16s;
+        }
+
+        /* Forme 3 : Bleue (Milieu Gauche) */
+        .blob-3 {
+            top: 45%;
+            left: 15%;
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(103, 179, 228, 0.7), rgba(41, 128, 185, 0.6));
+            animation-delay: -5s;
+            animation-duration: 18s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(30px, -50px) scale(1.1) rotate(10deg); }
+            66% { transform: translate(-20px, 20px) scale(0.9) rotate(-5deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+
+        /* --- CONTENU --- */
+        .container, 
+        .header-section, 
+        .content-grid, 
+        .preview-section, 
+        .footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- HEADER --- */
+        .header-section {
+            text-align: center;
+            padding: 90px 20px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-section h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: #2d3436;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(255,255,255,0.5);
+        }
+
+        .header-section p {
+            color: #2d3436;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-weight: 500;
+            background: rgba(255,255,255,0.6);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- CARTES --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            padding: 0 20px;
+        }
+
+        .modern-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(255,255,255,1);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            padding: 35px 35px 10px 35px;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            transition: transform 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .modern-card:hover .icon-box {
+            transform: scale(1.1) rotate(6deg);
+        }
+
+        .green-theme .icon-box { background: #e3fcf7; color: #00b894; }
+        .orange-theme .icon-box { background: #fff5e6; color: #e67e22; }
+
+        .card-body {
+            padding: 10px 35px 35px 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 {
+            font-size: 1.6rem;
+            margin: 15px 0 10px 0;
+            color: #2d3436;
+            font-weight: 700;
+        }
+
+        .card-body p {
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            flex-grow: 1;
+        }
+
+        /* --- BOUTONS --- */
+        .btn-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            border: 2px solid #dfe6e9;
+            color: #636e72;
+            background: transparent;
+            flex: 1;
+        }
+
+        .btn-outline:hover {
+            border-color: #2d3436;
+            color: #2d3436;
+            background: #fff;
+        }
+
+        .btn-fill {
+            color: white;
+            border: none;
+            flex: 1.5;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .green-theme .btn-fill { background: linear-gradient(135deg, #00b894, #00cec9); }
+        .green-theme .btn-fill:hover { box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4); transform: translateY(-3px); }
+
+        .orange-theme .btn-fill { background: linear-gradient(135deg, #e67e22, #f39c12); }
+        .orange-theme .btn-fill:hover { box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4); transform: translateY(-3px); }
+
+        /* --- PREVIEW --- */
+        .preview-section {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        
+        .mac-window {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 4px solid rgba(255,255,255,0.8);
+        }
+
+        .window-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dot { width: 14px; height: 14px; border-radius: 50%; }
+        .red { background: #ff5f57; }
+        .yellow { background: #febc2e; }
+        .green { background: #28c840; }
+
+        .address-bar {
+            margin-left: 20px;
+            background: #fff;
+            padding: 6px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            flex-grow: 1;
+            text-align: center;
+            font-family: monospace;
+            border: 1px solid #eee;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .blob { opacity: 0.6; filter: blur(50px); }
+            .header-section h1 { font-size: 2.5rem; }
+            .btn-container { flex-direction: column; }
+            .header-section { padding-top: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="background-shapes">
+    <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> </div>
+
+<div class="container">    
+    <div class="navigation">
+        <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li>
+                <li class="list-item " style="--color:#f44336"><a href="dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li>
+                <li class="list-item active" style="--color:#00b894"><a href="competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences & Stages</span></a></li>
+                <li class="list-item " style="--color:#ffa117"><a href="realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations Pro</span></a></li>
+                <li class="list-item " style="--color:#2196f3"><a href="veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille Techno</span></a></li>
+                <li class="list-item " style="--color:#b145e9"><a href="bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section class="header-section">
+    <h1>Compétences & <span style="color:#00b894;">Parcours</span></h1>
+    <p>
+        Documents officiels de mon parcours BTS SIO SISR.<br>
+        Téléchargez le <strong>Tableau E4</strong> et l'<strong>Attestation de stage</strong>.
+    </p>
+</section>
+
+<section class="content-grid">
+    
+    <article class="modern-card green-theme">
+        <div class="card-header">
+            <div class="icon-box">
+                <ion-icon name="grid"></ion-icon>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3>Tableau de compétences</h3>
+            <p>
+                Synthèse officielle des compétences (Savoir-faire, Projets, TP) acquises durant le BTS. Document clé pour l'épreuve E4.
+            </p>
+            <div class="btn-container">
+                <a href="documents/Tableau-de-synthese-E4.pdf" target="_blank" class="btn btn-outline">
+                    <ion-icon name="eye-outline"></ion-icon> Voir
+                </a>
+                <a href="documents/Tableau-de-synthese-E4.pdf" download class="btn btn-fill">
+                    <ion-icon name="cloud-download-outline"></ion-icon> Télécharger
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <article class="modern-card orange-theme">
+        <div class="card-header">
+            <div class="icon-box">
+                <ion-icon name="ribbon"></ion-icon>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3>Attestation de stage</h3>
+            <p>
+                Validation de mon expérience au <strong>Ministère de la Culture</strong>. Atteste des missions techniques réalisées.
+            </p>
+            <div class="btn-container">
+                <a href="documents/Attestation_Stage_DB_Cargo_Ruben_CHICHE.pdf" target="_blank" class="btn btn-outline">
+                    <ion-icon name="eye-outline"></ion-icon> Voir
+                </a>
+                <a href="documents/Attestation_Stage_DB_Cargo_Ruben_CHICHE.pdf" download class="btn btn-fill">
+                    <ion-icon name="cloud-download-outline"></ion-icon> Télécharger
+                </a>
+            </div>
+        </div>
+    </article>
+
+</section>
+
+<section class="preview-section">
+    <div class="mac-window">
+        <div class="window-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <div class="address-bar">Aperçu - Tableau de synthèse.pdf</div>
+        </div>
+        <div style="position:relative; padding-bottom:56.25%; height:0; background:white;">
+            <iframe src="documents/Tableau-de-synthese-E4.pdf" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;" title="Aperçu"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i>
+                        rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/Header.js"></script>
+</body>
+</html>

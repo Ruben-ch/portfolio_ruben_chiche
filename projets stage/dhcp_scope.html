@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Création Scope DHCP - DB Cargo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body { background-color: #f4f6f9; margin: 0; padding: 0; margin-left: 75px; font-family: 'Poppins', sans-serif; }
+        @media (max-width: 768px) { body { margin-left: 0; padding-top: 60px; } }
+
+        /* HERO SECTION */
+        .dhcp-hero {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white; padding: 80px 20px 100px; text-align: center; position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); margin-bottom: -50px;
+        }
+        .dhcp-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px; opacity: 0.2; pointer-events: none;
+        }
+        .dhcp-title { font-size: 3rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
+        .dhcp-subtitle { font-size: 1.2rem; color: #ffe0b2; margin-top: 15px; font-weight: 300; }
+
+        .dhcp-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 10; }
+        .dhcp-card { background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; border-top: 5px solid #e67e22; }
+        .section-title { font-size: 1.8rem; color: #1e293b; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+
+        /* Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 20px; }
+        .feature-item { background: #fff8f0; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #ffe0b2; transition: transform 0.3s; }
+        .feature-item:hover { transform: translateY(-5px); border-color: #e67e22; background: white; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.15); }
+        .feature-icon { font-size: 2.5rem; color: #d35400; margin-bottom: 15px; }
+        .feature-title { font-weight: 700; color: #334155; margin-bottom: 10px; }
+
+        /* Badge */
+        .tech-stack { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+        .tech-badge { background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 8px 20px; border-radius: 50px; font-weight: 600; }
+
+        .btn-floating { position: fixed; bottom: 30px; right: 30px; background: #e67e22; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4); z-index: 1000; transition: all 0.3s; text-decoration: none; }
+        .btn-floating:hover { transform: scale(1.1); background: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container"><div class="navigation"><div class="menu-toggle"></div><ul class="list"><li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li><li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li><li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li><li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li><li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li><li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li><li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li></ul></div></div>
+
+    <header class="dhcp-hero">
+        <h1 class="dhcp-title">Gestion Scopes DHCP</h1>
+        <p class="dhcp-subtitle">Administration IPAM avec Smart DHCP</p>
+        <div class="tech-stack">
+            <span class="tech-badge">Smart DHCP</span>
+            <span class="tech-badge">IPAM</span>
+            <span class="tech-badge">Adressage IPv4</span>
+        </div>
+    </header>
+
+    <main class="dhcp-container">
+        <section class="dhcp-card">
+            <h2 class="section-title"><ion-icon name="server-outline" style="color:#e67e22;"></ion-icon> Mission</h2>
+            <p>Dans le cadre du déploiement de nouveaux terminaux Wifi (Projet EIP), j'ai eu la responsabilité de créer et configurer les étendues d'adresses (Scopes) nécessaires pour assurer la connectivité des utilisateurs sur les différents sites (SCN, UDAP).</p>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Étapes de Configuration</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="layers-outline"></ion-icon></div>
+                <h3 class="feature-title">Shared Networks</h3>
+                <p>Définition des réseaux partagés pour regrouper les sous-réseaux logiques.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="add-circle-outline"></ion-icon></div>
+                <h3 class="feature-title">Création Scope</h3>
+                <p>Déclaration des plages (ex: <code>Wifi_PC_SCN_13</code>) avec définition du Netmask et du Failover.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="settings-outline"></ion-icon></div>
+                <h3 class="feature-title">Options DHCP</h3>
+                <p>Configuration des paramètres distribués aux clients : Passerelle par défaut (Gateway) et Serveurs DNS.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+                <h3 class="feature-title">Failover</h3>
+                <p>Mise en place de la redondance DHCP (Canal BE-2/Osny) pour garantir la haute disponibilité du service.</p>
+            </div>
+        </div>
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour"><ion-icon name="arrow-undo"></ion-icon></a>
+    
+    <footer class="footer" id="footer"><div class="inner"><div class="column is-logo"><div class="logo-info"><div class="footer_text">CHICHE Ruben</div><span class="copyright">© 2026. All rights reserved.</span></div></div><div class="column is-nav"><div class="column-title">Navigation</div><ul><li><a href="../index.html" class="footer_a">Accueil</a></li><li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li><li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li></ul></div><div class="column is-nav"><div class="column-title">Contact</div><ul><li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li><li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li><li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li></ul></div><div class="column is-nav"><div class="column-title">Informations</div><ul><li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li><li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li></ul></div></div></footer>
+    <script src="../js/Header.js"></script><script src="../js/MessageRetour.js"></script></button>
+</body>
+</html>

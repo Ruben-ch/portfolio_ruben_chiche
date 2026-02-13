@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Windows Server AD DS - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION (Nuances bleues pour Windows) */
+        .win-hero {
+            background: linear-gradient(135deg, #0078D7 0%, #002050 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .win-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .win-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            /* Dégradé texte cyan/blanc */
+            background: -webkit-linear-gradient(#00C6FF, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .win-subtitle {
+            font-size: 1.2rem;
+            color: #dbeafe;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Badges Techno */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU PRINCIPAL */
+        .win-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .win-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #0078D7; /* Bleu Windows */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .win-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* GRID FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #0078D7;
+            background: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #0078D7;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR FLOTTANT */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0078D7;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 120, 215, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #005a9e;
+        }
+
+        @media (max-width: 600px) {
+            .win-title { font-size: 2rem; }
+            .win-card { padding: 25px; }
+            .win-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="win-hero">
+        <h1 class="win-title">Windows Server</h1>
+        <p class="win-subtitle">Active Directory DS & Intégration LDAP/GLPI</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-windows"></i> Windows Server</span>
+            <span class="tech-badge"><i class="fa fa-users"></i> AD DS</span>
+            <span class="tech-badge"><i class="fa fa-globe"></i> DNS / DHCP</span>
+            <span class="tech-badge"><i class="fa fa-address-book"></i> LDAP</span>
+        </div>
+    </header>
+
+    <main class="win-container">
+        
+        <section class="win-card">
+            <h2 class="section-title"><ion-icon name="school-outline" style="color:#0078D7;"></ion-icon> Contexte Pédagogique</h2>
+            <div class="win-text">
+                <p>
+                    Au cœur de toute infrastructure réseau d'entreprise se trouve la gestion des identités. Ce projet BTS SIO visait à déployer un contrôleur de domaine <strong>Active Directory (AD DS)</strong> pour centraliser l'authentification et sécuriser l'accès aux ressources.
+                </p>
+                <p>
+                    <strong>Objectif clé :</strong> Interconnecter cet annuaire Microsoft avec des solutions tierces comme <strong>GLPI</strong> via le protocole LDAP, permettant ainsi une authentification unique (SSO) pour les utilisateurs du support.
+                </p>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Architecture & Services</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="server-outline"></ion-icon></div>
+                <h3 class="feature-title">Contrôleur de Domaine</h3>
+                <p>Installation et promotion de Windows Server. Configuration de la forêt et des zones DNS/DHCP.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="people-circle-outline"></ion-icon></div>
+                <h3 class="feature-title">Gestion Utilisateurs</h3>
+                <p>Création d'une structure d'Unités d'Organisation (OU), gestion des groupes de sécurité et scripts de démarrage.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+                <h3 class="feature-title">GPO (Stratégies)</h3>
+                <p>Déploiement de stratégies de groupe : montage de lecteurs réseau, restriction du panneau de configuration, fonds d'écran.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="swap-horizontal-outline"></ion-icon></div>
+                <h3 class="feature-title">Liaison LDAP</h3>
+                <p>Configuration du connecteur LDAP dans GLPI pour synchroniser les comptes AD et authentifier les techniciens.</p>
+            </div>
+        </div>
+
+        <section class="win-card" style="margin-top: 50px; background: #0f172a; color: white; border: none;">
+            <h2 class="section-title" style="color: white;"><ion-icon name="trophy-outline" style="color:#0078D7;"></ion-icon> Compétences Acquises</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                Ce projet m'a permis de maîtriser l'administration système Windows, standard incontournable en entreprise. J'ai appris à garantir l'intégrité des données utilisateurs et à assurer l'interopérabilité entre systèmes hétérogènes (Windows/Linux via LDAP).
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tech-badge" style="background: #0078D7; border:none;">Administration Système</span>
+                <span class="tech-badge" style="background: #0078D7; border:none;">Cybersécurité</span>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

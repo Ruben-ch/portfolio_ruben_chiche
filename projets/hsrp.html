@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet HSRP & Haute Disponibilité - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* --- STYLE IDENTIQUE PAGE ACL (THEME BLEU CISCO) --- */
+        body {
+            background-color: #f4f6f9;
+            margin: 0; padding: 0; margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body { margin-left: 0; padding-top: 60px; }
+        }
+
+        /* HERO SECTION */
+        .infra-hero {
+            background: linear-gradient(135deg, #0288d1 0%, #29b6f6 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .infra-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 40px 40px; opacity: 0.15; pointer-events: none;
+        }
+
+        .infra-title {
+            font-size: 3.5rem; font-weight: 800; margin: 0;
+            text-transform: uppercase; letter-spacing: 2px;
+            line-height: 1.2; text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .infra-subtitle {
+            font-size: 1.2rem; color: #e1f5fe; margin-top: 15px; font-weight: 300;
+        }
+
+        .tech-stack {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white; padding: 8px 20px; border-radius: 50px;
+            font-weight: 600; font-size: 0.9rem; backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU */
+        .infra-container {
+            max-width: 1100px; margin: 0 auto; padding: 0 20px 60px;
+            position: relative; z-index: 10;
+        }
+
+        .infra-card {
+            background: white; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px;
+            margin-bottom: 40px; border-top: 5px solid #0288d1;
+        }
+
+        .section-title {
+            font-size: 1.8rem; color: #1e293b; margin-bottom: 25px;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .infra-text {
+            font-size: 1.05rem; line-height: 1.8; color: #475569; text-align: justify;
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: #1e1e1e; color: #d4d4d4; padding: 20px;
+            border-radius: 10px; font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem; overflow-x: auto;
+            border-left: 4px solid #0288d1; margin-top: 20px;
+        }
+        .code-keyword { color: #569cd6; font-weight: bold; }
+        .code-var { color: #9cdcfe; }
+        .code-vip { color: #ce9178; font-weight: bold; }
+
+        /* GRID FEATURES */
+        .arch-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; margin-top: 30px;
+        }
+
+        .arch-item {
+            background: #e1f5fe; padding: 30px; border-radius: 15px;
+            border-left: 5px solid #0288d1; transition: all 0.3s;
+        }
+
+        .arch-item:hover {
+            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(2, 136, 209, 0.15);
+        }
+
+        .arch-icon { font-size: 2rem; color: #0288d1; margin-bottom: 15px; }
+        .arch-title { font-weight: 700; font-size: 1.2rem; color: #01579b; margin-bottom: 10px; }
+
+        /* IMAGE STYLE */
+        .project-img {
+            width: 100%; border-radius: 10px; border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+        }
+
+        /* BOUTON RETOUR */
+        .btn-floating {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #0288d1; color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; box-shadow: 0 5px 15px rgba(2, 136, 209, 0.4);
+            z-index: 1000; transition: all 0.3s; text-decoration: none;
+        }
+        .btn-floating:hover { transform: scale(1.1); background: #01579b; }
+
+        @media (max-width: 600px) {
+            .infra-title { font-size: 2rem; }
+            .infra-card { padding: 25px; }
+            .infra-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="infra-hero">
+        <h1 class="infra-title">Haute Disponibilité HSRP</h1>
+        <p class="infra-subtitle">Redondance de Passerelle & Load Balancing</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-sitemap"></i> Cisco IOS</span>
+            <span class="tech-badge"><i class="fa fa-exchange"></i> Protocole HSRP</span>
+            <span class="tech-badge"><i class="fa fa-random"></i> Routage RIPv2</span>
+            <span class="tech-badge"><i class="fa fa-network-wired"></i> VLANs 10 & 20</span>
+        </div>
+    </header>
+
+    <main class="infra-container">
+        
+        <section class="infra-card">
+            <h2 class="section-title"><ion-icon name="information-circle-outline" style="color:#0288d1;"></ion-icon> Contexte du Projet</h2>
+            <div class="infra-text">
+                <p>
+                    Dans une infrastructure réseau critique, la panne d'un routeur peut isoler tout un segment de l'entreprise. Ce projet vise à implémenter le protocole <strong>HSRP (Hot Standby Router Protocol)</strong> pour éliminer ce point de défaillance unique (SPOF).
+                </p>
+                <p>
+                    L'architecture met en œuvre deux routeurs physiques (R0 et R1) qui partagent une adresse IP virtuelle (VIP). Les PC utilisent cette VIP comme passerelle par défaut. Si le routeur principal tombe, le routeur de secours prend le relais instantanément, de manière transparente pour les utilisateurs.
+                </p>
+                <img src="../images/realisations_pro/hsrp.png" alt="Architecture HSRP Packet Tracer" class="project-img">
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Architecture & Fonctionnalités</h2>
+        
+        <div class="arch-grid">
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="cloud-done-outline"></ion-icon></div>
+                <h3 class="arch-title">VIP (Virtual IP)</h3>
+                <p>Les PC ne connaissent qu'une seule adresse de passerelle (ex: 192.168.1.254). C'est une adresse virtuelle flottante entre les deux routeurs.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="git-compare-outline"></ion-icon></div>
+                <h3 class="arch-title">Load Balancing</h3>
+                <p>Optimisation du trafic : R0 est "Active" pour le VLAN 10, tandis que R1 est "Active" pour le VLAN 20. Les deux liens sont utilisés simultanément.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="pulse-outline"></ion-icon></div>
+                <h3 class="arch-title">Failover & Preempt</h3>
+                <p>Grâce à la commande <code>preempt</code>, si le routeur principal revient en ligne après une panne, il reprend automatiquement son rôle de chef.</p>
+            </div>
+        </div>
+
+        <section class="infra-card" style="margin-top: 40px;">
+            <h2 class="section-title"><ion-icon name="terminal-outline" style="color:#0288d1;"></ion-icon> Configuration Cisco IOS</h2>
+            <div class="infra-text">
+                <p>
+                    Voici la configuration des routeurs R0 et R1, sans commentaires, mettant en évidence les commandes de priorité et d'IP virtuelle.
+                </p>
+                
+                <div class="code-block">
+<pre>
+<span class="code-keyword">interface</span> GigabitEthernet0/0/0.10
+ <span class="code-keyword">encapsulation dot1Q</span> 10
+ <span class="code-keyword">ip address</span> 192.168.1.1 255.255.255.0
+ <span class="code-keyword">standby</span> 10 <span class="code-keyword">ip</span> <span class="code-vip">192.168.1.254</span>
+ <span class="code-keyword">standby</span> 10 <span class="code-keyword">priority</span> 110
+ <span class="code-keyword">standby</span> 10 <span class="code-keyword">preempt</span>
+
+<span class="code-keyword">interface</span> GigabitEthernet0/0/0.20
+ <span class="code-keyword">encapsulation dot1Q</span> 20
+ <span class="code-keyword">ip address</span> 192.168.11.1 255.255.255.0
+ <span class="code-keyword">standby</span> 20 <span class="code-keyword">ip</span> <span class="code-vip">192.168.11.254</span>
+ <span class="code-keyword">standby</span> 20 <span class="code-keyword">priority</span> 90
+ <span class="code-keyword">standby</span> 20 <span class="code-keyword">preempt</span>
+
+<span class="code-keyword">interface</span> GigabitEthernet0/0/0.10
+ <span class="code-keyword">encapsulation dot1Q</span> 10
+ <span class="code-keyword">ip address</span> 192.168.1.2 255.255.255.0
+ <span class="code-keyword">standby</span> 10 <span class="code-keyword">ip</span> <span class="code-vip">192.168.1.254</span>
+ <span class="code-keyword">standby</span> 10 <span class="code-keyword">priority</span> 90
+ <span class="code-keyword">standby</span> 10 <span class="code-keyword">preempt</span>
+
+<span class="code-keyword">interface</span> GigabitEthernet0/0/0.20
+ <span class="code-keyword">encapsulation dot1Q</span> 20
+ <span class="code-keyword">ip address</span> 192.168.11.2 255.255.255.0
+ <span class="code-keyword">standby</span> 20 <span class="code-keyword">ip</span> <span class="code-vip">192.168.11.254</span>
+ <span class="code-keyword">standby</span> 20 <span class="code-keyword">priority</span> 110
+ <span class="code-keyword">standby</span> 20 <span class="code-keyword">preempt</span>
+
+<span class="code-keyword">router rip</span>
+ <span class="code-keyword">version</span> 2
+ <span class="code-keyword">network</span> 192.168.1.0
+ <span class="code-keyword">network</span> 192.168.11.0
+ <span class="code-keyword">network</span> 192.168.2.0
+ <span class="code-keyword">no auto-summary</span>
+</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="infra-card" style="background: #e1f5fe; border: none; border-left: 5px solid #0288d1;">
+            <h2 class="section-title"><ion-icon name="ribbon-outline" style="color:#0288d1;"></ion-icon> Bilan Technique</h2>
+            <div class="infra-text">
+                <p>
+                    Ce TP m'a permis de comprendre l'interaction entre les VLANs (niveau 2) et la redondance de niveau 3. La configuration des switchs en mode Trunk est essentielle pour laisser passer les trames taguées vers les sous-interfaces des routeurs. J'ai également pu constater que le Load Balancing permettait d'utiliser toute la bande passante disponible plutôt que de laisser un routeur "dormir" inutilement.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="javascript:history.back()" class="btn-floating" title="Retour">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>

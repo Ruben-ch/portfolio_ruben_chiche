@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Supervision Réseau & Capacitaire - DB Cargo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body { background-color: #f4f6f9; margin: 0; padding: 0; margin-left: 75px; font-family: 'Poppins', sans-serif; }
+        @media (max-width: 768px) { body { margin-left: 0; padding-top: 60px; } }
+
+        /* HERO SECTION - Bleu Tech */
+        .mon-hero {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white; padding: 80px 20px 100px; text-align: center; position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); margin-bottom: -50px;
+        }
+        .mon-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none;
+        }
+        .mon-title {
+            font-size: 3rem; font-weight: 800; margin: 0;
+            background: -webkit-linear-gradient(#00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .mon-subtitle { font-size: 1.2rem; color: #d1ecf1; margin-top: 15px; font-weight: 300; }
+
+        .mon-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 10; }
+        
+        .mon-card {
+            background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px;
+            border-top: 5px solid #00f2fe;
+        }
+        .section-title { font-size: 1.8rem; color: #1e293b; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        
+        /* Badges */
+        .tech-stack { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
+        .tech-badge { background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.4); color: #00f2fe; padding: 8px 20px; border-radius: 50px; font-weight: 600; }
+
+        /* Grid */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 20px; }
+        .feature-item { background: #f0fbff; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #cceeff; transition: transform 0.3s; }
+        .feature-item:hover { transform: translateY(-5px); border-color: #00f2fe; background: white; box-shadow: 0 10px 20px rgba(0, 242, 254, 0.15); }
+        .feature-icon { font-size: 2.5rem; color: #005cbf; margin-bottom: 15px; }
+        .feature-title { font-weight: 700; color: #334155; margin-bottom: 10px; }
+
+        /* Bouton Retour */
+        .btn-floating { position: fixed; bottom: 30px; right: 30px; background: #005cbf; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 5px 15px rgba(0,92,191,0.4); z-index: 1000; transition: all 0.3s; text-decoration: none; }
+        .btn-floating:hover { transform: scale(1.1); background: #004494; }
+    </style>
+</head>
+<body>
+    <div class="container"><div class="navigation"><div class="menu-toggle"></div><ul class="list"><li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li><li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li><li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li><li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li><li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li><li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li><li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li></ul></div></div>
+
+    <header class="mon-hero">
+        <h1 class="mon-title">Supervision Réseau</h1>
+        <p class="mon-subtitle">Analyse de Flux (Streamcore) & Gestion Capacitaire</p>
+        <div class="tech-stack">
+            <span class="tech-badge">Streamcore</span>
+            <span class="tech-badge">Draw.io</span>
+            <span class="tech-badge">Excel</span>
+            <span class="tech-badge">QoS</span>
+        </div>
+    </header>
+
+    <main class="mon-container">
+        <section class="mon-card">
+            <h2 class="section-title"><ion-icon name="analytics-outline" style="color:#00f2fe;"></ion-icon> Le Besoin</h2>
+            <p>La mission consistait à améliorer la visibilité sur les performances du réseau WAN, en particulier pour les sites critiques (UDAP, SCN). Il était nécessaire de comprendre la consommation de la bande passante pour anticiper les saturations.</p>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Actions de Monitoring</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="pulse-outline" style="color: #ff4757;"></ion-icon></div>
+                <h3 class="feature-title">Analyse Streamcore</h3>
+                <p>Surveillance temps réel des flux applicatifs (notamment Active Directory) pour détecter les lenteurs.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="map-outline"></ion-icon></div>
+                <h3 class="feature-title">Cartographie N2</h3>
+                <p>Réalisation de schémas sous Draw.io (Accès Internet MC) pour documenter les interconnexions physiques.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="trending-up-outline"></ion-icon></div>
+                <h3 class="feature-title">Gestion Capacitaire</h3>
+                <p>Identification des liens saturés (>70% de charge) et reporting Excel pour estimer les coûts d'upgrade.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="speedometer-outline"></ion-icon></div>
+                <h3 class="feature-title">Diagnostic WAN</h3>
+                <p>Analyse fine de la latence (ping) et des pertes de paquets sur les liaisons inter-sites.</p>
+            </div>
+        </div>
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour"><ion-icon name="arrow-undo"></ion-icon></a>
+    
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo"><div class="logo-info"><div class="footer_text">CHICHE Ruben</div><span class="copyright">© 2026. All rights reserved.</span></div></div>
+            <div class="column is-nav"><div class="column-title">Navigation</div><ul><li><a href="../index.html" class="footer_a">Accueil</a></li><li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li><li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li></ul></div>
+            <div class="column is-nav"><div class="column-title">Contact</div><ul><li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li><li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li><li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li></ul></div>
+            <div class="column is-nav"><div class="column-title">Informations</div><ul><li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li><li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li></ul></div>
+        </div>
+    </footer>
+    <script src="../js/Header.js"></script><script src="../js/MessageRetour.js"></script></button>
+</body>
+</html>

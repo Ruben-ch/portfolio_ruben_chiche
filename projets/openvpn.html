@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet OpenVPN - Accès Distant Sécurisé - BTS SIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION */
+        .vpn-hero {
+            /* Dégradé Gris Sombre vers Noir */
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .vpn-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Motif cadenas subtil */
+            background-image: radial-gradient(#EA7E20 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .vpn-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            /* Dégradé Orange OpenVPN */
+            background: -webkit-linear-gradient(#EA7E20, #F09819);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .vpn-subtitle {
+            font-size: 1.2rem;
+            color: #dcdcdc;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Badges Techno */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(234, 126, 32, 0.15); /* Orange transparent */
+            border: 1px solid rgba(234, 126, 32, 0.5);
+            color: #ffbd7a;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU PRINCIPAL */
+        .vpn-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .vpn-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #EA7E20;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vpn-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        /* GRID FEATURES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background: #fff8f0; /* Fond orange très pâle */
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #ffe0b2;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border-color: #EA7E20;
+            background: white;
+            box-shadow: 0 10px 20px rgba(234, 126, 32, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #EA7E20;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR FLOTTANT */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #EA7E20;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(234, 126, 32, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #d35400;
+        }
+
+        @media (max-width: 600px) {
+            .vpn-title { font-size: 2rem; }
+            .vpn-card { padding: 25px; }
+            .vpn-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="vpn-hero">
+        <h1 class="vpn-title">Projet OpenVPN</h1>
+        <p class="vpn-subtitle">Infrastructure VPN & Certificats PKI - BTS SIO</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-linux"></i> Linux / Debian</span>
+            <span class="tech-badge"><i class="fa fa-lock"></i> OpenVPN</span>
+            <span class="tech-badge"><i class="fa fa-key"></i> EasyRSA (PKI)</span>
+            <span class="tech-badge"><i class="fa fa-shield"></i> SSL/TLS</span>
+        </div>
+    </header>
+
+    <main class="vpn-container">
+        
+        <section class="vpn-card">
+            <h2 class="section-title"><ion-icon name="school-outline" style="color:#EA7E20;"></ion-icon> Contexte Pédagogique</h2>
+            <div class="vpn-text">
+                <p>
+                    Avec l'essor du télétravail, sécuriser les accès distants est devenu une priorité absolue. Ce projet visait à déployer une infrastructure <strong>VPN (Virtual Private Network)</strong> complète pour permettre à des collaborateurs nomades d'accéder aux ressources internes de l'entreprise de manière chiffrée.
+                </p>
+                <p>
+                    <strong>Objectif :</strong> Mettre en œuvre le protocole OpenVPN et gérer une infrastructure à clés publiques (PKI) pour authentifier les utilisateurs via des certificats numériques.
+                </p>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Architecture Technique</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="server-outline"></ion-icon></div>
+                <h3 class="feature-title">Serveur OpenVPN</h3>
+                <p>Installation et configuration du démon OpenVPN (fichier server.conf) : choix du port, du protocole (UDP) et du chiffrement (AES-256).</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="key-outline"></ion-icon></div>
+                <h3 class="feature-title">Gestion PKI</h3>
+                <p>Création d'une Autorité de Certification (CA) avec EasyRSA. Génération et signature des certificats serveurs et clients.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="laptop-outline"></ion-icon></div>
+                <h3 class="feature-title">Client VPN</h3>
+                <p>Déploiement du fichier de configuration (.ovpn) sur les postes clients et test de la connexion tunnelisée.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="git-network-outline"></ion-icon></div>
+                <h3 class="feature-title">Routage & IP</h3>
+                <p>Configuration de l'IP Forwarding sur le serveur Linux et règles iptables (NAT) pour permettre l'accès au LAN.</p>
+            </div>
+        </div>
+
+        <section class="vpn-card" style="margin-top: 50px; background: #232526; color: white; border: none;">
+            <h2 class="section-title" style="color: white;"><ion-icon name="trophy-outline" style="color:#EA7E20;"></ion-icon> Compétences Acquises</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                Ce projet m'a permis de comprendre en profondeur le fonctionnement du tunneling et de la cryptographie asymétrique. Je sais désormais mettre en place un accès distant sécurisé, compétence critique pour la continuité d'activité.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tech-badge" style="background: #EA7E20; border:none; color:#232526;">Cybersécurité</span>
+                <span class="tech-badge" style="background: #EA7E20; border:none; color:#232526;">Administration Réseau</span>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>
