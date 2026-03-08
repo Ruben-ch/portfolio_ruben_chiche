@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio IT | Apprenti Support & Infra - DB Cargo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+        :root {
+            --db-red: #e40005;
+            --bg-color: #e9ecef;
+            --card-bg: #fafafa;
+            --header-dark: #1a1a1a;
+            --text-main: #333333;
+            --text-on-dark: #f0f0f0;
+            --text-muted: #6c757d;
+            --accent-blue: #0077b5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .stat-number, .header-subtitle {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* =========================================================
+           👇 C'EST ICI QUE TU CHANGES L'IMAGE DE FOND DU HAUT 👇
+           ========================================================= */
+        header {
+            /* Remplace 'TON_IMAGE_ICI.jpg' par le lien de ton image ou le nom de ton fichier */
+            background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.85)), url(../images/realisations_pro/DBcargotrain.jpg);
+            
+            background-size: cover;
+            background-position: center;
+            border-bottom: 5px solid var(--db-red);
+            padding: 80px 20px 60px;
+            color: var(--text-on-dark);
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        /* ========================================================= */
+
+        .hero-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-pic img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--text-on-dark);
+            box-shadow: 0 8px 20px rgba(228, 0, 5, 0.4);
+            object-fit: cover;
+        }
+
+        .header-subtitle {
+            color: var(--db-red);
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            color: var(--text-on-dark);
+        }
+
+        .header-desc {
+            color: #d0d0d0;
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .personal-quote {
+            background: #ffffff;
+            border-left: 6px solid var(--db-red);
+            padding: 30px 40px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4a4a4a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .personal-quote i {
+            font-size: 2.5rem;
+            color: #e0e4e8;
+            flex-shrink: 0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            border: 1px solid #e0e4e8; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: rgba(228, 0, 5, 0.5);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            flex: 1;
+            min-width: 220px;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e0e4e8;
+            border-top: 6px solid var(--db-red);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--db-red);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #1a1a1a;
+        }
+
+        h2 i {
+            color: var(--db-red);
+            background: rgba(228, 0, 5, 0.1); 
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+
+        ul.mission-list {
+            list-style: none;
+        }
+
+        ul.mission-list li {
+            margin-bottom: 18px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        ul.mission-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--db-red);
+            font-weight: bold;
+            font-size: 1.4rem;
+            top: -4px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .tag {
+            background: #e9ecef;
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.90rem;
+            font-weight: 500;
+            border: 1px solid #dee2e6;
+        }
+
+        .linkedin-banner {
+            background: linear-gradient(135deg, #0077b5 0%, #005a8a 100%);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.2);
+        }
+
+        .linkedin-banner h2 {
+            color: white;
+            justify-content: center;
+            border-bottom: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .linkedin-banner h2 i {
+            color: white;
+            background: transparent;
+            padding: 0;
+            font-size: 2.2rem;
+        }
+
+        .linkedin-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            background: #fafafa;
+            color: #0077b5;
+            padding: 16px 35px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            margin-top: 60px;
+            background: #e1e4e7;
+            border-top: 1px solid #e0e4e8;
+        }
+
+        /* BOUTON RETOUR */
+        .btn-floating {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--db-red); color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; box-shadow: 0 5px 15px rgba(228, 0, 5, 0.4);
+            z-index: 1000; transition: all 0.3s; text-decoration: none;
+        }
+        .btn-floating:hover { transform: scale(1.1); background: #b30003; }
+
+        @media (max-width: 900px) {
+            .hero-wrapper { flex-direction: column; text-align: center; gap: 20px; }
+            header { padding-top: 60px; padding-bottom: 40px; }
+            h1 { font-size: 2.1rem; }
+            .stats-container { flex-direction: column; }
+            .personal-quote { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid var(--db-red); border-radius: 12px;}
+            .dashboard-grid { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero-wrapper">
+        <div class="profile-pic">
+            <img src="https://ui-avatars.com/api/?name=Ton+Prenom&background=e40005&color=fff&size=150&font-size=0.4" alt="Photo de profil">
+        </div>
+        <div class="hero-text">
+            <span class="header-subtitle">DB Cargo France • Alternance</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="personal-quote">
+        <i class="fas fa-quote-left"></i>
+        <span>"L'informatique ne s'arrête pas derrière un écran. Ma véritable valeur ajoutée, c'est d'aller sur le terrain, d'être à l'écoute des utilisateurs et d'anticiper leurs problèmes de réseau ou de matériel avant même qu'ils n'impactent notre logistique."</span>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-box">
+            <div class="stat-number">~20</div>
+            <div class="stat-label">Tickets / Sem. (TopDesk)</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Disponibilité Urgences</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Ateliers recâblés</div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        
+        <div class="card">
+            <h2><i class="fas fa-headset"></i> Support Utilisateurs (Siège & Distant)</h2>
+            <ul class="mission-list">
+                <li><strong>Ticketing :</strong> Traçabilité et résolution via <strong>TopDesk</strong>.</li>
+                <li><strong>Assistance à distance :</strong> Support critique pour les conducteurs de train, les mainteneurs et les équipes terrain.</li>
+                <li><strong>Bureaux virtuels :</strong> Gestion et dépannage des environnements <strong>Citrix</strong>.</li>
+                <li><strong>Siège administratif :</strong> Résolution d'incidents et interventions proactives pour les métiers support.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-network-wired"></i> Déploiement & Infra Terrain</h2>
+            <ul class="mission-list">
+                <li><strong>Déplacements en agence :</strong> Interventions physiques sur site (2 agences visitées depuis fin août).</li>
+                <li><strong>Réseau physique :</strong> Recâblage complet et propre des baies de brassage.</li>
+                <li><strong>Connectivité :</strong> Diagnostic et correction de problèmes Wi-Fi complexes dans les ateliers ferroviaires.</li>
+                <li><strong>Documentation :</strong> Mise à jour des synoptiques réseau pour pérenniser l'information.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-boxes"></i> Gestion de Parc & Matériel</h2>
+            <ul class="mission-list">
+                <li><strong>Gestion des stocks :</strong> Suivi de l'inventaire physique pour anticiper les besoins.</li>
+                <li><strong>Flotte Mobile :</strong> Préparation et attribution des smartphones et tablettes.</li>
+                <li><strong>Périphériques & PC :</strong> Préparation des postes de travail, écrans et stations d'accueil.</li>
+                <li><strong>Logistique IT :</strong> S'assurer de la disponibilité matérielle pour chaque nouveau collaborateur.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-shield-alt"></i> Transverse & Cybersécurité</h2>
+            <ul class="mission-list">
+                <li><strong>Sensibilisation Cyber :</strong> Accompagnement sur les aspects et les bonnes pratiques de sécurité côté utilisateur.</li>
+                <li><strong>Collaboration tech :</strong> Appui technique ponctuel aux développeurs et gestionnaires de bases de données.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="linkedin-banner">
+        <h2><i class="fab fa-linkedin"></i> Mon Quotidien en Images</h2>
+        <p>DBCargo France a publié un post pour illustrer mes missions quotidiennes. Allez y jeter un œil !</p>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7432418119387656192/" target="_blank" class="btn">
+            Voir le post LinkedIn
+        </a>
+    </div>
+
+</div>
+
+<a href="../realisations_pro.html" class="btn-floating" title="Retour">
+    <ion-icon name="arrow-undo"></ion-icon>
+</a>
+
+</body>
+</html>
