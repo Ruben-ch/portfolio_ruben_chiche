@@ -32,68 +32,42 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            font-size: 1rem;
         }
 
         h1, h2, h3, .stat-number, .header-subtitle {
             font-family: 'Poppins', sans-serif;
         }
 
-        /* =========================================================
-           👇 C'EST ICI QUE TU CHANGES L'IMAGE DE FOND DU HAUT 👇
-           ========================================================= */
         header {
-            /* Remplace 'TON_IMAGE_ICI.jpg' par le lien de ton image ou le nom de ton fichier */
             background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.85)), url(../images/realisations_pro/DBcargotrain.jpg);
-            
             background-size: cover;
             background-position: center;
             border-bottom: 5px solid var(--db-red);
-            padding: 80px 20px 60px;
+            padding: 100px 20px;
             color: var(--text-on-dark);
-            text-align: left;
+            text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        /* ========================================================= */
 
         .hero-wrapper {
             max-width: 900px;
             margin: 0 auto;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 40px;
         }
 
-        .profile-pic img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--text-on-dark);
-            box-shadow: 0 8px 20px rgba(228, 0, 5, 0.4);
-            object-fit: cover;
-        }
-
+        /* TITRE AGRANDI */
         .header-subtitle {
             color: var(--db-red);
-            font-weight: 600;
-            letter-spacing: 2.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 0.95rem;
-            margin-bottom: 8px;
+            font-size: 3rem;
+            margin-bottom: 0;
             display: block;
-        }
-
-        h1 {
-            font-size: 2.6rem;
-            margin-bottom: 12px;
             line-height: 1.2;
-            color: var(--text-on-dark);
-        }
-
-        .header-desc {
-            color: #d0d0d0;
-            font-size: 1.15rem;
-            font-weight: 300;
-            max-width: 600px;
         }
 
         .container {
@@ -219,23 +193,7 @@
             top: -4px;
         }
 
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .tag {
-            background: #e9ecef;
-            color: var(--text-main);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.90rem;
-            font-weight: 500;
-            border: 1px solid #dee2e6;
-        }
-
+        /* SECTION LINKEDIN RESTAURÉE */
         .linkedin-banner {
             background: linear-gradient(135deg, #0077b5 0%, #005a8a 100%);
             border-radius: 12px;
@@ -296,7 +254,6 @@
             border-top: 1px solid #e0e4e8;
         }
 
-        /* BOUTON RETOUR */
         .btn-floating {
             position: fixed; bottom: 30px; right: 30px;
             background: var(--db-red); color: white; width: 50px; height: 50px;
@@ -304,15 +261,11 @@
             font-size: 24px; box-shadow: 0 5px 15px rgba(228, 0, 5, 0.4);
             z-index: 1000; transition: all 0.3s; text-decoration: none;
         }
-        .btn-floating:hover { transform: scale(1.1); background: #b30003; }
 
         @media (max-width: 900px) {
-            .hero-wrapper { flex-direction: column; text-align: center; gap: 20px; }
-            header { padding-top: 60px; padding-bottom: 40px; }
-            h1 { font-size: 2.1rem; }
-            .stats-container { flex-direction: column; }
+            .header-subtitle { font-size: 2rem; }
+            header { padding: 60px 20px; }
             .personal-quote { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid var(--db-red); border-radius: 12px;}
-            .dashboard-grid { gap: 20px; }
         }
     </style>
 </head>
@@ -320,9 +273,6 @@
 
 <header>
     <div class="hero-wrapper">
-        <div class="profile-pic">
-            <img src="https://ui-avatars.com/api/?name=Ton+Prenom&background=e40005&color=fff&size=150&font-size=0.4" alt="Photo de profil">
-        </div>
         <div class="hero-text">
             <span class="header-subtitle">DB Cargo France • Alternance</span>
         </div>
@@ -352,45 +302,43 @@
     </div>
 
     <div class="dashboard-grid">
-        
         <div class="card">
-            <h2><i class="fas fa-headset"></i> Support Utilisateurs (Siège & Distant)</h2>
+            <h2><i class="fas fa-headset"></i> Support Utilisateurs</h2>
             <ul class="mission-list">
                 <li><strong>Ticketing :</strong> Traçabilité et résolution via <strong>TopDesk</strong>.</li>
-                <li><strong>Assistance à distance :</strong> Support critique pour les conducteurs de train, les mainteneurs et les équipes terrain.</li>
+                <li><strong>Assistance à distance :</strong> Support critique pour les conducteurs et équipes terrain.</li>
                 <li><strong>Bureaux virtuels :</strong> Gestion et dépannage des environnements <strong>Citrix</strong>.</li>
-                <li><strong>Siège administratif :</strong> Résolution d'incidents et interventions proactives pour les métiers support.</li>
+                <li><strong>Siège administratif :</strong> Résolution d'incidents et interventions proactives.</li>
             </ul>
         </div>
 
         <div class="card">
             <h2><i class="fas fa-network-wired"></i> Déploiement & Infra Terrain</h2>
             <ul class="mission-list">
-                <li><strong>Déplacements en agence :</strong> Interventions physiques sur site (2 agences visitées depuis fin août).</li>
+                <li><strong>Déplacements en agence :</strong> Interventions physiques sur site.</li>
                 <li><strong>Réseau physique :</strong> Recâblage complet et propre des baies de brassage.</li>
-                <li><strong>Connectivité :</strong> Diagnostic et correction de problèmes Wi-Fi complexes dans les ateliers ferroviaires.</li>
-                <li><strong>Documentation :</strong> Mise à jour des synoptiques réseau pour pérenniser l'information.</li>
+                <li><strong>Connectivité :</strong> Diagnostic et correction de problèmes Wi-Fi.</li>
+                <li><strong>Documentation :</strong> Mise à jour des synoptiques réseau.</li>
             </ul>
         </div>
 
         <div class="card">
             <h2><i class="fas fa-boxes"></i> Gestion de Parc & Matériel</h2>
             <ul class="mission-list">
-                <li><strong>Gestion des stocks :</strong> Suivi de l'inventaire physique pour anticiper les besoins.</li>
+                <li><strong>Gestion des stocks :</strong> Suivi de l'inventaire physique.</li>
                 <li><strong>Flotte Mobile :</strong> Préparation et attribution des smartphones et tablettes.</li>
-                <li><strong>Périphériques & PC :</strong> Préparation des postes de travail, écrans et stations d'accueil.</li>
-                <li><strong>Logistique IT :</strong> S'assurer de la disponibilité matérielle pour chaque nouveau collaborateur.</li>
+                <li><strong>Périphériques & PC :</strong> Préparation des postes de travail.</li>
+                <li><strong>Logistique IT :</strong> S'assurer de la disponibilité matérielle.</li>
             </ul>
         </div>
 
         <div class="card">
             <h2><i class="fas fa-shield-alt"></i> Transverse & Cybersécurité</h2>
             <ul class="mission-list">
-                <li><strong>Sensibilisation Cyber :</strong> Accompagnement sur les aspects et les bonnes pratiques de sécurité côté utilisateur.</li>
-                <li><strong>Collaboration tech :</strong> Appui technique ponctuel aux développeurs et gestionnaires de bases de données.</li>
+                <li><strong>Sensibilisation Cyber :</strong> Accompagnement sur les bonnes pratiques de sécurité.</li>
+                <li><strong>Collaboration tech :</strong> Appui technique ponctuel aux développeurs.</li>
             </ul>
         </div>
-
     </div>
 
     <div class="linkedin-banner">
@@ -402,6 +350,10 @@
     </div>
 
 </div>
+
+<footer>
+    <p>&copy; 2024 - Portfolio IT Alternance - DB Cargo France</p>
+</footer>
 
 <a href="../realisations_pro.html" class="btn-floating" title="Retour">
     <ion-icon name="arrow-undo"></ion-icon>
