@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio IT | Supervision Zabbix & Cockpit - CHICHE Ruben</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+        :root {
+            --primary-color: #00b894; /* Vert émeraude pour le monitoring */
+            --bg-color: #e9ecef;
+            --card-bg: #fafafa;
+            --header-dark: #1a1a1a;
+            --text-main: #333333;
+            --text-on-dark: #f0f0f0;
+            --text-muted: #6c757d;
+            --accent-blue: #0984e3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        h1, h2, h3, .stat-number, .header-subtitle {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- HEADER CORRIGÉ CALQUÉ SUR LE QUOTIDIEN ALTERNANCE --- */
+        header {
+            background-image: linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.90)), url(../images/realisations_pro/monitoring.jpg);
+            background-size: cover;
+            background-position: center;
+            border-bottom: 5px solid var(--primary-color);
+            padding: 100px 20px;
+            color: var(--text-on-dark);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-subtitle {
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 3rem;
+            margin-bottom: 0;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .header-desc {
+            font-family: 'Poppins', sans-serif;
+            color: #d1d8e0;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+        /* -------------------------------------------------------- */
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .personal-quote {
+            background: #ffffff;
+            border-left: 6px solid var(--primary-color);
+            padding: 30px 40px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4a4a4a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .personal-quote i {
+            font-size: 2.5rem;
+            color: #e0e4e8;
+            flex-shrink: 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: var(--card-bg);
+            flex: 1;
+            min-width: 220px;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e0e4e8;
+            border-top: 6px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            border: 1px solid #e0e4e8; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: rgba(0, 184, 148, 0.5);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #1a1a1a;
+        }
+
+        h2 i {
+            color: var(--primary-color);
+            background: rgba(0, 184, 148, 0.1); 
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+
+        ul.mission-list {
+            list-style: none;
+        }
+
+        ul.mission-list li {
+            margin-bottom: 18px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        ul.mission-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+            top: -4px;
+        }
+
+        .skills-banner {
+            background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(20, 30, 48, 0.2);
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        .skills-banner h2 {
+            color: white;
+            justify-content: center;
+            border-bottom: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .skills-banner h2 i {
+            color: var(--primary-color);
+            background: transparent;
+            padding: 0;
+            font-size: 2.2rem;
+        }
+
+        .skills-banner p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tags-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 184, 148, 0.5);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #e0f8f5;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- FOOTER CORRIGÉ --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            margin-top: 60px;
+            background: #e1e4e7;
+            border-top: 1px solid #e0e4e8;
+        }
+        /* ---------------------- */
+
+        .btn-floating {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--primary-color); color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+            z-index: 1000; transition: all 0.3s; text-decoration: none;
+        }
+        
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #00a884;
+        }
+
+        @media (max-width: 900px) {
+            .header-subtitle { font-size: 2rem; }
+            header { padding: 60px 20px; }
+            .personal-quote { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid var(--primary-color); border-radius: 12px;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero-wrapper">
+        <div class="hero-text">
+            <span class="header-subtitle">Supervision & Monitoring</span>
+            <p class="header-desc">Zabbix & Cockpit • Administration Système</p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="personal-quote">
+        <i class="fas fa-satellite-dish"></i>
+        <span>"Superviser une infrastructure, ce n'est pas seulement observer ; c'est anticiper les pannes et garantir le Maintien en Condition Opérationnelle avant même que les utilisateurs ne s'en aperçoivent."</span>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-box">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Surveillance Temps Réel</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Proactivité Incidents</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Outils Maîtrisés</div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <h2><i class="fas fa-server"></i> Administration Cockpit</h2>
+            <ul class="mission-list">
+                <li><strong>Interface Web :</strong> Gestion d'un serveur Linux sans ligne de commande complexe.</li>
+                <li><strong>Temps Réel :</strong> Suivi de la consommation CPU, RAM, I/O disques et réseau.</li>
+                <li><strong>Services :</strong> Démarrage, arrêt et gestion des services <code>systemd</code>.</li>
+                <li><strong>Journaux :</strong> Lecture simplifiée des logs via <code>journalctl</code>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-eye"></i> Supervision Zabbix</h2>
+            <ul class="mission-list">
+                <li><strong>Architecture :</strong> Déploiement Serveur/Agent robuste.</li>
+                <li><strong>Collecte :</strong> Remontée active et passive des métriques des hôtes.</li>
+                <li><strong>Centralisation :</strong> Vue globale sur l'état de santé de tout le parc.</li>
+                <li><strong>Templates :</strong> Utilisation de modèles pour l'ajout rapide de nouveaux équipements.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-chart-line"></i> Dashboards & Reporting</h2>
+            <ul class="mission-list">
+                <li><strong>Tableaux de bord :</strong> Création de vues personnalisées de l'infrastructure.</li>
+                <li><strong>Graphes :</strong> Visualisation des tendances de charge et d'utilisation réseau.</li>
+                <li><strong>Cartographie :</strong> Mapping réseau pour visualiser les interconnexions physiques.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-bell"></i> Alertes & Triggers</h2>
+            <ul class="mission-list">
+                <li><strong>Seuils (Triggers) :</strong> Configuration de conditions critiques (ex: Espace disque > 90%).</li>
+                <li><strong>Notifications :</strong> Automatisation de l'envoi d'alertes à l'administrateur.</li>
+                <li><strong>Réactivité :</strong> Réduction significative du MTTR (Temps Moyen de Résolution).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="skills-banner">
+        <h2><i class="fas fa-check-circle"></i> Compétences SISR Validées</h2>
+        <p>Ce projet m'a permis d'acquérir de solides compétences dans le Maintien en Condition Opérationnelle (MCO) et la fiabilisation des infrastructures systèmes.</p>
+        
+        <div class="tags-container">
+            <span class="tag">Diagnostic & Résolution</span>
+            <span class="tag">Maintien en Condition</span>
+            <span class="tag">Déploiement de Services</span>
+            <span class="tag">Gestion des Logs</span>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 - Portfolio IT - CHICHE Ruben</p>
+</footer>
+
+<a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
+    <ion-icon name="arrow-undo"></ion-icon>
+</a>
+
+</body>
+</html>
