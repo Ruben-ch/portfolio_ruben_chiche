@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projet Infrastructure E5 - BTS SIO - CHICHE Ruben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            margin-left: 75px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+        }
+
+        /* HERO SECTION */
+        .infra-hero {
+            /* Dégradé Bleu/Cyan orienté Réseau Cisco */
+            background: linear-gradient(135deg, #0b1936 0%, #1449c3 100%);
+            background: linear-gradient(135deg, #00123e 0%, #053b56 50%, #0097a7 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -50px;
+        }
+
+        .infra-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Motif maillage réseau */
+            background-image: radial-gradient(#00e5ff 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .infra-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0;
+            background: -webkit-linear-gradient(#00e5ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .infra-subtitle {
+            font-size: 1.2rem;
+            color: #b2ebf2;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Badges Techno */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tech-badge {
+            background: rgba(0, 151, 167, 0.2);
+            border: 1px solid rgba(0, 229, 255, 0.5);
+            color: #b2ebf2;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* CONTENU PRINCIPAL */
+        .infra-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .infra-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-top: 5px solid #0097a7; /* Cyan foncé */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .infra-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        .infra-text ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .infra-text li {
+            margin-bottom: 8px;
+        }
+
+        /* GRID ARCHITECTURE */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .arch-item {
+            background: #f0fbfc;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #0097a7;
+            transition: all 0.3s;
+        }
+
+        .arch-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 151, 167, 0.1);
+        }
+
+        .arch-icon {
+            font-size: 2rem;
+            color: #0097a7;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .arch-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #006064;
+            margin-bottom: 10px;
+        }
+
+        /* BOUTON RETOUR FLOTTANT */
+        .btn-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0097a7;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 151, 167, 0.4);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-floating:hover {
+            transform: scale(1.1);
+            background: #00838f;
+        }
+
+        @media (max-width: 600px) {
+            .infra-title { font-size: 2rem; }
+            .infra-card { padding: 25px; }
+            .infra-hero { padding-top: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="infra-hero">
+        <h1 class="infra-title">Projet Infrastructure E5</h1>
+        <p class="infra-subtitle">Topologie à 3 niveaux - Cisco, Haute Disponibilité & Sécurité</p>
+        
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fa fa-sitemap"></i> HSRP / VLANs</span>
+            <span class="tech-badge"><i class="fa fa-shield"></i> ACL / NAT-PAT</span>
+            <span class="tech-badge"><i class="fa fa-server"></i> DHCP Relay</span>
+            <span class="tech-badge"><i class="fa fa-linux"></i> GLPI / Postfix</span>
+            <span class="tech-badge"><i class="fa fa-lock"></i> SSH Keys</span>
+        </div>
+    </header>
+
+    <main class="infra-container">
+        
+        <section class="infra-card">
+            <h2 class="section-title"><ion-icon name="globe-outline" style="color:#0097a7;"></ion-icon> Contexte et Objectifs de l'Épreuve</h2>
+            <div class="infra-text">
+                <p>
+                    Ce projet a été réalisé dans le cadre de l'épreuve E5 du BTS SIO. L'objectif était de concevoir, déployer et sécuriser une <strong>architecture réseau complète à 3 niveaux</strong> (Bordure, Cœur de réseau, Accès) sur du matériel Cisco.
+                </p>
+                <p>
+                    L'infrastructure intègre une segmentation réseau avancée (VLANs), une tolérance aux pannes via le protocole HSRP, et un routage optimisé. Des services systèmes critiques (DHCP, DNS, GLPI, Messagerie Postfix) ont également été déployés dans une DMZ sécurisée.
+                </p>
+            </div>
+        </section>
+
+        <section class="infra-card">
+            <h2 class="section-title">
+                <ion-icon name="map-outline" style="color:#0097a7;"></ion-icon> 
+                Topologie Logique et Physique
+            </h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="../images/realisations_pro/Diagramme_infra.drawio.png" 
+                     alt="Schéma Infrastructure Réseau E5" 
+                     style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #eee;">
+            </div>
+            
+            <div class="infra-text">
+                <p><strong>L'architecture est segmentée en deux zones isolées au niveau 2 :</strong></p>
+                <ul>
+                    <li><strong>VLAN 10 - LAN Utilisateurs (192.168.10.0/24) :</strong> Héberge les postes clients. Les adresses IP sont attribuées dynamiquement via DHCP Relay. La passerelle (VIP) est <code>192.168.10.254</code>.</li>
+                    <li><strong>VLAN 20 - DMZ Serveurs (192.168.20.0/24) :</strong> Zone sécurisée abritant les serveurs de production :
+                        <ul>
+                            <li>Serveur 0 : <code>192.168.20.10</code> (DHCP et DNS)</li>
+                            <li>Serveur 1 : <code>192.168.20.20</code> (Web / GLPI)</li>
+                            <li>Serveur 2 : <code>192.168.20.30</code> (Messagerie / Postfix)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Composants Clés de l'Architecture</h2>
+        
+        <div class="arch-grid">
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="git-network-outline"></ion-icon></div>
+                <h3 class="arch-title">Routeur de Bordure (WAN)</h3>
+                <p>Le routeur <strong>R-INTERNET</strong> gère le <strong>NAT Overload (PAT)</strong>, traduisant les adresses privées en une IP publique pour l'accès Internet. Des <strong>règles ACL</strong> y sont appliquées pour restreindre le trafic entrant vers la DMZ et le LAN.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="layers-outline"></ion-icon></div>
+                <h3 class="arch-title">Cœur de Réseau & HSRP</h3>
+                <p>Deux Switchs L3 (<strong>CORE-01</strong> et <strong>CORE-02</strong>) gèrent le routage inter-VLAN. Le protocole <strong>HSRP</strong> garantit la haute disponibilité : si CORE-01 tombe, CORE-02 prend le relais instantanément sur l'IP virtuelle .254.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="git-branch-outline"></ion-icon></div>
+                <h3 class="arch-title">Couche d'Accès (Switchs L2)</h3>
+                <p>Les switchs d'accès connectent les utilisateurs finaux (VLAN 10) et les serveurs (VLAN 20). Chaque switch possède deux liens <strong>Trunk</strong> montants vers le cœur de réseau pour garantir la continuité de service.</p>
+            </div>
+
+            <div class="arch-item">
+                <div class="arch-icon"><ion-icon name="server-outline"></ion-icon></div>
+                <h3 class="arch-title">Services & DHCP Relay</h3>
+                <p>Les Switchs L3 agissent comme relais DHCP (<code>ip helper-address</code>) et interceptent les requêtes du VLAN 10 pour les transférer au serveur DHCP de la DMZ (192.168.20.10).</p>
+            </div>
+        </div>
+
+        <section class="infra-card" style="margin-top: 50px; background: #00123e; color: white; border: none;">
+            <h2 class="section-title" style="color: white;"><ion-icon name="shield-checkmark" style="color:#0097a7;"></ion-icon> Sécurité & Administration</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9; text-align: justify;">
+                La sécurité de l'infrastructure a été un axe majeur de ce projet. L'administration des équipements Cisco est sécurisée via <strong>SSH (v2)</strong> avec authentification par clés asymétriques (RSA 2048 bits générées via PuTTYgen). 
+                De plus, des <strong>Access Control Lists (ACL)</strong> strictes ont été déployées sur le routeur de bordure pour empêcher l'accès aux réseaux internes depuis l'extérieur, tout en autorisant le trafic légitime (ICMP, HTTP, SMTP) vers la DMZ.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tech-badge" style="background: #0097a7; border:none; color:white;">Haute Disponibilité</span>
+                <span class="tech-badge" style="background: #0097a7; border:none; color:white;">Segmentation L2/L3</span>
+            </div>
+        </section>
+
+    </main>
+
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux réalisations">
+        <ion-icon name="arrow-undo"></ion-icon>
+    </a>
+
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/MessageRetour.js"></script>
+
+</body>
+</html>
