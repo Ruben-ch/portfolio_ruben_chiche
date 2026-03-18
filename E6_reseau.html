@@ -3,45 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Projet Infrastructure E5 - BTS SIO - CHICHE Ruben</title>
+    <title>Projet Final E6 - Cybersécurité & Infra - CHICHE Ruben</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <link rel="icon" href="../images/logo-web-component.webp">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/Header.css">
-    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
         body {
             background-color: #f4f6f9;
             margin: 0;
             padding: 0;
-            margin-left: 75px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            color: #333333;
+            line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-            body {
-                margin-left: 0;
-                padding-top: 60px;
-            }
+        h1, h2, h3, .stat-number, .header-subtitle {
+            font-family: 'Poppins', sans-serif;
         }
 
         /* HERO SECTION */
         .infra-hero {
-            /* Dégradé Bleu/Cyan orienté Réseau Cisco */
-            background: linear-gradient(135deg, #0b1936 0%, #1449c3 100%);
-            background: linear-gradient(135deg, #00123e 0%, #053b56 50%, #0097a7 100%);
+            /* Dégradé Violet/Deep Blue pour la Cybersécurité */
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #8e44ad 100%);
             color: white;
             padding: 80px 20px 100px;
             text-align: center;
             position: relative;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             margin-bottom: -50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .infra-hero::before {
@@ -51,15 +49,27 @@
             /* Motif maillage réseau */
             background-image: radial-gradient(#00e5ff 1px, transparent 1px);
             background-size: 60px 60px;
-            opacity: 0.15;
+            opacity: 0.1;
             pointer-events: none;
+        }
+
+        .hero-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .infra-title {
             font-size: 3.5rem;
             font-weight: 800;
             margin: 0;
-            background: -webkit-linear-gradient(#00e5ff, #ffffff);
+            /* Dégradé Cyan/Bleu Clair Futuriste */
+            background: -webkit-linear-gradient(#00e5ff, #8ab4f8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
@@ -69,7 +79,7 @@
 
         .infra-subtitle {
             font-size: 1.2rem;
-            color: #b2ebf2;
+            color: #d2b4de;
             margin-top: 15px;
             font-weight: 300;
         }
@@ -84,9 +94,9 @@
         }
 
         .tech-badge {
-            background: rgba(0, 151, 167, 0.2);
-            border: 1px solid rgba(0, 229, 255, 0.5);
-            color: #b2ebf2;
+            background: rgba(142, 68, 173, 0.2);
+            border: 1px solid rgba(138, 180, 248, 0.5);
+            color: #e8eaed;
             padding: 8px 20px;
             border-radius: 50px;
             font-weight: 600;
@@ -95,12 +105,69 @@
         }
 
         /* CONTENU PRINCIPAL */
-        .infra-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px 60px;
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px 80px; /* Un peu de padding en bas pour compenser l'absence de footer */
             position: relative;
             z-index: 10;
+        }
+
+        .personal-quote {
+            background: #ffffff;
+            border-left: 6px solid #8e44ad;
+            padding: 30px 40px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #4a4a4a;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .personal-quote i {
+            font-size: 2.5rem;
+            color: #e0e4e8;
+            flex-shrink: 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: #fafafa;
+            flex: 1;
+            min-width: 220px;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #e0e4e8;
+            border-top: 6px solid #8e44ad;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #8e44ad;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.8px;
         }
 
         .infra-card {
@@ -109,7 +176,7 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             padding: 40px;
             margin-bottom: 40px;
-            border-top: 5px solid #0097a7; /* Cyan foncé */
+            border-top: 5px solid #8e44ad;
         }
 
         .section-title {
@@ -144,33 +211,113 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 30px;
+            margin-bottom: 50px;
         }
 
         .arch-item {
-            background: #f0fbfc;
+            background: #fafafa;
             padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #0097a7;
-            transition: all 0.3s;
+            border-radius: 12px;
+            border: 1px solid #e0e4e8;
+            border-left: 5px solid #8e44ad;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .arch-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 151, 167, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(142, 68, 173, 0.15);
+            border-color: rgba(142, 68, 173, 0.5);
         }
 
         .arch-icon {
             font-size: 2rem;
-            color: #0097a7;
+            color: #8e44ad;
             margin-bottom: 15px;
             display: inline-block;
+            background: rgba(142, 68, 173, 0.1); 
+            padding: 12px;
+            border-radius: 10px;
         }
 
         .arch-title {
             font-weight: 700;
             font-size: 1.2rem;
-            color: #006064;
+            color: #1a1a1a;
             margin-bottom: 10px;
+        }
+
+        ul.mission-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.mission-list li {
+            margin-bottom: 18px;
+            padding-left: 30px;
+            position: relative;
+            color: #333333;
+        }
+
+        ul.mission-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #8e44ad;
+            font-weight: bold;
+            font-size: 1.4rem;
+            top: -4px;
+        }
+
+        .skills-banner {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(15, 12, 41, 0.2);
+            border-bottom: 5px solid #8e44ad;
+        }
+
+        .skills-banner h2 {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .skills-banner h2 i {
+            color: #d2b4de;
+            font-size: 2.2rem;
+        }
+
+        .skills-banner p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tags-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(210, 180, 222, 0.5);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #f4ecf7;
+            backdrop-filter: blur(5px);
         }
 
         /* BOUTON RETOUR FLOTTANT */
@@ -178,7 +325,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #0097a7;
+            background: #8e44ad;
             color: white;
             width: 50px;
             height: 50px;
@@ -187,7 +334,7 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            box-shadow: 0 5px 15px rgba(0, 151, 167, 0.4);
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
             z-index: 1000;
             transition: all 0.3s;
             text-decoration: none;
@@ -195,182 +342,135 @@
 
         .btn-floating:hover {
             transform: scale(1.1);
-            background: #00838f;
+            background: #5b2c6f;
         }
 
-        @media (max-width: 600px) {
-            .infra-title { font-size: 2rem; }
-            .infra-card { padding: 25px; }
-            .infra-hero { padding-top: 40px; }
+        @media (max-width: 900px) {
+            .infra-title { font-size: 2.2rem; }
+            header { padding: 60px 20px; }
+            .personal-quote { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid #8e44ad; border-radius: 12px;}
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">    
-        <div class="navigation">
-            <div class="menu-toggle"></div>
-            <ul class="list">
-                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
-                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
-                </a></li>
-                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
-                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span>
-                </a></li>
-                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
-                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
-                </a></li>
-                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
-                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
-                </a></li>
-                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
-                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
-                </a></li>
-                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
-                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
-                </a></li>
-                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
-                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
-                </a></li>
-            </ul>
-        </div>
-    </div>
-
     <header class="infra-hero">
-        <h1 class="infra-title">Projet Infrastructure E5</h1>
-        <p class="infra-subtitle">Topologie à 3 niveaux - Cisco, Haute Disponibilité & Sécurité</p>
-        
-        <div class="tech-stack">
-            <span class="tech-badge"><i class="fa fa-sitemap"></i> HSRP / VLANs</span>
-            <span class="tech-badge"><i class="fa fa-shield"></i> ACL / NAT-PAT</span>
-            <span class="tech-badge"><i class="fa fa-server"></i> DHCP Relay</span>
-            <span class="tech-badge"><i class="fa fa-linux"></i> GLPI / Postfix</span>
-            <span class="tech-badge"><i class="fa fa-lock"></i> SSH Keys</span>
+        <div class="hero-wrapper">
+            <h1 class="infra-title">Projet Final E6</h1>
+            <p class="infra-subtitle">Expertise Réseau, Cybersécurité & Haute Disponibilité</p>
+            
+            <div class="tech-stack">
+                <span class="tech-badge"><i class="fa fa-sitemap"></i> Cisco L2/L3</span>
+                <span class="tech-badge"><i class="fa fa-shield"></i> Filtrage ACL / PAT</span>
+                <span class="tech-badge"><i class="fa fa-server"></i> HSRP / Résilience</span>
+                <span class="tech-badge"><i class="fa fa-key"></i> SSH RSA 2048</span>
+            </div>
         </div>
     </header>
 
-    <main class="infra-container">
+    <main class="container">
         
-        <section class="infra-card">
-            <h2 class="section-title"><ion-icon name="globe-outline" style="color:#0097a7;"></ion-icon> Contexte et Objectifs de l'Épreuve</h2>
-            <div class="infra-text">
-                <p>
-                    Ce projet a été réalisé dans le cadre de l'épreuve E5 du BTS SIO. L'objectif était de concevoir, déployer et sécuriser une <strong>architecture réseau complète à 3 niveaux</strong> (Bordure, Cœur de réseau, Accès) sur du matériel Cisco.
-                </p>
-                <p>
-                    L'infrastructure intègre une segmentation réseau avancée (VLANs), une tolérance aux pannes via le protocole HSRP, et un routage optimisé. Des services systèmes critiques (DHCP, DNS, GLPI, Messagerie Postfix) ont également été déployés dans une DMZ sécurisée.
-                </p>
+        <div class="personal-quote">
+            <i class="fas fa-shield-alt"></i>
+            <span>"Pour mon épreuve finale E6, j'ai conçu une infrastructure qui ne se contente pas de relier des équipements : elle intègre la sécurité (Security by Design), la segmentation et la tolérance aux pannes au cœur même de son architecture."</span>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Niveaux d'Architecture</div>
             </div>
-        </section>
+            <div class="stat-box">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Zones Isolées (LAN / DMZ)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2048</div>
+                <div class="stat-label">Bits (Clés RSA)</div>
+            </div>
+        </div>
 
         <section class="infra-card">
             <h2 class="section-title">
-                <ion-icon name="map-outline" style="color:#0097a7;"></ion-icon> 
-                Topologie Logique et Physique
+                <ion-icon name="map-outline" style="color:#8e44ad;"></ion-icon> 
+                Topologie & Segmentation
             </h2>
             <div style="text-align: center; margin-bottom: 20px;">
                 <img src="../images/realisations_pro/Diagramme_infra.drawio.png" 
-                     alt="Schéma Infrastructure Réseau E5" 
-                     style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #eee;">
+                     alt="Schéma Infrastructure Réseau E6" 
+                     style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
             </div>
-            
             <div class="infra-text">
-                <p><strong>L'architecture est segmentée en deux zones isolées au niveau 2 :</strong></p>
+                <p><strong>L'architecture est segmentée en zones étanches :</strong></p>
                 <ul>
-                    <li><strong>VLAN 10 - LAN Utilisateurs (192.168.10.0/24) :</strong> Héberge les postes clients. Les adresses IP sont attribuées dynamiquement via DHCP Relay. La passerelle (VIP) est <code>192.168.10.254</code>.</li>
-                    <li><strong>VLAN 20 - DMZ Serveurs (192.168.20.0/24) :</strong> Zone sécurisée abritant les serveurs de production :
-                        <ul>
-                            <li>Serveur 0 : <code>192.168.20.10</code> (DHCP et DNS)</li>
-                            <li>Serveur 1 : <code>192.168.20.20</code> (Web / GLPI)</li>
-                            <li>Serveur 2 : <code>192.168.20.30</code> (Messagerie / Postfix)</li>
-                        </ul>
-                    </li>
+                    <li><strong>VLAN 10 - LAN Utilisateurs (192.168.10.0/24) :</strong> Héberge les postes clients. Les adresses IP sont attribuées dynamiquement via le protocole DHCP Relay.</li>
+                    <li><strong>VLAN 20 - DMZ Serveurs (192.168.20.0/24) :</strong> Zone sécurisée abritant les serveurs de production critiques (DHCP/DNS sur 192.168.20.10, GLPI sur 192.168.20.20, Messagerie Postfix sur 192.168.20.30).</li>
                 </ul>
             </div>
         </section>
 
-        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Composants Clés de l'Architecture</h2>
+        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Expertises Techniques Mises en Œuvre</h2>
         
         <div class="arch-grid">
             <div class="arch-item">
-                <div class="arch-icon"><ion-icon name="git-network-outline"></ion-icon></div>
-                <h3 class="arch-title">Routeur de Bordure (WAN)</h3>
-                <p>Le routeur <strong>R-INTERNET</strong> gère le <strong>NAT Overload (PAT)</strong>, traduisant les adresses privées en une IP publique pour l'accès Internet. Des <strong>règles ACL</strong> y sont appliquées pour restreindre le trafic entrant vers la DMZ et le LAN.</p>
+                <div class="arch-icon"><i class="fas fa-network-wired"></i></div>
+                <h3 class="arch-title">Cœur de Réseau & Résilience</h3>
+                <ul class="mission-list">
+                    <li><strong>Matériel :</strong> Déploiement de Switchs L3 Cisco 3650.</li>
+                    <li><strong>HSRP :</strong> Tolérance aux pannes. Si CORE-01 tombe, CORE-02 prend le relais instantanément sur l'IP virtuelle .254.</li>
+                    <li><strong>Routage Inter-VLAN :</strong> Communication contrôlée entre les différents sous-réseaux.</li>
+                </ul>
             </div>
 
             <div class="arch-item">
-                <div class="arch-icon"><ion-icon name="layers-outline"></ion-icon></div>
-                <h3 class="arch-title">Cœur de Réseau & HSRP</h3>
-                <p>Deux Switchs L3 (<strong>CORE-01</strong> et <strong>CORE-02</strong>) gèrent le routage inter-VLAN. Le protocole <strong>HSRP</strong> garantit la haute disponibilité : si CORE-01 tombe, CORE-02 prend le relais instantanément sur l'IP virtuelle .254.</p>
+                <div class="arch-icon"><i class="fas fa-lock"></i></div>
+                <h3 class="arch-title">Administration Cybersécurisée</h3>
+                <ul class="mission-list">
+                    <li><strong>Protocoles :</strong> Désactivation stricte de Telnet, jugé non-sécurisé en entreprise.</li>
+                    <li><strong>Clés Asymétriques :</strong> Déploiement de SSH v2 avec authentification par clés privées/publiques RSA (2048 bits).</li>
+                    <li><strong>Accès Physiques :</strong> Sécurisation des ports des switchs (Port Security).</li>
+                </ul>
             </div>
 
             <div class="arch-item">
-                <div class="arch-icon"><ion-icon name="git-branch-outline"></ion-icon></div>
-                <h3 class="arch-title">Couche d'Accès (Switchs L2)</h3>
-                <p>Les switchs d'accès connectent les utilisateurs finaux (VLAN 10) et les serveurs (VLAN 20). Chaque switch possède deux liens <strong>Trunk</strong> montants vers le cœur de réseau pour garantir la continuité de service.</p>
+                <div class="arch-icon"><i class="fas fa-route"></i></div>
+                <h3 class="arch-title">Filtrage & NAT (Bordure)</h3>
+                <ul class="mission-list">
+                    <li><strong>Translation :</strong> Configuration du NAT Overload (PAT) pour l'accès Internet depuis le réseau privé.</li>
+                    <li><strong>ACL :</strong> Filtrage rigoureux du trafic entrant/sortant pour protéger la DMZ.</li>
+                    <li><strong>Routes Statiques :</strong> Gestion optimisée des tables de routage.</li>
+                </ul>
             </div>
 
             <div class="arch-item">
-                <div class="arch-icon"><ion-icon name="server-outline"></ion-icon></div>
+                <div class="arch-icon"><i class="fas fa-server"></i></div>
                 <h3 class="arch-title">Services & DHCP Relay</h3>
-                <p>Les Switchs L3 agissent comme relais DHCP (<code>ip helper-address</code>) et interceptent les requêtes du VLAN 10 pour les transférer au serveur DHCP de la DMZ (192.168.20.10).</p>
+                <ul class="mission-list">
+                    <li><strong>VLAN 10 :</strong> Réseau "Users" (192.168.10.0/24) isolé des serveurs.</li>
+                    <li><strong>VLAN 20 (DMZ) :</strong> Zone démilitarisée hébergeant les services.</li>
+                    <li><strong>DHCP Relay :</strong> Utilisation de <code>ip helper-address</code> sur les switchs L3 pour relayer les requêtes DHCP vers la DMZ.</li>
+                </ul>
             </div>
         </div>
 
-        <section class="infra-card" style="margin-top: 50px; background: #00123e; color: white; border: none;">
-            <h2 class="section-title" style="color: white;"><ion-icon name="shield-checkmark" style="color:#0097a7;"></ion-icon> Sécurité & Administration</h2>
-            <p style="font-size: 1.1rem; opacity: 0.9; text-align: justify;">
-                La sécurité de l'infrastructure a été un axe majeur de ce projet. L'administration des équipements Cisco est sécurisée via <strong>SSH (v2)</strong> avec authentification par clés asymétriques (RSA 2048 bits générées via PuTTYgen). 
-                De plus, des <strong>Access Control Lists (ACL)</strong> strictes ont été déployées sur le routeur de bordure pour empêcher l'accès aux réseaux internes depuis l'extérieur, tout en autorisant le trafic légitime (ICMP, HTTP, SMTP) vers la DMZ.
-            </p>
-            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <span class="tech-badge" style="background: #0097a7; border:none; color:white;">Haute Disponibilité</span>
-                <span class="tech-badge" style="background: #0097a7; border:none; color:white;">Segmentation L2/L3</span>
+        <div class="skills-banner">
+            <h2><i class="fas fa-check-circle"></i> Compétences E6 Validées</h2>
+            <p>Ce projet de fin d'études valide mes compétences en conception d'infrastructures complexes, en sécurisation des accès administratifs et en intégration de services métiers.</p>
+            
+            <div class="tags-container">
+                <span class="tag">Architecture Cisco</span>
+                <span class="tag">Cybersécurité</span>
+                <span class="tag">Haute Disponibilité (HSRP)</span>
+                <span class="tag">Cryptographie (SSH RSA)</span>
             </div>
-        </section>
+        </div>
 
     </main>
 
-    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux réalisations">
+    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
         <ion-icon name="arrow-undo"></ion-icon>
     </a>
-
-    <footer class="footer" id="footer">
-        <div class="inner">
-            <div class="column is-logo">
-                <div class="logo-info">
-                    <div class="footer_text">CHICHE Ruben</div>
-                    <span class="copyright">© 2026. All rights reserved.</span>
-                </div>
-            </div>
-            <div class="column is-nav">
-                <div class="column-title">Navigation</div>
-                <ul>
-                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
-                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
-                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
-                </ul>
-            </div>
-            <div class="column is-nav">
-                <div class="column-title">Contact</div>
-                <ul>
-                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
-                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
-                </ul>
-            </div>
-            <div class="column is-nav">
-                <div class="column-title">Informations</div>
-                <ul>
-                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
-                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../js/MessageRetour.js"></script>
 
 </body>
 </html>
