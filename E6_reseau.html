@@ -1,476 +1,342 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <title>Projet Final E6 - Cybersécurité & Infra - CHICHE Ruben</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <link rel="icon" href="../images/logo-web-component.webp">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Architecture Réseau & Système</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+        :root {
+            --bg-color: #fbfbfa;
+            --text-color: #111111;
+            --border-color: #111111;
+            --accent-yellow: #ffe600;
+            --accent-blue: #70d6ff;
+            --accent-pink: #ff90e8;
+            --accent-green: #06d6a0;
+            --border-width: 3px;
+            --hard-shadow: 6px 6px 0px var(--border-color);
+            --hard-shadow-hover: 2px 2px 0px var(--border-color);
+        }
 
         body {
-            background-color: #f4f6f9;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
-            color: #333333;
             line-height: 1.6;
+            background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        h1, h2, h3, .stat-number, .header-subtitle {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* HERO SECTION */
-        .infra-hero {
-            /* Dégradé Violet/Deep Blue pour la Cybersécurité */
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #8e44ad 100%);
-            color: white;
-            padding: 80px 20px 100px;
-            text-align: center;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-            margin-bottom: -50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .infra-hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            /* Motif maillage réseau */
-            background-image: radial-gradient(#00e5ff 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        .hero-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .infra-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin: 0;
-            /* Dégradé Cyan/Bleu Clair Futuriste */
-            background: -webkit-linear-gradient(#00e5ff, #8ab4f8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }
-
-        .infra-subtitle {
-            font-size: 1.2rem;
-            color: #d2b4de;
-            margin-top: 15px;
-            font-weight: 300;
-        }
-
-        /* Badges Techno */
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .tech-badge {
-            background: rgba(142, 68, 173, 0.2);
-            border: 1px solid rgba(138, 180, 248, 0.5);
-            color: #e8eaed;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-        }
-
-        /* CONTENU PRINCIPAL */
         .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px 80px; /* Un peu de padding en bas pour compenser l'absence de footer */
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            margin-bottom: 4rem;
             position: relative;
-            z-index: 10;
         }
 
-        .personal-quote {
-            background: #ffffff;
-            border-left: 6px solid #8e44ad;
-            padding: 30px 40px;
-            border-radius: 0 12px 12px 0;
-            margin-bottom: 40px;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #4a4a4a;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .personal-quote i {
-            font-size: 2.5rem;
-            color: #e0e4e8;
-            flex-shrink: 0;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 25px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background: #fafafa;
-            flex: 1;
-            min-width: 220px;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border: 1px solid #e0e4e8;
-            border-top: 6px solid #8e44ad;
-        }
-
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #8e44ad;
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-
-        .stat-label {
-            color: #6c757d;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-        }
-
-        .infra-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            padding: 40px;
-            margin-bottom: 40px;
-            border-top: 5px solid #8e44ad;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: #1e293b;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .infra-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #475569;
-            text-align: justify;
-        }
-
-        .infra-text ul {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding-left: 20px;
-        }
-
-        .infra-text li {
-            margin-bottom: 8px;
-        }
-
-        /* GRID ARCHITECTURE */
-        .arch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-            margin-bottom: 50px;
-        }
-
-        .arch-item {
-            background: #fafafa;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #e0e4e8;
-            border-left: 5px solid #8e44ad;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .arch-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(142, 68, 173, 0.15);
-            border-color: rgba(142, 68, 173, 0.5);
-        }
-
-        .arch-icon {
-            font-size: 2rem;
-            color: #8e44ad;
-            margin-bottom: 15px;
+        .badge-top {
             display: inline-block;
-            background: rgba(142, 68, 173, 0.1); 
-            padding: 12px;
-            border-radius: 10px;
+            background-color: var(--accent-yellow);
+            border: var(--border-width) solid var(--border-color);
+            padding: 0.5rem 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0px var(--border-color);
+            margin-bottom: 1.5rem;
+            transform: rotate(-2deg);
         }
 
-        .arch-title {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #1a1a1a;
-            margin-bottom: 10px;
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin: 0 0 1rem 0;
+            text-transform: uppercase;
         }
 
-        ul.mission-list {
-            list-style: none;
-            padding-left: 0;
+        .highlight {
+            background-color: var(--accent-pink);
+            padding: 0 0.5rem;
+            display: inline-block;
         }
 
-        ul.mission-list li {
-            margin-bottom: 18px;
-            padding-left: 30px;
-            position: relative;
-            color: #333333;
+        header p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            max-width: 750px;
+            border-left: 5px solid var(--accent-blue);
+            padding-left: 1rem;
         }
 
-        ul.mission-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: #8e44ad;
-            font-weight: bold;
-            font-size: 1.4rem;
-            top: -4px;
+        .neo-card {
+            background-color: #fff;
+            border: var(--border-width) solid var(--border-color);
+            padding: 2.5rem;
+            box-shadow: var(--hard-shadow);
+            transition: all 0.2s ease-in-out;
+            margin-bottom: 2rem;
         }
 
-        .skills-banner {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
-            border-radius: 12px;
-            padding: 50px;
-            text-align: center;
-            margin-top: 50px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(15, 12, 41, 0.2);
-            border-bottom: 5px solid #8e44ad;
+        .neo-card:hover {
+            transform: translate(4px, 4px);
+            box-shadow: var(--hard-shadow-hover);
         }
 
-        .skills-banner h2 {
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+        .card-yellow { background-color: #fffde0; }
+        .card-blue { background-color: #e5f8ff; }
+
+        .neo-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: var(--border-width) solid var(--border-color);
+            padding-bottom: 1rem;
+            text-transform: uppercase;
         }
 
-        .skills-banner h2 i {
-            color: #d2b4de;
-            font-size: 2.2rem;
+        .topo-container {
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: var(--hard-shadow);
+            background: #fff;
+            padding: 1rem;
+            margin-bottom: 3rem;
+            transition: transform 0.2s;
         }
 
-        .skills-banner p {
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .topo-container:hover {
+            transform: scale(1.01);
         }
 
-        .tags-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+        .topo-image {
+            width: 100%;
+            display: block;
+            border: var(--border-width) dashed var(--border-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(210, 180, 222, 0.5);
-            padding: 10px 20px;
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            border: 2px solid var(--border-color);
+            padding: 0.3rem 1rem;
             border-radius: 50px;
-            font-weight: 600;
-            color: #f4ecf7;
-            backdrop-filter: blur(5px);
+            box-shadow: 2px 2px 0px var(--border-color);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            background-color: #fff;
         }
 
-        /* BOUTON RETOUR FLOTTANT */
-        .btn-floating {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #8e44ad;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .tag-hw { background-color: var(--accent-blue); }
+        .tag-tech { background-color: var(--accent-yellow); }
+        .tag-linux { background-color: var(--accent-green); }
+        .tag-sec { background-color: var(--accent-pink); }
+
+        ul {
+            list-style-type: square;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Variables pour les terminaux */
+        .brutal-terminal {
+            background-color: var(--border-color);
+            color: #fff;
+            border: var(--border-width) solid var(--border-color);
+            font-family: 'Fira Code', monospace;
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            overflow-x: auto;
+        }
+
+        .term-green { box-shadow: 6px 6px 0px var(--accent-green); }
+        .term-pink { box-shadow: 6px 6px 0px var(--accent-pink); }
+
+        .brutal-terminal .header-bar {
+            color: var(--border-color);
+            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+            padding: 0.5rem 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            border-bottom: var(--border-width) solid var(--border-color);
+            text-transform: uppercase;
+        }
+
+        .bg-green { background-color: var(--accent-green); }
+        .bg-pink { background-color: var(--accent-pink); }
+
+        .t-success { color: var(--accent-green); font-weight: bold; }
+        .t-info { color: var(--accent-blue); }
+        .t-highlight { color: var(--accent-pink); }
+        .t-warning { color: var(--accent-yellow); font-weight: bold; }
+        .t-comment { color: #a1a1aa; }
+
+        .action-bar {
             display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+        }
+
+        .neo-btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
-            z-index: 1000;
-            transition: all 0.3s;
+            background-color: #fff;
+            color: var(--border-color);
+            border: var(--border-width) solid var(--border-color);
+            padding: 1rem 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
             text-decoration: none;
+            box-shadow: 6px 6px 0px var(--border-color);
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        .btn-floating:hover {
-            transform: scale(1.1);
-            background: #5b2c6f;
+        .neo-btn:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 2px 2px 0px var(--border-color);
         }
 
-        @media (max-width: 900px) {
-            .infra-title { font-size: 2.2rem; }
-            header { padding: 60px 20px; }
-            .personal-quote { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid #8e44ad; border-radius: 12px;}
-        }
+        .btn-primary { background-color: var(--accent-yellow); }
+        .btn-secondary { background-color: var(--accent-blue); }
     </style>
 </head>
-
 <body>
 
-    <header class="infra-hero">
-        <div class="hero-wrapper">
-            <h1 class="infra-title">Projet Final E6</h1>
-            <p class="infra-subtitle">Expertise Réseau, Cybersécurité & Haute Disponibilité</p>
-            
-            <div class="tech-stack">
-                <span class="tech-badge"><i class="fa fa-sitemap"></i> Cisco L2/L3</span>
-                <span class="tech-badge"><i class="fa fa-shield"></i> Filtrage ACL / PAT</span>
-                <span class="tech-badge"><i class="fa fa-server"></i> HSRP / Résilience</span>
-                <span class="tech-badge"><i class="fa fa-key"></i> SSH RSA 2048</span>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
+    <div class="container">
         
-        <div class="personal-quote">
-            <i class="fas fa-shield-alt"></i>
-            <span>"Pour mon épreuve finale E6, j'ai conçu une infrastructure qui ne se contente pas de relier des équipements : elle intègre la sécurité (Security by Design), la segmentation et la tolérance aux pannes au cœur même de son architecture."</span>
+        <header>
+            <div class="badge-top">Projet Réseau & Système</div>
+            <h1>Architecture <br><span class="highlight">Hybride L3 / L2 / Linux</span></h1>
+            <p>Conception d'une infrastructure hiérarchique sur équipements Cisco complétée par l'intégration d'un serveur d'infrastructure Linux (Debian) pour les services réseaux vitaux.</p>
+        </header>
+
+        <div class="topo-container">
+            <img src="image_e1d9e5.png" alt="Simulation de l'infrastructure" class="topo-image">
         </div>
 
-        <div class="stats-container">
-            <div class="stat-box">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Niveaux d'Architecture</div>
+        <div class="neo-card card-blue">
+            <h2>01. Matériel & Virtualisation</h2>
+            <p>Déploiement physique segmenté et intégration de la virtualisation système :</p>
+            <div style="margin-top: 1.5rem;">
+                <span class="tag tag-hw">Routeur de Bordure</span>
+                <span class="tag tag-hw">Switchs Core L3 (3650)</span>
+                <span class="tag tag-hw">Switchs Accès L2 (2960)</span>
+                <span class="tag tag-linux">VM Debian (Linux)</span>
             </div>
-            <div class="stat-box">
-                <div class="stat-number">2</div>
-                <div class="stat-label">Zones Isolées (LAN / DMZ)</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">2048</div>
-                <div class="stat-label">Bits (Clés RSA)</div>
-            </div>
+            <ul style="margin-top: 1.5rem;">
+                <li><strong>Cœur de Réseau (Core L3) :</strong> Utilisation de commutateurs de niveau 3 gérant le routage intelligent (Inter-VLAN, relais DHCP, HSRP) et la politique de sécurité globale.</li>
+                <li><strong>Couche d'Accès (L2) :</strong> Commutateurs de niveau 2 dédiés à la connectivité des équipements finaux (PC, Serveurs), reliés au cœur par des liaisons montantes Trunk.</li>
+                <li><strong>Machine Virtuelle (Debian) :</strong> Environnement Linux confiné en DMZ hébergeant les rôles réseaux fondamentaux de l'entreprise.</li>
+            </ul>
         </div>
 
-        <section class="infra-card">
-            <h2 class="section-title">
-                <ion-icon name="map-outline" style="color:#8e44ad;"></ion-icon> 
-                Topologie & Segmentation
-            </h2>
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="../images/realisations_pro/Diagramme_infra.drawio.png" 
-                     alt="Schéma Infrastructure Réseau E6" 
-                     style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            </div>
-            <div class="infra-text">
-                <p><strong>L'architecture est segmentée en zones étanches :</strong></p>
+        <div class="grid-2">
+            
+            <div class="neo-card">
+                <h2>02. Architecture</h2>
+                <p>Topologie structurée pour garantir résilience et évolutivité :</p>
                 <ul>
-                    <li><strong>VLAN 10 - LAN Utilisateurs (192.168.10.0/24) :</strong> Héberge les postes clients. Les adresses IP sont attribuées dynamiquement via le protocole DHCP Relay.</li>
-                    <li><strong>VLAN 20 - DMZ Serveurs (192.168.20.0/24) :</strong> Zone sécurisée abritant les serveurs de production critiques (DHCP/DNS sur 192.168.20.10, GLPI sur 192.168.20.20, Messagerie Postfix sur 192.168.20.30).</li>
-                </ul>
-            </div>
-        </section>
-
-        <h2 class="section-title" style="justify-content:center; margin-top:50px;">Expertises Techniques Mises en Œuvre</h2>
-        
-        <div class="arch-grid">
-            <div class="arch-item">
-                <div class="arch-icon"><i class="fas fa-network-wired"></i></div>
-                <h3 class="arch-title">Cœur de Réseau & Résilience</h3>
-                <ul class="mission-list">
-                    <li><strong>Matériel :</strong> Déploiement de Switchs L3 Cisco 3650.</li>
-                    <li><strong>HSRP :</strong> Tolérance aux pannes. Si CORE-01 tombe, CORE-02 prend le relais instantanément sur l'IP virtuelle .254.</li>
-                    <li><strong>Routage Inter-VLAN :</strong> Communication contrôlée entre les différents sous-réseaux.</li>
+                    <li><strong>Modèle Hiérarchique :</strong> Séparation claire des rôles entre la distribution (Niveau 3) et l'accès (Niveau 2), permettant de faire évoluer le parc machine sans saturer le cœur de réseau.</li>
+                    <li><strong>Segmentation L2/L3 :</strong> Maintien d'une isolation stricte entre le réseau Utilisateurs et l'environnement Serveur via des VLANs hermétiques.</li>
+                    <li><strong>Redondance Physique :</strong> Double câblage des switchs d'accès vers les deux switchs de cœur pour prévenir toute rupture de lien.</li>
                 </ul>
             </div>
 
-            <div class="arch-item">
-                <div class="arch-icon"><i class="fas fa-lock"></i></div>
-                <h3 class="arch-title">Administration Cybersécurisée</h3>
-                <ul class="mission-list">
-                    <li><strong>Protocoles :</strong> Désactivation stricte de Telnet, jugé non-sécurisé en entreprise.</li>
-                    <li><strong>Clés Asymétriques :</strong> Déploiement de SSH v2 avec authentification par clés privées/publiques RSA (2048 bits).</li>
-                    <li><strong>Accès Physiques :</strong> Sécurisation des ports des switchs (Port Security).</li>
+            <div class="neo-card card-yellow">
+                <h2>03. Services & Protocoles</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <span class="tag tag-tech">HSRP v2</span>
+                    <span class="tag tag-tech">NAT / PAT</span>
+                    <span class="tag tag-linux">BIND9 (DNS)</span>
+                    <span class="tag tag-linux">SERVEUR DHCP</span>
+                </div>
+                <ul>
+                    <li><strong>Haute Disponibilité :</strong> Mise en place du protocole HSRP garantissant la continuité d'accès aux passerelles en cas de panne matérielle d'un switch Core.</li>
+                    <li><strong>Services Linux :</strong> Configuration avancée sous Debian pour la distribution dynamique d'IP (DHCP) et la résolution de noms de domaine (DNS via Bind9).</li>
+                    <li><strong>Routage Externe :</strong> Masquage du réseau privé (NAT Overload) permettant à tous les équipements de sortir vers Internet.</li>
                 </ul>
             </div>
 
-            <div class="arch-item">
-                <div class="arch-icon"><i class="fas fa-route"></i></div>
-                <h3 class="arch-title">Filtrage & NAT (Bordure)</h3>
-                <ul class="mission-list">
-                    <li><strong>Translation :</strong> Configuration du NAT Overload (PAT) pour l'accès Internet depuis le réseau privé.</li>
-                    <li><strong>ACL :</strong> Filtrage rigoureux du trafic entrant/sortant pour protéger la DMZ.</li>
-                    <li><strong>Routes Statiques :</strong> Gestion optimisée des tables de routage.</li>
-                </ul>
-            </div>
-
-            <div class="arch-item">
-                <div class="arch-icon"><i class="fas fa-server"></i></div>
-                <h3 class="arch-title">Services & DHCP Relay</h3>
-                <ul class="mission-list">
-                    <li><strong>VLAN 10 :</strong> Réseau "Users" (192.168.10.0/24) isolé des serveurs.</li>
-                    <li><strong>VLAN 20 (DMZ) :</strong> Zone démilitarisée hébergeant les services.</li>
-                    <li><strong>DHCP Relay :</strong> Utilisation de <code>ip helper-address</code> sur les switchs L3 pour relayer les requêtes DHCP vers la DMZ.</li>
-                </ul>
-            </div>
         </div>
 
-        <div class="skills-banner">
-            <h2><i class="fas fa-check-circle"></i> Compétences E6 Validées</h2>
-            <p>Ce projet de fin d'études valide mes compétences en conception d'infrastructures complexes, en sécurisation des accès administratifs et en intégration de services métiers.</p>
+        <div class="neo-card">
+            <h2>04. Sécurité & Contrôle d'Accès (ACL)</h2>
+            <p>Mise en œuvre d'une politique de sécurité de type "Zero Trust" directement appliquée sur le routage L3 pour sanctuariser la DMZ et protéger le serveur Debian :</p>
+            <div style="margin-bottom: 1.5rem;">
+                <span class="tag tag-sec">POLITIQUE ACL STRICTE</span>
+                <span class="tag tag-sec">MOINDRE PRIVILÈGE</span>
+            </div>
             
-            <div class="tags-container">
-                <span class="tag">Architecture Cisco</span>
-                <span class="tag">Cybersécurité</span>
-                <span class="tag">Haute Disponibilité (HSRP)</span>
-                <span class="tag">Cryptographie (SSH RSA)</span>
+            <div class="brutal-terminal term-pink">
+                <div class="header-bar bg-pink">C:\SECURITY\ACL_POLICY.LOG</div>
+                <span class="t-comment"># EVALUATION DE LA MATRICE DE FLUX VERS DMZ...</span><br><br>
+                
+                [<span class="t-success">ALLOW</span>] <span class="t-info">Flux SSH (Port 22)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ Restreint à l'IP Admin exclusive (192.168.10.50)<br><br>
+
+                [<span class="t-success">ALLOW</span>] <span class="t-info">Flux DNS & WEB (Ports 53, 80, 443)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ Accessible au LAN Utilisateurs pour consommation<br><br>
+                
+                [<span class="t-success">ALLOW</span>] <span class="t-info">Flux Messagerie (Ports 25, 110, 143)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ Routé vers les services mails internes<br><br>
+
+                [<span class="t-highlight">DROP!</span>] <span class="t-warning">Flux ICMP / Ping & Trafic Inconnu</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ Destruction silencieuse par défaut (Default Deny)<br><br>
+
+                <span class="t-comment"># NOTE : Le trafic LAN sortant vers Internet reste autorisé.</span>
             </div>
         </div>
 
-    </main>
+        <div class="neo-card">
+            <h2>05. Compétences Validées</h2>
+            <p>Vue d'ensemble des savoir-faire transverses (Réseau + Système + Sécurité) mobilisés :</p>
+            
+            <div class="brutal-terminal term-green">
+                <div class="header-bar bg-green">C:\SKILLS_VALIDATION\REPORT.EXE</div>
+                > INITIALISATION DE L'AUDIT DE COMPÉTENCES...<br><br>
+                
+                [<span class="t-success">OK</span>] <span class="t-highlight">Architecture Hiérarchique</span> : Design multiniveau (Core / Accès).<br>
+                [<span class="t-success">OK</span>] <span class="t-highlight">Administration L2/L3 Cisco</span> : Trunks, Inter-VLAN, relais IP, HSRP.<br>
+                [<span class="t-success">OK</span>] <span class="t-highlight">Sécurité Périphérique</span> : Filtrage L3 granulaire via Access Control Lists (ACLs).<br>
+                [<span class="t-success">OK</span>] <span class="t-highlight">Administration Linux</span> : Déploiement et sécurisation d'une VM Debian.<br>
+                [<span class="t-success">OK</span>] <span class="t-highlight">Services Core</span> : Intégration avancée d'un serveur DHCP et d'un DNS (Bind9).<br><br>
+                
+                > <span class="t-info">STATUT GLOBAL : EXPERTISE SYSTÈME & RÉSEAU VALIDÉE.</span>
+            </div>
+        </div>
 
-    <a href="../realisations_pro.html" class="btn-floating" title="Retour aux projets">
-        <ion-icon name="arrow-undo"></ion-icon>
-    </a>
+    </div>
 
 </body>
 </html>
