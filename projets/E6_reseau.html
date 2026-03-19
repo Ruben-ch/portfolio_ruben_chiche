@@ -164,7 +164,6 @@
             font-weight: 600;
         }
 
-        /* Variables pour les terminaux */
         .brutal-terminal {
             background-color: var(--border-color);
             color: #fff;
@@ -197,11 +196,31 @@
         .t-warning { color: var(--accent-yellow); font-weight: bold; }
         .t-comment { color: #a1a1aa; }
 
-        .action-bar {
+        /* Styles pour le bouton Retour */
+        .back-button-fixed {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+        }
+
+        .btn-back {
+            background-color: var(--accent-pink);
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 4rem;
+            align-items: center;
+            gap: 12px;
+            padding: 0.8rem 1.5rem;
+        }
+
+        .btn-back:hover {
+            background-color: var(--accent-green);
+        }
+
+        .btn-back svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--border-color);
+            stroke-width: 3px;
         }
 
         .neo-btn {
@@ -226,9 +245,6 @@
             transform: translate(4px, 4px);
             box-shadow: 2px 2px 0px var(--border-color);
         }
-
-        .btn-primary { background-color: var(--accent-yellow); }
-        .btn-secondary { background-color: var(--accent-blue); }
     </style>
 </head>
 <body>
@@ -318,7 +334,7 @@
             </div>
         </div>
 
-        <div class="neo-card">
+        <div class="neo-card" style="margin-bottom: 6rem;">
             <h2>05. Compétences Validées</h2>
             <p>Vue d'ensemble des savoir-faire transverses (Réseau + Système + Sécurité) mobilisés :</p>
             
@@ -336,6 +352,15 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="back-button-fixed">
+        <a href="javascript:history.back()" class="neo-btn btn-back">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Retour
+        </a>
     </div>
 
 </body>
