@@ -16,14 +16,103 @@
     <link rel="stylesheet" type="text/css" href="css/Entreprise_thales.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/Footer.css" media="all">
 
-    <!-- Header icons -->
+    <style>
+        .pdf-presentation-section {
+            padding: 80px 20px; /* Un peu plus d'espace */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Couleur de fond modifiée pour entourer la fenêtre */
+            background: linear-gradient(180deg, #ffffff 0%, #eef2f7 50%, #ffffff 100%);
+        }
+
+        .pdf-card {
+            width: 100%;
+            max-width: 1250px; /* Fenêtre agrandie en largeur */
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Ombre plus marquée */
+            border: 1px solid #ddd;
+        }
+
+        .pdf-header {
+            background: #f44336; /* Rouge DB Cargo */
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .pdf-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: white;
+            font-family: inherit;
+        }
+
+        .pdf-header ion-icon {
+            font-size: 2rem;
+        }
+
+        .pdf-wrapper {
+            padding: 15px;
+            background: #2c3e50; /* Cadre écran plus pro */
+        }
+
+        .pdf-wrapper iframe {
+            border-radius: 4px;
+            display: block;
+        }
+
+        .pdf-footer {
+            padding: 25px;
+            text-align: center;
+            background: white;
+        }
+
+        .pdf-footer p {
+            margin-bottom: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f44336;
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #d32f2f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .pdf-wrapper iframe {
+                height: 400px;
+            }
+            .pdf-header h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <!-- Footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- jquery -->
     <script src="js/jquery-3.7.1.js"></script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,14 +179,12 @@
     </div>
 </div>
 
-    <!-- Logo -->
     <section class="logo_thales">
         <br>
         <img src="images/Entreprise/DbCargoenlong.png" alt="Logo_DB_Cargo" width="450px">
         <h1 id="titre"></h1>
     </section>
 
-    <!-- Chiffres clés DB Cargo France -->
     <section class="chiffres_clés">
         <div class="data-card">
             <h3>26.2 milliard €</h3>
@@ -141,7 +228,6 @@
     </section>
     <hr>
 
-    <!-- Section entreprise -->
     <section class="etat">
         <h1 id="titre">Au sein de DB Cargo France,<br> je participe au développement et au maintien des solutions informatiques internes.</h1>
         <h2>(DB Cargo France assure le transport ferroviaire de marchandises tout en intégrant des solutions numériques pour l’optimisation logistique et la sécurité des systèmes)</h2>
@@ -188,8 +274,7 @@
         </div>
     </section>
 
-    <!-- Arrow down -->
-    <a href="dbcargo.html#autres_entreprises">
+    <a href="dbcargo.html#presentation-pdf">
         <div class='scrolldown'>
             <div class="chevrons">
                 <div class='chevrondown'></div>
@@ -198,20 +283,37 @@
         </div>
     </a>
 
-    <!-- Scroll Up -->
     <script src="js/Scroll_Up.js"></script>
     <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
 
-    <!-- Transition -->
-    <img src="images/Entreprise/Transition_Top.svg" alt="Transition vers mes autres entreprises" class="transition_vers_entreprises">
+    <img src="images/Entreprise/Transition_Top.svg" alt="Transition" class="transition_vers_entreprises">
 
-    <!-- Titre -->
+    <section class="pdf-presentation-section" id="presentation-pdf">
+        <div class="pdf-card">
+            <div class="pdf-header">
+                <ion-icon name="desktop-outline"></ion-icon>
+                <h2>Présentation de DB Cargo France</h2>
+            </div>
+            
+            <div class="pdf-wrapper">
+                <iframe src="documents/DB-Cargo-France-2026.pdf#toolbar=0" width="100%" height="750px" frameborder="0"></iframe>
+            </div>
+
+            <div class="pdf-footer">
+                <p>Découvrez ma présentation détaillée sur l'entreprise et ses enjeux numériques.</p>
+                <a href="documents/DB-Cargo-France-2026.pdf" target="_blank" class="download-btn">
+                    <ion-icon name="download-outline"></ion-icon>
+                    Télécharger la présentation (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div class="Titre_autres_entreprises" id="autres_entreprises">
         <h1>Mon Entreprise et mon stage</h1>
         <br><br>
     </div>
 
-    <!-- Autres Entreprises -->
     <div class="container_rectangle">
         <a href="dbcargo.html">
             <div id="rect1" class="rectangle"></div>
@@ -222,8 +324,7 @@
         </a>
     </div>
 
-    <!-- Transition -->
-    <img src="images/Entreprise/Transition_Bottom.svg" alt="Transition vers mes autres entreprises" class="transition_vers_entreprises">
+    <img src="images/Entreprise/Transition_Bottom.svg" alt="Transition" class="transition_vers_entreprises">
 
     <footer class="footer" id="footer">
         <div class="inner">
