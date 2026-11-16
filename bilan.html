@@ -147,25 +147,43 @@
         .bento-card.orange:hover::before { background: linear-gradient(135deg, #fa8231, transparent); }
         .bento-card.red:hover::before { background: linear-gradient(135deg, #fc5c65, transparent); }
 
-        /* Icones minimalistes */
+        /* Couleur propre à chaque carte : liseré, icône, point et bordure au survol */
+        .bento-card.purple { --c: #a55eea; --c2: #d6a2ff; --c-soft: #f3e8ff; }
+        .bento-card.blue   { --c: #4b7bec; --c2: #8fb1ff; --c-soft: #e6eeff; }
+        .bento-card.green  { --c: #20bf6b; --c2: #7be3a8; --c-soft: #e3f8ec; }
+        .bento-card.orange { --c: #fa8231; --c2: #ffbb7d; --c-soft: #fff0e3; }
+        .bento-card.red    { --c: #fc5c65; --c2: #ff9aa0; --c-soft: #ffe8ea; }
+        .bento-card.pink   { --c: #e84393; --c2: #ff8cc6; --c-soft: #fde6f2; }
+        .bento-card.teal   { --c: #0fb9b1; --c2: #6ee2dc; --c-soft: #e0f7f6; }
+        .bento-card.indigo { --c: #4834d4; --c2: #8c7cf0; --c-soft: #ebe8fd; }
+
+        .bento-card {
+            border-top: 4px solid var(--c, #dfe6e9);
+        }
+
+        .bento-card.pink:hover::before { background: linear-gradient(135deg, #e84393, transparent); }
+        .bento-card.teal:hover::before { background: linear-gradient(135deg, #0fb9b1, transparent); }
+        .bento-card.indigo:hover::before { background: linear-gradient(135deg, #4834d4, transparent); }
+
+        /* Icônes en couleur */
         .card-icon {
-            font-size: 2rem;
+            font-size: 1.9rem;
             margin-bottom: 20px;
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            background: rgba(0,0,0,0.03);
-            color: var(--dark);
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--c, #636e72), var(--c2, #b2bec3));
+            color: #fff;
+            box-shadow: 0 8px 18px -6px var(--c, transparent);
             transition: all 0.3s ease;
         }
 
         .bento-card:hover .card-icon {
-            background: var(--dark);
-            color: white;
-            transform: rotate(-10deg) scale(1.1);
+            transform: rotate(-10deg) scale(1.12);
+            box-shadow: 0 12px 24px -6px var(--c, transparent);
         }
 
         /* Typographie Carte */
@@ -189,7 +207,8 @@
             height: 8px;
             border-radius: 50%;
             margin-top: 20px;
-            opacity: 0.5;
+            opacity: 1;
+            background-color: var(--c);
         }
         .purple .status-dot { background-color: #a55eea; }
         .blue .status-dot { background-color: #4b7bec; }
@@ -380,21 +399,21 @@
             <div class="status-dot"></div>
         </article>
 
-        <article class="bento-card purple">
+        <article class="bento-card pink">
             <div class="card-icon"><ion-icon name="happy-outline"></ion-icon></div>
             <h3>Confiance</h3>
             <p>Gain d'assurance grâce à la résolution d'incidents complexes. Capacité à défendre mes choix techniques.</p>
             <div class="status-dot"></div>
         </article>
 
-        <article class="bento-card blue">
+        <article class="bento-card teal">
             <div class="card-icon"><ion-icon name="shuffle-outline"></ion-icon></div>
             <h3>Adaptabilité</h3>
             <p>Flexibilité face aux environnements variés, aux urgences utilisateurs et aux contraintes de production.</p>
             <div class="status-dot"></div>
         </article>
 
-        <article class="bento-card orange">
+        <article class="bento-card indigo">
             <div class="card-icon"><ion-icon name="server-outline"></ion-icon></div>
             <h3>Exploitation Réseau</h3>
             <p>Maîtrise de l'administration des infrastructures actives (Switchs, Routeurs, Wi-Fi) et garantie de continuité de service.</p>
