@@ -76,6 +76,21 @@
             background: linear-gradient(135deg, #ffa117, #ffcc33);
         }
 
+        /* Distinction affichée sur une carte projet */
+        .card-award {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            align-self: flex-start;
+            margin: 0 0 12px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #f1f3f6, #d5dde5);
+            color: #1e293b;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
         /* Sous-titres des projets de formation */
         .sous-titre-projets {
             text-align: center;
@@ -442,12 +457,13 @@
                     <div class="card-image card-image--icon" aria-hidden="true"><ion-icon name="hardware-chip-outline"></ion-icon></div>
                     <div class="card-content">
                         <h3 class="card-title">Contrôleur Arduino × Godot</h3>
-                        <p class="card-desc">Réalisé lors d'une game jam (hackathon) au Lycée Le Rebours : contrôleur matériel sur mesure (Arduino UNO, encodeur, potentiomètre, joystick, LEDs, vibreurs) relié en temps réel par liaison série au moteur 3D Godot Engine pour un jeu audio-réactif.</p>
+                        <p class="card-desc">Réalisé lors d'une game jam (hackathon) au Lycée Le Rebours : contrôleur matériel sur mesure (Arduino UNO, encodeur, potentiomètre, joystick, LEDs, vibreurs) relié en temps réel au moteur Godot Engine pour un jeu audio-réactif, avec modélisation 3D de la manette sous Autodesk Fusion.</p>
+                        <p class="card-award"><span aria-hidden="true">🥈</span><span>Élue 2<sup>e</sup> meilleure manette de la game jam</span></p>
                         <div class="card-tags">
                             <span class="tag">Game jam</span>
                             <span class="tag">Arduino</span>
                             <span class="tag">IoT / embarqué</span>
-                            <span class="tag">Liaison série</span>
+                            <span class="tag">Modélisation 3D</span>
                         </div>
                         <a href="projets/controleur-arduino.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
                     </div>

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Contrôleur Arduino × Godot Engine - Ruben CHICHE</title>
-    <meta name="description" content="Projet réalisé lors d'une game jam (hackathon) au Lycée Le Rebours, IoT et embarqué : contrôleur Arduino UNO sur mesure relié en temps réel au moteur Godot Engine." />
+    <meta name="description" content="Projet réalisé lors d'une game jam (hackathon) au Lycée Le Rebours, IoT et embarqué : contrôleur Arduino UNO sur mesure relié en temps réel au moteur Godot Engine, modélisé en 3D sous Autodesk Fusion. Deuxième meilleure manette de la game jam." />
     <!-- Open Graph (aperçu lors du partage du lien) -->
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Portfolio de Ruben CHICHE" />
     <meta property="og:title" content="Contrôleur Arduino × Godot Engine - Ruben CHICHE" />
-    <meta property="og:description" content="Projet réalisé lors d'une game jam (hackathon) au Lycée Le Rebours, IoT et embarqué : contrôleur Arduino UNO sur mesure relié en temps réel au moteur Godot Engine." />
+    <meta property="og:description" content="Projet réalisé lors d'une game jam (hackathon) au Lycée Le Rebours, IoT et embarqué : contrôleur Arduino UNO sur mesure relié en temps réel au moteur Godot Engine, modélisé en 3D sous Autodesk Fusion. Deuxième meilleure manette de la game jam." />
     <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/projets/controleur-arduino.html" />
     <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -199,6 +199,27 @@
             .win-card { padding: 25px; }
             .win-hero { padding-top: 40px; }
         }
+
+        /* Distinction obtenue à la game jam */
+        .award {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #f5f7fa, #c9d6df);
+            color: #1e293b;
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        .award .award_emoji {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
     </style>
     <!-- Couche responsive globale (doit rester en dernier) -->
     <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
@@ -245,7 +266,10 @@
             <span class="tech-badge">C++</span>
             <span class="tech-badge">Liaison série</span>
             <span class="tech-badge">Godot Engine</span>
+            <span class="tech-badge">Autodesk Fusion</span>
         </div>
+
+        <p class="award"><span class="award_emoji" aria-hidden="true">🥈</span><span>Élue 2<sup>e</sup> meilleure manette de la game jam</span></p>
     </header>
 
     <main class="win-container">
@@ -256,6 +280,10 @@
                 <p>
                     Projet réalisé lors d'un <strong>hackathon (game jam)</strong> au Lycée Le Rebours : conception d'un <strong>contrôleur matériel sur mesure</strong> basé sur une carte <strong>Arduino UNO</strong>,
                     relié en temps réel par <strong>liaison série</strong> au moteur 3D <strong>Godot Engine</strong>, pour piloter un jeu audio-réactif.
+                </p>
+                <p>
+                    J'ai également réalisé la <strong>modélisation 3D de la manette</strong> sous <strong>Autodesk Fusion</strong>.
+                    Résultat : la manette a été <strong>élue 2<sup>e</sup> meilleure manette de la game jam</strong>.
                 </p>
             </div>
         </section>
@@ -282,9 +310,14 @@
                 <h3 class="feature-title">Jeu audio-réactif</h3>
                 <p>Le contrôleur pilote un jeu développé sous Godot Engine.</p>
             </div>
+            <div class="feature-item">
+                <div class="feature-icon"><ion-icon name="cube-outline" aria-hidden="true"></ion-icon></div>
+                <h3 class="feature-title">Modélisation 3D</h3>
+                <p>Conception 3D de la manette sous Autodesk Fusion.</p>
+            </div>
         </div>
 
-        <!-- TODO Ruben : ajouter des photos du contrôleur et la vidéo de démo, par exemple :
+        <!-- TODO Ruben : ajouter des photos du contrôleur, des rendus 3D Fusion et la vidéo de démo, par exemple :
             <img src="../images/realisations_pro/controleur-arduino.jpg" alt="Le contrôleur Arduino sur mesure">
             <video src="../images/realisations_pro/demo-arduino.mp4" controls></video>
             -->
@@ -293,13 +326,14 @@
         <section class="win-card" style="margin-top: 50px; background: #0f172a; color: white; border: none;">
             <h2 class="section-title" style="color: white;"><ion-icon name="trophy-outline" style="color:#00979D;" aria-hidden="true"></ion-icon> Compétences mobilisées</h2>
             <p style="font-size: 1.1rem; opacity: 0.9;">
-                Ce projet m'a permis de relier électronique et logiciel : câblage de capteurs et d'actionneurs, programmation embarquée en C++ / Arduino et communication série en temps réel avec un moteur 3D.
+                Ce projet m'a permis de relier électronique, logiciel et conception : câblage de capteurs et d'actionneurs, programmation embarquée en C++ / Arduino, communication série en temps réel avec un moteur 3D et modélisation 3D de la manette.
             </p>
             <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
                 <span class="tech-badge" style="background: #00979D; border:none;">Électronique</span>
                 <span class="tech-badge" style="background: #00979D; border:none;">C++ / Arduino</span>
                 <span class="tech-badge" style="background: #00979D; border:none;">Liaison série</span>
                 <span class="tech-badge" style="background: #00979D; border:none;">IoT / embarqué</span>
+                <span class="tech-badge" style="background: #00979D; border:none;">Modélisation 3D</span>
             </div>
         </section>
 
