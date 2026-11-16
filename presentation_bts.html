@@ -2,14 +2,14 @@
 <html lang="fr" style="--page-accent-rgb: 142,68,173">
 <head>
     <meta charset="UTF-8">
-    <title>Formation : Licence Informatique &amp; BTS SIO - Ruben CHICHE</title>
-    <meta name="description" content="Ma formation : Licence Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
+    <title>Formation : Licence générale Informatique &amp; BTS SIO - Ruben CHICHE</title>
+    <meta name="description" content="Ma formation : Licence générale Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
     <!-- Open Graph (aperçu lors du partage du lien) -->
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Portfolio de Ruben CHICHE" />
-    <meta property="og:title" content="Formation : Licence Informatique &amp; BTS SIO - Ruben CHICHE" />
-    <meta property="og:description" content="Ma formation : Licence Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
+    <meta property="og:title" content="Formation : Licence générale Informatique &amp; BTS SIO - Ruben CHICHE" />
+    <meta property="og:description" content="Ma formation : Licence générale Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
     <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/presentation_bts.html" />
     <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -261,10 +261,167 @@
             flex-shrink: 0;
         }
         .option-card.sisr li::before { background-color: #2196f3; }
-        .option-card.licence { border-left: 6px solid #00b894; max-width: 760px; }
-        .option-card.licence .watermark-icon { color: #00b894; }
-        .option-card.licence li::before { background-color: #00b894; }
-        .option-card.licence .subtitle { color: #00b894; }
+        .option-card.licence { border-left: 6px solid #8e44ad; max-width: 860px; }
+        .option-card.licence .watermark-icon { color: #8e44ad; }
+        .option-card.licence li::before { background-color: #8e44ad; }
+        .option-card.licence .subtitle { color: #8e44ad; }
+        .option-card.licence h3 ion-icon { color: #8e44ad; }
+        .option-card.licence p + p { margin-top: 12px; }
+
+        /* Tableaux : défilement horizontal sur mobile au lieu d'être coupés */
+        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+        /* --- PROGRAMME DE LA LICENCE --- */
+        .table-licence { min-width: 0; }
+        .table-licence td:first-child {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: #8e44ad;
+            white-space: nowrap;
+            width: 1%;
+        }
+        .table-licence td:nth-child(2) { color: #2c3e50; }
+        .table-licence td small { display: block; color: #7f8c8d; font-size: 0.85rem; margin-top: 2px; }
+        .table-licence tr.semestre td {
+            background: linear-gradient(90deg, rgba(103,179,228,0.15), rgba(142,68,173,0.15));
+            color: #2c3e50;
+            font-family: inherit;
+            font-weight: 700;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            padding: 14px 25px;
+            white-space: normal;
+            width: auto;
+        }
+
+        .licence-bloc { max-width: 1000px; margin: 0 auto 80px; }
+
+        @media (max-width: 600px) {
+            /* Le semestre est déjà indiqué par les lignes de séparation */
+            .table-licence th:last-child,
+            .table-licence tr:not(.semestre) td:last-child { display: none; }
+            .table-licence td, .table-licence th { padding: 14px 14px; font-size: 0.95rem; }
+            .table-licence tr.semestre td { padding: 12px 14px; }
+        }
+
+        .modules-pratiques {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0 0;
+            padding: 0;
+        }
+        .modules-pratiques li {
+            padding: 10px 18px;
+            border-radius: 50px;
+            background: #fff;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            font-weight: 600;
+            color: #2c3e50;
+            border: 2px solid rgba(142,68,173,0.25);
+        }
+
+        .modalites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+            gap: 24px;
+        }
+        .modalite {
+            background: #fff;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border-top: 5px solid #8e44ad;
+        }
+        .modalite:nth-child(2) { border-top-color: #67B3E4; }
+        .modalite:nth-child(3) { border-top-color: #b145e9; }
+        .modalite .num {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #67B3E4, #8e44ad);
+            color: #fff;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .modalite h3 { font-size: 1.15rem; color: #2c3e50; margin-bottom: 8px; }
+        .modalite p { color: #636e72; line-height: 1.6; }
+        .note-ue {
+            margin-top: 24px;
+            text-align: center;
+            color: #636e72;
+            font-style: italic;
+        }
+        .section-title { hyphens: manual; }
+
+        /* --- BTS : section repliable, en retrait par rapport à la Licence --- */
+        .bts-details {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .bts-details > summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px 30px;
+            font-size: clamp(1.1rem, calc(1rem + 0.6vw), 1.5rem);
+            font-weight: 700;
+            color: #2c3e50;
+            border-left: 6px solid #67B3E4;
+        }
+
+        .bts-details > summary::-webkit-details-marker { display: none; }
+
+        .bts-details > summary small {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #7f8c8d;
+            margin-top: 4px;
+        }
+
+        .bts-details > summary::after {
+            content: '+';
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #67B3E4, #8e44ad);
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .bts-details[open] > summary::after {
+            transform: rotate(45deg);
+        }
+
+        .bts-details > summary:focus-visible {
+            outline: 3px solid #8e44ad;
+            outline-offset: -3px;
+        }
+
+        .bts-contenu {
+            padding: 40px 30px 10px;
+        }
+
+        .bts-contenu .section-title { font-size: clamp(1.3rem, calc(1rem + 1vw), 1.8rem); }
         .section-intro { text-align: center; color: #555; max-width: 700px; margin: -30px auto 40px; line-height: 1.6; }
         .option-card.slam li::before { background-color: #8e44ad; }
 
@@ -373,8 +530,8 @@
 <header class="hero-bts">
     <div class="hero-content">
         <h1>Ma formation</h1>
-        <p>Licence Informatique (Réseaux &amp; Cybersécurité) · BTS SIO option SISR</p>
-        <span class="hero-badge">En alternance chez DB Cargo France</span>
+        <p>Licence générale Informatique · Parcours Réseaux &amp; Cybersécurité</p>
+        <span class="hero-badge">2026-2027 · En alternance chez DB Cargo France</span>
     </div>
     
     <div class="custom-shape-divider-bottom">
@@ -387,19 +544,23 @@
 <section class="main-container">
 
     <!-- Licence -->
-    <h2 class="section-title" id="licence">Licence Informatique (2026-2027)</h2>
+    <h2 class="section-title" id="licence">Licence générale Informatique (2026-2027)</h2>
 
     <div class="cards-wrapper">
         <div class="option-card licence">
             <ion-icon name="shield-checkmark" class="watermark-icon" aria-hidden="true"></ion-icon>
 
             <div class="card-content">
-                <h3><ion-icon name="school-outline" aria-hidden="true"></ion-icon> Licence générale Informatique</h3>
-                <span class="subtitle">Parcours Réseaux &amp; Cybersécurité · Alternance</span>
-                <p>Formation de niveau Bac+3 préparée au <strong>Lycée Le Rebours</strong>, en partenariat avec le
-                    <strong>CNAM Paris</strong>, en alternance au service informatique de DB Cargo France.</p>
+                <h3><ion-icon name="school-outline" aria-hidden="true"></ion-icon> Licence générale STS mention Informatique</h3>
+                <span class="subtitle">Parcours Réseaux &amp; Cybersécurité · Alternance · RNCP 40116</span>
+                <p>Formation de niveau Bac+3 préparée au <strong>CFP / Lycée Le Rebours</strong>, en partenariat avec le
+                    <strong>CNAM Paris</strong> (fiche RNCP 40116), en alternance au service informatique de DB Cargo France.</p>
+                <p><strong>Mon objectif :</strong> consolider mes bases en réseaux et en cybersécurité avant un cycle ingénieur
+                    ou un master Réseaux &amp; Télécoms, pour évoluer vers la conception et la sécurisation d'architectures
+                    réseaux, télécoms et IoT.</p>
                 <ul>
-                    <li>Établissement : Lycée Le Rebours, en partenariat avec le CNAM Paris</li>
+                    <li>Établissement : CFP / Lycée Le Rebours, en partenariat avec le CNAM Paris</li>
+                    <li>Organisation : unités d'enseignement réparties sur deux semestres et expérience professionnelle en alternance</li>
                     <li>Rythme : alternance chez DB Cargo France</li>
                     <li>Suite visée : cycle ingénieur ou master Réseaux &amp; Télécoms en alternance (septembre 2027)</li>
                     <!-- TODO Ruben : ajouter les principaux modules / UE de la Licence (intitulés exacts du programme) -->
@@ -408,9 +569,71 @@
         </div>
     </div>
 
-    <!-- BTS SIO -->
-    <h2 class="section-title" id="bts">BTS SIO option SISR (2024-2026)</h2>
-    <p class="section-intro">Diplôme obtenu en 2026 au Lycée ORT Daniel Mayer (Montreuil) : 1<sup>re</sup> année en formation initiale,
+    <!-- Programme de la Licence -->
+    <div class="licence-bloc">
+    <h2 class="section-title">Programme de la Licence</h2>
+    <div class="table-wrapper">
+        <table class="table-licence">
+            <thead>
+                <tr><th>Code</th><th>Unité d'enseignement</th><th>Semestre</th></tr>
+            </thead>
+            <tbody>
+                <tr class="semestre"><td colspan="3">Semestre 1 · Tronc commun</td></tr>
+                <tr><td>UTC501</td><td>Outils mathématiques pour l'informatique</td><td>S1</td></tr>
+                <tr><td>UTC502</td><td>Systèmes d'exploitation</td><td>S1</td></tr>
+                <tr><td>UTC503</td><td>Paradigmes de programmation</td><td>S1</td></tr>
+                <tr><td>UTC504</td><td>Systèmes d'information (SI) et bases de données</td><td>S1</td></tr>
+                <tr><td>UTC505</td><td>Réseaux de données et sécurité</td><td>S1</td></tr>
+                <tr><td>TED101</td><td>Enjeux des transitions écologiques</td><td>S1</td></tr>
+                <tr class="semestre"><td colspan="3">Semestre 2 · Spécialisation et professionnalisation</td></tr>
+                <tr><td>SEC101</td><td>Cybersécurité : référentiel, objectifs et déploiement<small>Dont test / détection d'intrusion et hardening</small></td><td>S2</td></tr>
+                <tr><td>RSX101</td><td>Réseaux de données et télécommunications</td><td>S2</td></tr>
+                <tr><td>RCP105</td><td>Modélisation et optimisation</td><td>S2</td></tr>
+                <tr><td>GDN100</td><td>Management de projet</td><td>S2</td></tr>
+                <tr><td>ANG320</td><td>Anglais : English for IT<small>Préparation au TOEIC</small></td><td>S2</td></tr>
+                <tr><td>UAAL01</td><td>Expérience professionnelle<small>Alternance en entreprise (DB Cargo France)</small></td><td>S2</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="modules-pratiques" aria-label="Modules pratiques et préparations aux certifications">
+        <li>Programme Cisco Netacad</li>
+        <li>Préparation au TOEIC</li>
+        <li>Hackathons partenaires</li>
+    </ul>
+    </div>
+
+    <!-- Modalités d'évaluation -->
+    <div class="licence-bloc">
+    <h2 class="section-title">Modalités d'évaluation</h2>
+    <div class="modalites-grid">
+        <div class="modalite">
+            <div class="num">1</div>
+            <h3>Contrôle continu</h3>
+            <p>Évaluations tout au long de l'année sur les différentes unités d'enseignement.</p>
+        </div>
+        <div class="modalite">
+            <div class="num">2</div>
+            <h3>Projet tutoré</h3>
+            <p>Projet encadré, présenté lors d'une soutenance orale.</p>
+        </div>
+        <div class="modalite">
+            <div class="num">3</div>
+            <h3>Mémoire de fin d'année</h3>
+            <p>Contrôle terminal : rédaction et soutenance d'un mémoire universitaire lié aux missions en entreprise.</p>
+        </div>
+    </div>
+    <p class="note-ue">En cas de non-validation globale du diplôme, les unités d'enseignement obtenues restent acquises.</p>
+    </div>
+
+    <!-- BTS SIO : contenu conservé dans une section repliable -->
+    <details class="bts-details" id="bts">
+        <summary>
+            <span>Mon BTS SIO option SISR (2024-2026)
+                <small>Diplômé en 2026 · Lycée ORT Daniel Mayer (Montreuil) · options et épreuves</small></span>
+        </summary>
+        <div class="bts-contenu">
+    <p class="section-intro" style="margin-top:0;">Diplôme obtenu en 2026 au Lycée ORT Daniel Mayer (Montreuil) : 1<sup>re</sup> année en formation initiale,
         2<sup>e</sup> année en alternance chez DB Cargo France.</p>
 
     <div class="intro-text">
@@ -457,7 +680,7 @@
         </div>
     </div>
 
-    <h2 class="section-title">Détail des Épreuves</h2>
+    <h2 class="section-title">Épreuves du BTS SIO</h2>
     <div class="table-wrapper">
         <table>
             <thead>
@@ -479,6 +702,8 @@
             </tbody>
         </table>
     </div>
+        </div>
+    </details>
 
 </section>
 
