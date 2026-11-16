@@ -157,6 +157,22 @@ body {
     display: flex;
 }
 
+/* Mobile : bouton "Mes Projets" moins massif, sans décalage horizontal */
+@media (max-width: 768px) {
+    .menu_deroulant_projet_li {
+        transform: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .menu_deroulant_projet a {
+        font-size: 22px;
+        padding: 14px 32px;
+        margin: 14px 8px;
+    }
+}
+
 
 /* Menu deroulant */
 

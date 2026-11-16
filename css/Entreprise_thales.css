@@ -279,3 +279,43 @@ hr{
     justify-content:space-around;
 }
   
+
+/* Mobile : les cartes de chiffres ne débordent plus et le grand chiffre
+   ("4,6 milliards") n'est plus coupé au milieu du mot */
+@media (max-width: 600px) {
+    .data-card {
+        min-width: 0;
+        width: calc(100% - 2em);
+        max-width: 22em;
+        min-height: 0;
+        padding: 2em 1.75em;
+    }
+
+    .data-card h3 {
+        font-size: clamp(2rem, 10vw, 2.6rem);
+        overflow-wrap: normal;
+        hyphens: manual;
+    }
+
+    .data-card h4 {
+        font-size: 1.15em;
+    }
+}
+
+/* Mobile : titres proportionnés à l'écran et marges latérales */
+@media (max-width: 600px) {
+    .Titre,
+    .Titre_autres_entreprises {
+        font-size: clamp(1.4rem, 6vw, 2rem);
+    }
+
+    #titre {
+        font-size: clamp(1.6rem, 7vw, 2.4rem);
+        padding: 0 16px;
+    }
+
+    .etat h2 {
+        font-size: 1.05rem;
+        padding: 0 16px;
+    }
+}

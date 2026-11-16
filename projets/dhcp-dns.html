@@ -57,7 +57,7 @@
         }
 
         .net-title {
-            font-size: 3.5rem;
+            font-size: clamp(1.9rem, calc(1rem + 3.64vw), 3.5rem);
             font-weight: 800;
             margin: 0;
             /* Dégradé Vert Néon */
@@ -133,7 +133,7 @@
         /* GRID FEATURES */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
             gap: 25px;
             margin-top: 20px;
         }
@@ -155,7 +155,7 @@
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: clamp(1.6rem, calc(1rem + 2.18vw), 2.5rem);
             color: #00b894;
             margin-bottom: 15px;
         }
@@ -197,6 +197,8 @@
             .net-hero { padding-top: 40px; }
         }
     </style>
+    <!-- Couche responsive globale (doit rester en dernier) -->
+    <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
 </head>
 
 <body>
@@ -323,6 +325,7 @@
         </div>
     </footer>
 
+    <script src="../js/Header.js"></script>
     <script src="../js/MessageRetour.js"></script>
 
 </body>

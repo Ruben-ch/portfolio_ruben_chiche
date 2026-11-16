@@ -7,6 +7,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Ancres : le contenu ciblé n'est jamais masqué par la barre de navigation */
+html {
+  scroll-padding-top: 20px;
+}
+
 
 
 .navigation {
@@ -19,10 +24,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Toujours au-dessus du contenu (cartes, héros en position relative, etc.) */
+  z-index: 1000;
 }
 
 .navigation.open {
   width: 250px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .navigation .menu-toggle {
@@ -37,6 +45,18 @@
   justify-content: flex-start;
   align-items: center;
   padding: 0 20px;
+  z-index: 2;
+}
+
+.navigation .menu-toggle:focus-visible {
+  outline: 3px solid #2A7FB3;
+  outline-offset: -3px;
+}
+
+.navigation ul li a:focus-visible {
+  outline: 3px solid #2A7FB3;
+  outline-offset: 2px;
+  border-radius: 10px;
 }
 
 .navigation .menu-toggle::before {
@@ -165,10 +185,34 @@
   color: var(--color);
 }
 
+/* Écrans larges mais peu hauts (téléphone en paysage, petite fenêtre) :
+   la barre latérale devient défilable au lieu de couper les derniers liens */
+@media (min-width: 769px) and (max-height: 620px) {
+  .navigation {
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 70px 0 10px;
+  }
+
+  .navigation ul {
+    gap: 4px;
+  }
+}
+
 /* Pour les petits écrans : navigation en haut */
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 76px; /* 60px de barre + marge */
+  }
+
   body {
     margin-left: 0;
+  }
+
+  /* Empêche la page de défiler derrière le menu ouvert */
+  body.nav-open {
+    overflow: hidden;
   }
 
   .navigation {
@@ -185,11 +229,20 @@
     padding: 0 10px;
     transition: height 0.5s;
     overflow: hidden; /* Cache les éléments quand fermé */
+    bottom: auto;
   }
 
   .navigation.open {
-    height: auto; /* Permet d'afficher tout le contenu */
+    /* Menu plein écran, défilable si l'écran est trop petit (paysage) */
+    height: 100vh;
+    height: 100dvh;
     width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    align-items: flex-start;
+    padding: 80px 20px 30px;
+    box-shadow: none;
   }
 
   .navigation ul {
@@ -197,9 +250,10 @@
     gap: 15px;
     margin: 0;
     padding: 0;
-    width: auto;
+    width: 100%;
     visibility: hidden; /* Cache les éléments quand fermé */
     opacity: 0; /* Cache les éléments quand fermé */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .navigation.open ul {
@@ -208,19 +262,27 @@
   }
 
   .navigation ul li {
-    width: auto; /* Ajuste la largeur des items */
+    width: 100%; /* Toute la ligne est cliquable */
     height: auto;
     padding: 0;
-
   }
 
   .navigation ul li a {
-    width: auto;
+    width: 100%;
+    min-height: 48px; /* Zone tactile confortable */
     display: flex;
     align-items: center;
   }
 
+  .navigation ul li a .text {
+    height: auto;
+    min-height: 48px;
+  }
+
   .navigation .menu-toggle {
     display: flex; /* Affiche le bouton menu */
+    position: fixed;
+    width: 100%;
+    background: rgb(211, 211, 211);
   }
 }

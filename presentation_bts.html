@@ -46,7 +46,7 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: clamp(2.1rem, calc(1rem + 4.36vw), 4rem);
             font-weight: 800;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -301,9 +301,9 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             body { margin-left: 0; }
-            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content h1 { font-size: clamp(1.7rem, calc(1rem + 2.62vw), 2.8rem); }
             .cards-wrapper { gap: 30px; }
-            .section-title { font-size: 1.8rem; flex-direction: column; gap: 10px; }
+            .section-title { font-size: 1.8rem; flex-direction: column; gap: 10px; text-align: center; }
             .section-title::before, .section-title::after { width: 60px; }
         }
 
@@ -315,6 +315,8 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Couche responsive globale (doit rester en dernier) -->
+    <link rel="stylesheet" type="text/css" href="css/Responsive.css">
 </head>
 
 <body>
@@ -354,7 +356,6 @@
             </ul>
         </div>
     </div>
-</div>
 
 <header class="hero-bts">
     <div class="hero-content">

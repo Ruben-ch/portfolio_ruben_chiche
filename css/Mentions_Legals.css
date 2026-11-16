@@ -23,4 +23,23 @@ body{
     padding: 20px;
     margin-left: 30%;
     margin-right: 30%;
+    hyphens: manual;
+}
+
+/* Tablette / mobile : les marges de 30% rendaient la boîte trop étroite
+   (titre coupé en syllabes "Men-tions Lé-gales") */
+@media (max-width: 900px) {
+    .ml {
+        width: fit-content;
+        max-width: calc(100% - 32px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .ml {
+        padding: 14px 18px;
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
 }
