@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet PCA/PRA - DB Cargo | Portfolio CHICHE Ruben</title>
+    <title>Continuité d&#x27;activité PCA/PRA (DB Cargo France) - Ruben CHICHE</title>
+    <meta name="description" content="Réseau de secours du site critique de Valenton chez DB Cargo France : routeur 4G, switch avec Port Security, PC de repli et serveur déporté. Objectif RTO &lt; 15 min." />
+    <!-- Open Graph (aperçu lors du partage du lien) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Portfolio de Ruben CHICHE" />
+    <meta property="og:title" content="Continuité d&#x27;activité PCA/PRA (DB Cargo France) - Ruben CHICHE" />
+    <meta property="og:description" content="Réseau de secours du site critique de Valenton chez DB Cargo France : routeur 4G, switch avec Port Security, PC de repli et serveur déporté. Objectif RTO &lt; 15 min." />
+    <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/projets/pca_pra.html" />
+    <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -335,6 +344,18 @@
             .context-stats { flex-direction: row; flex-wrap: wrap; }
             .critical-quote { font-size: 1.2rem; padding: 0 20px; }
         }
+
+        /* Objectif RTO mis en évidence dans le héros */
+        .rto-highlight {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: var(--db-red);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+        }
     </style>
     <!-- Couche responsive globale (doit rester en dernier) -->
     <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
@@ -347,10 +368,11 @@
             <i class="fas fa-server"></i>
         </div>
         <div class="hero-text">
-            <span class="subtitle">Gestion de Crise & Infrastructure</span>
+            <span class="subtitle">DB Cargo France · Alternance · Gestion de crise &amp; infrastructure</span>
             <h1>Résilience Opérationnelle (PCA/PRA)</h1>
             <p>
-                Conception et mise en œuvre d'un dispositif de continuité d'activité pour sécuriser la gestion du trafic ferroviaire de DB Cargo France face aux incidents critiques.
+                Conception et mise en œuvre du réseau de secours du site critique de <strong>Valenton</strong>, pour sécuriser la gestion du trafic ferroviaire de DB Cargo France face aux incidents critiques.
+                <br><span class="rto-highlight">Objectif : reprise d'activité en moins de 15 minutes (RTO &lt; 15 min)</span>
             </p>
         </div>
     </div>
@@ -364,21 +386,25 @@
             <p style="margin-bottom: 15px; font-size: 1.05rem;">
                 Suite à des coupures électriques et pannes réseau majeures, la priorité absolue était d'éviter l'immobilisation des trains. Ce projet cible spécifiquement les <strong>Gestionnaires Opérationnels (GOP)</strong>, dont l'activité est indispensable au maintien de la logistique ferroviaire.
             </p>
+            <p style="margin-bottom: 15px; font-size: 1.05rem;">
+                Le dispositif couvre le <strong>site critique de Valenton</strong>, avec un objectif de <strong>RTO inférieur à 15 minutes</strong> :
+                le RTO (<em>Recovery Time Objective</em>) est le temps maximal accepté pour rétablir l'activité après un incident.
+            </p>
             <p style="font-size: 1.05rem;">
                 L'enjeu : déployer des solutions matérielles et réseau permettant une bascule rapide et sécurisée en mode dégradé, tout en garantissant l'intégrité des flux de données de l'entreprise.
             </p>
         </div>
         <div class="context-stats">
             <div class="stat-item">
-                <div class="val">< 15 min</div>
-                <div class="stat-label">Objectif RTO (Recovery Time)</div>
+                <div class="val">&lt; 15 min</div>
+                <div class="stat-label">Objectif RTO : temps maximal de reprise d'activité</div>
             </div>
             <div class="stat-item">
                 <div class="val">100%</div>
                 <div class="stat-label">Continuité ciblée pour les GOP</div>
             </div>
             <div class="stat-item">
-                <div class="val">Zero</div>
+                <div class="val">Zéro</div>
                 <div class="stat-label">Immobilisation Train tolérée</div>
             </div>
         </div>
@@ -394,9 +420,9 @@
             
             <div class="pillar-card">
                 <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Volet Réseau (PCA Siège)</h3>
+                <h3>Volet Réseau (PCA – site de Valenton)</h3>
                 <ul class="pillar-list">
-                    <li><strong>Redondance Internet :</strong> Installation et configuration d'une box 4G de secours prenant le relais des routeurs principaux.</li>
+                    <li><strong>Redondance Internet :</strong> Installation et configuration d'un routeur 4G de secours prenant le relais des liens principaux.</li>
                     <li><strong>Sécurisation Physique :</strong> Déploiement d'un switch manageable dédié à ce réseau de secours.</li>
                     <li><strong>Port Security :</strong> Filtrage strict par adresses MAC pour n'autoriser que le matériel critique sur le réseau de crise.</li>
                 </ul>
@@ -406,7 +432,7 @@
                 <div class="pillar-icon"><i class="fas fa-laptop-medical"></i></div>
                 <h3>Volet Infrastructure (PRA Distant)</h3>
                 <ul class="pillar-list">
-                    <li><strong>Hardware Dédié :</strong> Sélections, achats et configuration d'un parc de PC portables hors-domaine stockés sur site de repli.</li>
+                    <li><strong>Hardware Dédié :</strong> Sélection, achat et configuration de PC de repli hors domaine, stockés sur site de repli.</li>
                     <li><strong>Serveur Déporté :</strong> Mise en place d'un serveur externe contenant les copies des applications métiers critiques.</li>
                     <li><strong>Stratégie RH :</strong> Bascule immédiate en télétravail pour les fonctions "support" non urgentes.</li>
                 </ul>
@@ -418,7 +444,7 @@
     <div class="results-box">
         <h2><i class="fas fa-check-circle"></i> Réalisations & Bilan Opérationnel</h2>
         <p style="font-size: 1.1rem; color: var(--text-light);">
-            Le dispositif est aujourd'hui validé et prêt à l'emploi. L'accent a été mis sur l'autonomie des utilisateurs non-techniciens en situation de stress.
+            Le dispositif est aujourd'hui validé et prêt à l'emploi : les tests de bascule ont été concluants. L'accent a été mis sur l'autonomie des utilisateurs non-techniciens en situation de stress.
         </p>
         
         <div class="results-grid">

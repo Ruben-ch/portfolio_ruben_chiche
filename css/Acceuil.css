@@ -99,7 +99,8 @@ body {
   padding-top: 2%;
 }
 
-.TitrePresentation h1 {
+.TitrePresentation h1,
+.TitrePresentation h2 {
   line-height: 150%;
   font-weight: bold;
   font-size: xx-large;
@@ -149,7 +150,8 @@ body {
     font-size: 1rem;
   }
 
-  .TitrePresentation h1 {
+  .TitrePresentation h1,
+  .TitrePresentation h2 {
     font-size: clamp(1.5rem, 1rem + 2.5vw, 2rem);
   }
 }
@@ -845,5 +847,179 @@ body {
 
   .wrapper .row {
     margin: 10px 0;
+  }
+}
+
+/* ==========================================================================
+   Mise à jour 2026 : statut, recherche d'alternance, certifications, intérêts
+   ========================================================================== */
+
+/* Statut sous le titre du héros */
+.Titre_statut {
+  margin-top: 18px;
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Bouton CV / contact : le style .boutons est réutilisé sur des liens <a> */
+a.boutons {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* Boutons des frises (Site web du lycée, Voir mes réalisations) en lien <a> */
+a.site2 {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #2b2b2b;
+}
+
+/* Section "Ce que je recherche" */
+.Recherche {
+  padding: 2% 16px 40px;
+}
+
+.recherche_carte {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  max-width: 760px;
+  margin: 30px auto 0;
+  padding: 30px clamp(20px, 4vw, 40px);
+  font-size: large;
+  line-height: 1.6;
+}
+
+.recherche_options {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.recherche_options li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: linear-gradient(to right, rgba(103, 179, 228, 0.15), rgba(149, 163, 224, 0.15));
+  border-left: 4px solid #67B3E4;
+}
+
+.recherche_duree {
+  flex: 0 0 auto;
+  min-width: 64px;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 50px;
+  background-color: #2A265F;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.recherche_detail {
+  color: #444;
+}
+
+.recherche_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.bouton_secondaire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #2A265F;
+  color: #2A265F;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.bouton_secondaire:hover {
+  background-color: #2A265F;
+  color: #fff;
+}
+
+@media (min-width: 900px) {
+  .bouton_secondaire {
+    font-size: 24px;
+  }
+}
+
+a.certification_bouton {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Certifications : note sur l'examen, carte avec icône à la place d'un logo */
+.certification_note {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #2A265F;
+  font-style: italic;
+}
+
+.certification_icone {
+  font-size: 64px;
+  color: #2A265F;
+}
+
+/* Centres d'intérêt */
+.Interets {
+  padding: 2% 16px 0;
+}
+
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 30px auto 0;
+}
+
+.chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  font-size: 1rem;
+}
+
+.chips ion-icon {
+  font-size: 1.2em;
+  color: #2A265F;
+}
+
+@media (max-width: 600px) {
+  .recherche_options li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .recherche_actions a {
+    flex: 1 1 100%;
+    justify-content: center;
   }
 }

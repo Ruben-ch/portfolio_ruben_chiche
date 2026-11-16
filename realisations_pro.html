@@ -3,10 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio - CHICHE Ruben | DB Cargo France</title>
-    <meta name="keywords" content="Portfolio,Alternance,mooc,pontoise,BTS,BTS SIO,BTS SIO SISR,SIO,SISR,BTSSIO,loic,ledoher,le doher,doher,javascript,web design,web developement,cyber-sécurité,Réseau,Reseau,Sécurité,securite,informatique,Informatique,SecNumAcadémie,DRSD" />
-    <meta name="description" content="Portfolio - CHICHE Ruben (BTS SIO SISR). Bienvenue sur mon PortFolio, vous pourrez y retrouver l'ensemble de mes compétences et réalisations professionnelles. " />
-    <meta name="author" content="CHICHE Ruben" />
+    <title>Réalisations : alternance, stage et projets - Ruben CHICHE</title>
+    <meta name="description" content="Réalisations de Ruben CHICHE : missions en alternance chez DB Cargo France (PCA/PRA, Intune, réseau terrain), stage au Ministère de la Culture, homelab, projet Arduino et labs réseau." />
+    <!-- Open Graph (aperçu lors du partage du lien) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Portfolio de Ruben CHICHE" />
+    <meta property="og:title" content="Réalisations : alternance, stage et projets - Ruben CHICHE" />
+    <meta property="og:description" content="Réalisations de Ruben CHICHE : missions en alternance chez DB Cargo France (PCA/PRA, Intune, réseau terrain), stage au Ministère de la Culture, homelab, projet Arduino et labs réseau." />
+    <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/realisations_pro.html" />
+    <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
+<meta name="author" content="CHICHE Ruben" />
     <link rel="icon" href="images/logo-web-component.webp">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -57,6 +64,30 @@
             object-fit: cover;
             background-color: #f0f0f0;
             border-bottom: 1px solid #eee;
+        }
+
+        /* Carte sans photo (en attendant une capture) : icône sur dégradé */
+        .card-image--icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: #fff;
+            background: linear-gradient(135deg, #ffa117, #ffcc33);
+        }
+
+        /* Sous-titres des projets de formation */
+        .sous-titre-projets {
+            text-align: center;
+            color: #2c3e50;
+            margin: 50px 16px 10px;
+            font-size: clamp(1.3rem, calc(1rem + 1vw), 1.8rem);
+        }
+
+        .intro-projets {
+            text-align: center;
+            color: #555;
+            margin: 0 16px 10px;
         }
 
         .card-content {
@@ -174,7 +205,7 @@
                         <span class="icon">
                             <ion-icon name="school-outline"></ion-icon>
                         </span>
-                        <span class="text">BTS SIO</span>
+                        <span class="text">Formation</span>
                     </a>
                 </li>
                 <li class="list-item " style="--color:#f44336"><a href="dbcargo.html">
@@ -195,7 +226,7 @@
                         <span class="icon">
                             <ion-icon name="bar-chart-outline"></ion-icon>
                         </span>
-                        <span class="text">Compétences & Stages</span>
+                        <span class="text">Compétences</span>
                     </a>
                 </li>
                 <li class="list-item " style="--color:#2196f3"><a href="veille_technologique.html">
@@ -220,10 +251,10 @@
         <section class="Titre">
             <h1 class="Titre2"> Réalisations <wbr> Professionnelles <br></h1>
             <hr class="HRnormal">
-            <h1 class="Titre3"> Tous mes projets réalisés à l'école et en entreprise</h1>
+            <p class="Titre3"> Mes projets en alternance, en stage, personnels et de formation</p>
         </section>
         <section class="IMG_Etudiant">
-            <img src="images/realisations_pro/Project.png" alt="IMG_Etudiant_Informatique" width="350px">
+            <img src="images/realisations_pro/Project.png" alt="Illustration : projets informatiques" width="350px">
         </section>
 
         <a href="realisations_pro.html#menu_deroulant" class="arrowProjet">
@@ -244,63 +275,92 @@
 
     <section class="Projets" id="section1">
 
-        <section class="Entreprise">
+        <section class="Entreprise" id="alternance">
             <article class="Titre_pro">
                 <p>En alternance (DB Cargo)</p>
             </article>
-            
+
             <div class="projets-grid">
 
                 <div class="projet-card">
-                    <img src="images/realisations_pro/dbcard.jpg" alt="Alternance DB Cargo" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=DB+Cargo+France'">
+                    <img src="images/realisations_pro/dbcard.jpg" alt="Logo DB Cargo sur fond ferroviaire" class="card-image">
                     <div class="card-content">
-                        <h3 class="card-title">Apprenti Support & Infra</h3>
-                        <p class="card-desc">Immersion au sein du service IT de DB Cargo France. Gestion du parc, support utilisateur niveau 1 et maintenance de l'infrastructure réseau sur site et en atelier.</p>
+                        <h3 class="card-title">Apprenti Administrateur Systèmes &amp; Réseaux</h3>
+                        <p class="card-desc">Support de proximité N1/N2 (≈ 20 tickets par semaine sous TopDesk) pour le siège, les ateliers et les conducteurs : postes Windows 11, smartphones, Citrix, Exchange et sensibilisation cyber.</p>
                         <div class="card-tags">
-                            <span class="tag">DB Cargo</span>
-                            <span class="tag">Support IT</span>
-                            <span class="tag">Infrastructure</span>
+                            <span class="tag pro">DB Cargo</span>
+                            <span class="tag pro">Support N1/N2</span>
+                            <span class="tag pro">TopDesk</span>
                         </div>
                         <a href="projets/présentation_quotidien_alternance.html" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
                     </div>
                 </div>
 
                 <div class="projet-card">
-                    <img src="images/realisations_pro/pra-pca.png" alt="Scripting" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Scripting'">
+                    <img src="images/realisations_pro/pra-pca.png" alt="Schéma de continuité d'activité" class="card-image">
                     <div class="card-content">
-                        <h3 class="card-title">Résilience Opérationnelle (PCA/PRA)</h3>
-                        <p class="card-desc">Conception et mise en œuvre d'un dispositif de continuité d'activité (RTO < 15 min) pour sécuriser le trafic ferroviaire face aux incidents critiques.</p>
+                        <h3 class="card-title">Continuité d'activité (PCA/PRA)</h3>
+                        <p class="card-desc">Réseau de secours du site critique de Valenton : routeur 4G, switch dédié avec Port Security, PC de repli hors domaine et serveur déporté. Objectif <strong>RTO &lt; 15 min</strong>, tests de bascule validés.</p>
                         <div class="card-tags">
                             <span class="tag pro">PCA / PRA</span>
-                            <span class="tag pro">Gestion de Crise</span>
-                            <span class="tag pro">Infrastructure</span>
+                            <span class="tag pro">4G / LTE</span>
+                            <span class="tag pro">Port Security</span>
                         </div>
                         <a href="projets/pca_pra.html" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
                     </div>
                 </div>
 
                 <div class="projet-card">
-                    <img src="images/realisations_pro/intune.png" alt="Wifi" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Audit+WiFi'">
+                    <img src="images/realisations_pro/intune.png" alt="Logo Microsoft Intune" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Migration MDM Intune</h3>
-                        <p class="card-desc">Migration globale de la flotte mobile vers Microsoft Intune : recensement, rédaction de procédures simplifiées et support utilisateur.</p>
+                        <p class="card-desc">Migration de 100 % de la flotte mobile vers Microsoft Intune sans perte de données, et maintien en condition opérationnelle des terminaux conducteurs Samsung XCover 7.</p>
                         <div class="card-tags">
                             <span class="tag pro">Microsoft Intune</span>
-                            <span class="tag pro">Migration</span>
-                            <span class="tag pro">Support IT</span>
+                            <span class="tag pro">Android</span>
+                            <span class="tag pro">Mobilité</span>
                         </div>
                         <a href="projets/migration-intune.html" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/DBcargotrain.jpg" alt="Train de fret DB Cargo" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Réseau terrain</h3>
+                        <p class="card-desc">Audit et déploiement Wi-Fi sur le site d'Alizay, recâblage des baies de brassage de 2 ateliers et mise à jour des synoptiques réseau.</p>
+                        <div class="card-tags">
+                            <span class="tag pro">Wi-Fi</span>
+                            <span class="tag pro">Câblage</span>
+                            <span class="tag pro">Documentation</span>
+                        </div>
+                        <a href="projets/présentation_quotidien_alternance.html#terrain" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <!-- TODO Ruben : remplacer l'icône par une capture floutée de FastRoom (images/realisations_pro/fastroom.png) -->
+                    <div class="card-image card-image--icon" aria-hidden="true"><ion-icon name="calendar-outline"></ion-icon></div>
+                    <div class="card-content">
+                        <h3 class="card-title">FastRoom : refonte graphique</h3>
+                        <p class="card-desc">Refonte graphique (front-end) de l'application interne de réservation des salles de réunion, réalisée en équipe avec la développeuse du service : disponibilités, lien Teams / Outlook, tablettes devant les salles.</p>
+                        <div class="card-tags">
+                            <span class="tag pro">Front-end</span>
+                            <span class="tag pro">Web</span>
+                            <span class="tag pro">Travail en équipe</span>
+                        </div>
+                        <a href="projets/fastroom.html" class="card-btn">Détails mission <ion-icon name="briefcase-outline"></ion-icon></a>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section class="Entreprise">
+        <section class="Entreprise" id="stage">
             <article class="Titre_pro">
                 <p>En stage (Ministère de la Culture)</p>
             </article>
-    
+
             <div class="projets-grid">
 
                 <div class="projet-card">
@@ -319,8 +379,8 @@
                 
             </div>
 
-            <div class="projet-card">
-    <img src="images/realisations_pro/dhcp stage.webp" alt="DHCP" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Scope+DHCP'">
+                <div class="projet-card">
+    <img src="images/realisations_pro/dhcp stage.webp" alt="DHCP" class="card-image">
     <div class="card-content">
         <h3 class="card-title">Mise en place Scope DHCP</h3>
         <p class="card-desc">Création de scopes, configuration des options et gestion du Failover via Smart DHCP.</p>
@@ -332,8 +392,8 @@
     </div>
 </div>
 
-<div class="projet-card">
-    <img src="images/realisations_pro/switch conf.png" alt="Switch" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Config+Switch'">
+                <div class="projet-card">
+    <img src="images/realisations_pro/switch conf.png" alt="Switch" class="card-image">
     <div class="card-content">
         <h3 class="card-title">Configuration Switch</h3>
         <p class="card-desc">Segmentation réseau, création de VLANs (1002/1120) et configuration des gateways.</p>
@@ -347,7 +407,7 @@
 </div>
 
                 <div class="projet-card">
-    <img src="images/realisations_pro/ticketing.jpeg" alt="Support IT" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Support+GLPI'">
+    <img src="images/realisations_pro/ticketing.jpeg" alt="Support IT" class="card-image">
     
     <div class="card-content">
         <h3 class="card-title">Support & Ticketing</h3>
@@ -364,138 +424,68 @@
 </div>
 
     </div>
+
             </div>
         </section>
 
-        <section class="Ecole">
+        <section class="Ecole" id="personnels">
             <article class="Titre_pro">
-                <p>A l'école</p>
+                <p>Projets personnels &amp; universitaires</p>
             </article>
-            
-            <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 1.8rem;">📂 Système & Administration</h3>
 
             <div class="projets-grid">
+
                 <div class="projet-card">
-                    <img src="images/realisations_pro/GLPI.png" alt="GLPI" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=GLPI'">
+                    <!-- TODO Ruben : remplacer l'icône par une photo du homelab (images/realisations_pro/homelab.jpg) -->
+                    <div class="card-image card-image--icon" aria-hidden="true"><ion-icon name="server-outline"></ion-icon></div>
                     <div class="card-content">
-                        <h3 class="card-title">Mise en place GLPI</h3>
-                        <p class="card-desc">Installation et configuration d'un serveur de gestion de parc et ticketing pour le suivi des incidents.</p>
+                        <h3 class="card-title">Homelab Debian &amp; Docker</h3>
+                        <p class="card-desc">Serveur Debian 12 sur client léger Dell OptiPlex 3000 : services Docker (Nextcloud, Pi-hole pour le filtrage DNS) et accès distant sécurisé via le VPN mesh Tailscale.</p>
                         <div class="card-tags">
-                            <span class="tag">Linux</span>
-                            <span class="tag">GLPI</span>
-                            <span class="tag">Apache</span>
+                            <span class="tag">Debian 12</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Tailscale</span>
                         </div>
-                        <a href="projets/glpi.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <a href="projets/homelab.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
                     </div>
                 </div>
 
                 <div class="projet-card">
-                    <img src="images/realisations_pro/AD.png" alt="Active Directory" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Active+Directory'">
+                    <!-- TODO Ruben : remplacer l'icône par une photo du contrôleur (images/realisations_pro/controleur-arduino.jpg) -->
+                    <div class="card-image card-image--icon" aria-hidden="true"><ion-icon name="hardware-chip-outline"></ion-icon></div>
                     <div class="card-content">
-                        <h3 class="card-title">Active Directory</h3>
-                        <p class="card-desc">Création d'un domaine Windows, gestion des utilisateurs, GPO et scripts d'ouverture de session.</p>
+                        <h3 class="card-title">Contrôleur Arduino × Godot</h3>
+                        <p class="card-desc">Projet universitaire : contrôleur matériel sur mesure (Arduino UNO, encodeur, potentiomètre, joystick, LEDs, vibreurs) relié en temps réel par liaison série au moteur 3D Godot Engine pour un jeu audio-réactif.</p>
                         <div class="card-tags">
-                            <span class="tag">Windows Server</span>
-                            <span class="tag">AD DS</span>
-                            <span class="tag">PowerShell</span>
+                            <span class="tag">Arduino</span>
+                            <span class="tag">IoT / embarqué</span>
+                            <span class="tag">Liaison série</span>
                         </div>
-                        <a href="projets/AD.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <a href="projets/controleur-arduino.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
                     </div>
                 </div>
 
-                <div class="projet-card">
-                    <img src="images/realisations_pro/pfsense.webp" alt="Pfsense" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=pfSense'">
-                    <div class="card-content">
-                        <h3 class="card-title">Sécurité Réseau</h3>
-                        <p class="card-desc">Mise en place d'un pare-feu pfSense, filtrage des paquets et configuration VPN.</p>
-                        <div class="card-tags">
-                            <span class="tag">Réseau</span>
-                            <span class="tag">pfSense</span>
-                            <span class="tag">Sécurité</span>
-                        </div>
-                        <a href="projets/pfsense.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
+            </div>
+        </section>
 
-                <div class="projet-card">
-                    <img src="images/realisations_pro/postfix.png" alt="Postfix" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Messagerie'">
-                    <div class="card-content">
-                        <h3 class="card-title">Serveur de messagerie</h3>
-                        <p class="card-desc">Mise en place d'une infrastructure mail complète "from scratch" sous Linux et configuration du client lourd.</p>
-                        <div class="card-tags">
-                            <span class="tag">Postfix</span>
-                            <span class="tag">Dovecot</span>
-                            <span class="tag">Thunderbird</span>
-                        </div>
-                        <a href="projets/postfix-dovecot.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
+        <section class="Ecole" id="formation-bts">
+            <article class="Titre_pro">
+                <p>Projets de formation (BTS)</p>
+            </article>
 
-                <div class="projet-card">
-                    <img src="images/realisations_pro/DNS-DHCP.jpeg" alt="DHCP DNS" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=DHCP+DNS'">
-                    <div class="card-content">
-                        <h3 class="card-title">Serveur DHCP & DNS</h3>
-                        <p class="card-desc">Administration de services réseaux critiques sous Debian (Bind9 & ISC-DHCP).</p>
-                        <div class="card-tags">
-                            <span class="tag">Debian</span>
-                            <span class="tag">Bind9</span>
-                            <span class="tag">DHCP</span>
-                        </div>
-                        <a href="projets/dhcp-dns.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
+            <h3 class="sous-titre-projets">⭐ Projet de fin de BTS : haute disponibilité</h3>
+            <p class="intro-projets">Architecture 3 niveaux : HAProxy, Docker, IDS Suricata, HSRP et ACL.</p>
+            <div class="projets-grid">
 
-                <div class="projet-card">
-                    <img src="images/realisations_pro/nginx.png" alt="DHCP DNS" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=DHCP+DNS'">
-                    <div class="card-content">
-                        <h3 class="card-title">Serveur Web Nginx</h3>
-                        <p class="card-desc">Mise en place d'un serveur Web sous Debian 11. Configuration en <strong>Reverse Proxy</strong> pour sécuriser l'accès.</p>
-                        <div class="card-tags">
-                            <span class="tag">HTTPS</span>
-                            <span class="tag">Debian</span>
-                            <span class="tag">Reverse Proxy</span>
-                        </div>
-                        <a href="projets/nginx.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
-
-                <div class="projet-card">
-                    <img src="images/realisations_pro/monitoring_cours.png" alt="Supervision" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Supervision'">
-                    <div class="card-content">
-                        <h3 class="card-title">Supervision (Zabbix/Cockpit)</h3>
-                        <p class="card-desc">Déploiement d'outils de monitoring pour l'analyse des performances, la gestion des logs et les alertes proactives.</p>
-                        <div class="card-tags">
-                            <span class="tag">Zabbix</span>
-                            <span class="tag">Cockpit</span>
-                            <span class="tag">Monitoring</span>
-                        </div>
-                        <a href="projets/monitoring.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
-
-                <div class="projet-card" style="border: 2px solid #aa00ff;">
-                    <img src="images/realisations_pro/final.png" alt="Infrastructure Globale" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Infra+Globale'">
-                    <div class="card-content">
-                        <h3 class="card-title" style="color: #aa00ff;">Infrastructure Globale</h3>
-                        <p class="card-desc">Synthèse : Conception et interconnexion de tous les services (AD, GLPI, pfSense, VPN...).</p>
-                        <div class="card-tags">
-                            <span class="tag">Architecture</span>
-                            <span class="tag">Intégration</span>
-                            <span class="tag">Sécurité</span>
-                        </div>
-                        <a href="projets/projet_final.html" class="card-btn" style="background: linear-gradient(90deg, #aa00ff, #7c4dff);">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
-                
                 <div class="projet-card" style="border: 2px solid #2c3e50;">
-    <img src="images/realisations_pro/systemee6.png" alt="Projet E6 Système" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Infrastructure+E6'">
+    <img src="images/realisations_pro/systemee6.png" alt="Architecture haute disponibilité du projet de fin de BTS" class="card-image">
     
     <div class="card-content">
-        <h3 class="card-title" style="color: #2c3e50;">Projet E6 : Infrastructure GestTravaux</h3>
-        <p class="card-desc">Dossier technique complet présentant l'architecture haute disponibilité : Load Balancing HAProxy, conteneurisation Docker, et sécurisation IDS Suricata.</p>
+        <h3 class="card-title" style="color: #2c3e50;">Haute disponibilité : volet système</h3>
+        <p class="card-desc">Projet de fin de BTS (épreuve E6) : dossier technique de l'architecture haute disponibilité, avec répartition de charge HAProxy, conteneurisation Docker et IDS Suricata.</p>
         
         <div class="card-tags">
-            <span class="tag">Épreuve E6</span>
+            <span class="tag">Projet de fin de BTS</span>
             <span class="tag">Système</span>
             <span class="tag">Haute Disponibilité</span>
             <span class="tag">Sécurité</span>
@@ -506,43 +496,28 @@
         </a>
     </div>
 </div>
-                
-            </div>
-
-            <h3 style="text-align: center; color: #2c3e50; margin-top: 50px; margin-bottom: 20px; font-size: 1.8rem;">🌐 Réseau & Sécurité</h3>
-
-            <div class="projets-grid">
-                
-                <div class="projet-card">
-                    <img src="images/realisations_pro/ACL.jpg" alt="Cisco Packet Tracer" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Cisco+Packet+Tracer'">
-                    <div class="card-content">
-                        <h3 class="card-title">Sécurisation Réseau (ACL)</h3>
-                        <p class="card-desc">Mise en place de listes de contrôle d'accès (ACL) étendues sur équipement Cisco pour segmenter et sécuriser les flux.</p>
-                        <div class="card-tags">
-                            <span class="tag">ACL</span>
-                            <span class="tag">VLAN</span>
-                            <span class="tag">Packet Tracer</span>
-                        </div>
-                        <a href="projets/acl.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                    </div>
-                </div>
 
                 <div class="projet-card">
-                    <img src="images/realisations_pro/hsrp.png" alt="Supervision" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Supervision+Nagios'">
+                    <img src="images/realisations_pro/E6_reseau.jpg" alt="RIP et DHCP IPv6" class="card-image">
                     <div class="card-content">
-                        <h3 class="card-title">Haute Disponibilité HSRP</h3>
-                        <p class="card-desc">Redondance de routeurs et Load Balancing inter-VLAN avec Cisco HSRP et routage dynamique RIP.</p>
+                        <h3 class="card-title">Haute disponibilité : volet réseau</h3>
+                        <p class="card-desc">Conception, déploiement et sécurisation d'une topologie réseau à 3 niveaux intégrant haute disponibilité (HSRP) et filtrage (ACL).</p>
                         <div class="card-tags">
                             <span class="tag">HSRP</span>
-                            <span class="tag">Haute Disponibilité</span>
-                            <span class="tag">Load Balancing</span>
+                            <span class="tag">ACL</span>
+                            <span class="tag">Sécurité</span>
                         </div>
-                        <a href="projets/hsrp.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <a href="projets/E6_reseau.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
                     </div>
                 </div>
 
+            </div>
+
+            <h3 class="sous-titre-projets">🌐 Labs réseau</h3>
+            <div class="projets-grid">
+
                 <div class="projet-card">
-                    <img src="images/realisations_pro/ospf.jpg" alt="Wi-Fi Sécurisé" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Wi-Fi+Radius'">
+                    <img src="images/realisations_pro/ospf.jpg" alt="Wi-Fi Sécurisé" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Routage OSPF Inter-Sites</h3>
                         <p class="card-desc">Architecture WAN 3 sites avec routage dynamique OSPF et centralisation DHCP via agents relais.</p>
@@ -556,7 +531,35 @@
                 </div>
 
                 <div class="projet-card">
-                    <img src="images/realisations_pro/protocole rip.png" alt="RIP et DHCP IPv6" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Analyse+Wireshark'">
+                    <img src="images/realisations_pro/hsrp.png" alt="Supervision" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Haute Disponibilité HSRP</h3>
+                        <p class="card-desc">Redondance de routeurs et Load Balancing inter-VLAN avec Cisco HSRP et routage dynamique RIP.</p>
+                        <div class="card-tags">
+                            <span class="tag">HSRP</span>
+                            <span class="tag">Haute Disponibilité</span>
+                            <span class="tag">Load Balancing</span>
+                        </div>
+                        <a href="projets/hsrp.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/ACL.jpg" alt="Cisco Packet Tracer" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Sécurisation Réseau (ACL)</h3>
+                        <p class="card-desc">Mise en place de listes de contrôle d'accès (ACL) étendues sur équipement Cisco pour segmenter et sécuriser les flux.</p>
+                        <div class="card-tags">
+                            <span class="tag">ACL</span>
+                            <span class="tag">VLAN</span>
+                            <span class="tag">Packet Tracer</span>
+                        </div>
+                        <a href="projets/acl.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/protocole rip.png" alt="RIP et DHCP IPv6" class="card-image">
                     <div class="card-content">
                         <h3 class="card-title">Routage Hybride IPv4/IPv6 (RIP)</h3>
                         <p class="card-desc">Architecture redondante en triangle intégrant RIPv2 MD5, RIPng, NAT et DHCP.</p>
@@ -569,23 +572,139 @@
                     </div>
                 </div>
 
-                <div class="projet-card">
-                    <img src="images/realisations_pro/E6_reseau.jpg" alt="RIP et DHCP IPv6" class="card-image" onerror="this.src='https://via.placeholder.com/300x160?text=Analyse+Wireshark'">
+            </div>
+
+            <h3 class="sous-titre-projets">📂 Systèmes &amp; services</h3>
+            <div class="projets-grid">
+
+                <div class="projet-card" style="border: 2px solid #aa00ff;">
+                    <img src="images/realisations_pro/final.png" alt="Infrastructure Globale" class="card-image">
                     <div class="card-content">
-                        <h3 class="card-title">Infrastructure E6</h3>
-                        <p class="card-desc">Conception, déploiement et sécurisation d'une topologie réseau à 3 niveaux intégrant haute disponibilité (HSRP) et filtrage (ACL).</p>
+                        <h3 class="card-title" style="color: #aa00ff;">Infrastructure Globale</h3>
+                        <p class="card-desc">Synthèse : Conception et interconnexion de tous les services (AD, GLPI, pfSense, VPN...).</p>
                         <div class="card-tags">
-                            <span class="tag">HSRP</span>
-                            <span class="tag">ACL</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Intégration</span>
                             <span class="tag">Sécurité</span>
                         </div>
-                        <a href="projets/E6_reseau.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                        <a href="projets/projet_final.html" class="card-btn" style="background: linear-gradient(90deg, #aa00ff, #7c4dff);">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/pfsense.webp" alt="Pfsense" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Sécurité Réseau</h3>
+                        <p class="card-desc">Mise en place d'un pare-feu pfSense, filtrage des paquets et configuration VPN.</p>
+                        <div class="card-tags">
+                            <span class="tag">Réseau</span>
+                            <span class="tag">pfSense</span>
+                            <span class="tag">Sécurité</span>
+                        </div>
+                        <a href="projets/pfsense.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/openvpn.png" alt="Logo OpenVPN" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">VPN OpenVPN &amp; PKI</h3>
+                        <p class="card-desc">Déploiement d'une infrastructure VPN pour les collaborateurs nomades : serveur OpenVPN sous Debian et authentification par certificats (PKI EasyRSA).</p>
+                        <div class="card-tags">
+                            <span class="tag">OpenVPN</span>
+                            <span class="tag">EasyRSA (PKI)</span>
+                            <span class="tag">Debian</span>
+                        </div>
+                        <a href="projets/openvpn.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/AD.png" alt="Active Directory" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Active Directory</h3>
+                        <p class="card-desc">Création d'un domaine Windows, gestion des utilisateurs, GPO et scripts d'ouverture de session.</p>
+                        <div class="card-tags">
+                            <span class="tag">Windows Server</span>
+                            <span class="tag">AD DS</span>
+                            <span class="tag">PowerShell</span>
+                        </div>
+                        <a href="projets/AD.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/GLPI.png" alt="GLPI" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Mise en place GLPI</h3>
+                        <p class="card-desc">Installation et configuration d'un serveur de gestion de parc et ticketing pour le suivi des incidents.</p>
+                        <div class="card-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">GLPI</span>
+                            <span class="tag">Apache</span>
+                        </div>
+                        <a href="projets/glpi.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/DNS-DHCP.jpeg" alt="DHCP DNS" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Serveur DHCP & DNS</h3>
+                        <p class="card-desc">Administration de services réseaux critiques sous Debian (Bind9 & ISC-DHCP).</p>
+                        <div class="card-tags">
+                            <span class="tag">Debian</span>
+                            <span class="tag">Bind9</span>
+                            <span class="tag">DHCP</span>
+                        </div>
+                        <a href="projets/dhcp-dns.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/nginx.png" alt="DHCP DNS" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Serveur Web Nginx</h3>
+                        <p class="card-desc">Mise en place d'un serveur Web sous Debian 11. Configuration en <strong>Reverse Proxy</strong> pour sécuriser l'accès.</p>
+                        <div class="card-tags">
+                            <span class="tag">HTTPS</span>
+                            <span class="tag">Debian</span>
+                            <span class="tag">Reverse Proxy</span>
+                        </div>
+                        <a href="projets/nginx.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/monitoring_cours.png" alt="Supervision" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Supervision (Zabbix/Cockpit)</h3>
+                        <p class="card-desc">Déploiement d'outils de monitoring pour l'analyse des performances, la gestion des logs et les alertes proactives.</p>
+                        <div class="card-tags">
+                            <span class="tag">Zabbix</span>
+                            <span class="tag">Cockpit</span>
+                            <span class="tag">Monitoring</span>
+                        </div>
+                        <a href="projets/monitoring.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div class="projet-card">
+                    <img src="images/realisations_pro/postfix.png" alt="Postfix" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Serveur de messagerie</h3>
+                        <p class="card-desc">Mise en place d'une infrastructure mail complète "from scratch" sous Linux et configuration du client lourd.</p>
+                        <div class="card-tags">
+                            <span class="tag">Postfix</span>
+                            <span class="tag">Dovecot</span>
+                            <span class="tag">Thunderbird</span>
+                        </div>
+                        <a href="projets/postfix-dovecot.html" class="card-btn">Voir le projet <ion-icon name="arrow-forward-outline"></ion-icon></a>
                     </div>
                 </div>
 
             </div>
-
-        </section>
+    </section>
 
     </section>
 

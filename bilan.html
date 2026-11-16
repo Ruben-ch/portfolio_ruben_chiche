@@ -3,10 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bilan & Soft Skills - CHICHE Ruben</title>
-    <meta name="keywords" content="Portfolio, BTS SIO, Bilan, Soft Skills, Compétences, Ruben CHICHE" />
-    <meta name="description" content="Bilan de mes deux années de BTS SIO et compétences transversales acquises (Soft Skills)." />
-    <meta name="author" content="CHICHE Ruben" />
+    <title>Bilan du BTS SIO - Ruben CHICHE</title>
+    <meta name="description" content="Bilan de mes deux années de BTS SIO option SISR (2024-2026), compétences transversales acquises et suite de mon parcours vers un cycle ingénieur ou un master." />
+    <!-- Open Graph (aperçu lors du partage du lien) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Portfolio de Ruben CHICHE" />
+    <meta property="og:title" content="Bilan du BTS SIO - Ruben CHICHE" />
+    <meta property="og:description" content="Bilan de mes deux années de BTS SIO option SISR (2024-2026), compétences transversales acquises et suite de mon parcours vers un cycle ingénieur ou un master." />
+    <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/bilan.html" />
+    <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
+<meta name="author" content="CHICHE Ruben" />
     <link rel="icon" href="images/logo-web-component.webp">
 
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -234,6 +241,31 @@
             line-height: 1.8;
         }
 
+        .conclusion-card p + p {
+            margin-top: 16px;
+        }
+
+        .conclusion-card .conclusion-btn {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            margin-top: 26px;
+            padding: 10px 24px;
+            border-radius: 50px;
+            background: #a29bfe;
+            color: #1e1b3a;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .conclusion-card .conclusion-btn:hover {
+            transform: translateY(-2px);
+        }
+
         /* --- ANIMATIONS CSS PURES --- */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
@@ -271,7 +303,7 @@
                     </li>
                     <li class="list-item" style="--color:#8e44ad"><a href="presentation_bts.html">
                         <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
-                        <span class="text">BTS SIO</span>
+                        <span class="text">Formation</span>
                         </a>
                     </li>
                     <li class="list-item" style="--color:#f44336"><a href="dbcargo.html">
@@ -286,7 +318,7 @@
                     </li>
                     <li class="list-item" style="--color:#00b894"><a href="competences.html">
                         <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
-                        <span class="text">Compétences & Stages</span>
+                        <span class="text">Compétences</span>
                         </a>
                     </li>
                     <li class="list-item " style="--color:#2196f3"><a href="veille_technologique.html">
@@ -304,10 +336,10 @@
         </div>
 
     <section class="hero-bilan">
-        <h1>Bilan de <span style="font-weight: 300; font-style: italic;">Formation</span></h1>
+        <h1>Bilan du <span style="font-weight: 300; font-style: italic;">BTS SIO</span></h1>
         <p>
-            Synthèse de deux années d'immersion technique et humaine. 
-            Développement de compétences transversales et consolidation d'une expertise SISR chez DB Cargo France.
+            Synthèse de mes deux années de BTS SIO option SISR (2024-2026) : immersion technique et humaine,
+            développement de compétences transversales et consolidation d'une expertise SISR chez DB Cargo France.
         </p>
     </section>
 
@@ -373,12 +405,17 @@
 
     <section class="conclusion-wrapper">
         <div class="conclusion-card">
-            <h2>Prêt pour l'avenir</h2>
+            <h2>Et maintenant ?</h2>
             <p>
-                Ces deux années de BTS SIO m'ont permis de transformer ma passion pour l'informatique en véritables compétences professionnelles. 
-                Je suis aujourd'hui prêt à relever de nouveaux défis en administration systèmes et réseaux, 
-                fort d'un bagage technique solide et de qualités humaines éprouvées.
+                Ces deux années de BTS SIO m'ont permis de transformer ma passion pour l'informatique en véritables compétences professionnelles,
+                avec un bagage technique solide et des qualités humaines éprouvées.
             </p>
+            <p>
+                Diplômé du BTS en 2026, je poursuis en <strong>Licence Informatique (Réseaux &amp; Cybersécurité)</strong>, toujours en alternance chez DB Cargo France.
+                Mon objectif : rejoindre en septembre 2027 un <strong>cycle ingénieur Réseaux &amp; Télécoms</strong> ou un <strong>master Réseaux &amp; Cybersécurité</strong>
+                en alternance, pour évoluer vers la conception et la sécurisation d'architectures réseaux, télécoms et IoT.
+            </p>
+            <a href="index.html#recherche" class="conclusion-btn">Voir ce que je recherche <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
         </div>
     </section>
 

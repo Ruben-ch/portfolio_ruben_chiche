@@ -406,3 +406,19 @@ input[type=submit].btn-block {
   padding-bottom: 7px;
   margin-top: 5px;
 }
+
+/* Section "Pourquoi ce sujet me concerne" */
+.veille_lien_projet {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+.veille_lien_projet a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+  color: #0b5ed7;
+  font-weight: 600;
+}
