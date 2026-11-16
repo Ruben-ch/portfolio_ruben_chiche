@@ -1064,7 +1064,6 @@ a.certification_bouton {
 
 .interet--bricolage { --c1: #00b894; --c2: #0984e3; }
 .interet--photo     { --c1: #a55eea; --c2: #f368e0; }
-.interet--muscu     { --c1: #ff6b6b; --c2: #ff9f43; }
 .interet--basket    { --c1: #e17055; --c2: #d35400; }
 .interet--musique   { --c1: #e84393; --c2: #6c5ce7; }
 .interet--asso      { --c1: #f7b731; --c2: #fa8231; }
@@ -1087,6 +1086,16 @@ a.certification_bouton {
     padding: 20px 12px;
   }
 
+
+  /* Nombre impair de tuiles : la dernière prend toute la largeur */
+  .interet:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    transform: rotate(-1deg);
+  }
+
+  .interet:last-child:nth-child(odd):hover {
+    transform: translateY(-8px) rotate(0deg) scale(1.02);
+  }
 
   .interet_emoji {
     width: 64px;
