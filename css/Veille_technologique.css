@@ -22,11 +22,18 @@ body {
 }*/
 
 .Titre {
-  background-image: url('../images/Veille_technologique/veille_technologie.jpg');
-  background-color: rgb(0, 0, 0);
-  background-size: cover;
-  background-position: 0 0px;
-  background-repeat: no-repeat;
+  /* L'image d'origine (veille_technologie.jpg) n'existait pas : le fond était noir.
+     Remplacé par un maillage réseau (chemins de secours en vert = réseau auto-réparateur)
+     sur un dégradé bleu / violet aux couleurs de la page */
+  background-color: #0d47a1;
+  background-image:
+    url('../images/Veille_technologique/reseau-hero.svg'),
+    radial-gradient(circle at 20% 20%, rgba(124, 255, 178, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(194, 146, 222, 0.45), transparent 50%),
+    linear-gradient(135deg, #0b2a6f 0%, #1565c0 45%, #2196f3 70%, #6a3fd0 100%);
+  background-size: 480px 320px, cover, cover, cover;
+  background-position: center, center, center, center;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +48,7 @@ body {
   line-height: 130%;
   font-size: 300%;
   color: rgb(255, 255, 255);
+  text-shadow: 0 4px 18px rgba(5, 20, 60, 0.55);
 }
 
 @media (max-width: 900px) {
