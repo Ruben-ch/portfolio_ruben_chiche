@@ -22,11 +22,17 @@ body {
 }*/
 
 .Titre {
-  background-image: url('../images/Veille_technologique/veille_technologie.jpg');
-  background-color: rgb(0, 0, 0);
-  background-size: cover;
-  background-position: 0 0px;
-  background-repeat: no-repeat;
+  /* Photo réelle : serveurs de la Wikimedia Foundation, Victor Grigas, CC BY-SA 3.0
+     (crédit affiché dans le bandeau et dans les mentions légales).
+     Voile bleu / violet par-dessus pour garder les couleurs de la page et la lisibilité du titre */
+  position: relative;
+  background-color: #0b2a6f;
+  background-image:
+    linear-gradient(135deg, rgba(11, 42, 111, 0.82) 0%, rgba(21, 101, 192, 0.55) 50%, rgba(106, 63, 208, 0.72) 100%),
+    url('../images/Veille_technologique/serveurs-wikimedia.jpg');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +47,7 @@ body {
   line-height: 130%;
   font-size: 300%;
   color: rgb(255, 255, 255);
+  text-shadow: 0 4px 18px rgba(5, 20, 60, 0.55);
 }
 
 @media (max-width: 900px) {
@@ -421,4 +428,21 @@ input[type=submit].btn-block {
   margin-top: 8px;
   color: #0b5ed7;
   font-weight: 600;
+}
+
+/* Crédit de la photo du bandeau (obligatoire, licence CC BY-SA 3.0) */
+.credit_photo {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  text-align: right;
+  bottom: 8px;
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.credit_photo a {
+  color: inherit;
 }

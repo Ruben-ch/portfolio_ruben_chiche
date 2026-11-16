@@ -988,9 +988,9 @@ a.certification_bouton {
 .interets {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
   gap: 22px;
-  max-width: 1050px;
+  max-width: 1100px;
   margin: 34px auto 0;
   padding: 0;
 }
@@ -1062,11 +1062,12 @@ a.certification_bouton {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-.interet--electro { --c1: #00b894; --c2: #0984e3; }
-.interet--photo   { --c1: #a55eea; --c2: #f368e0; }
-.interet--muscu   { --c1: #ff6b6b; --c2: #ff9f43; }
-.interet--guitare { --c1: #e84393; --c2: #6c5ce7; }
-.interet--asso    { --c1: #f7b731; --c2: #fa8231; }
+.interet--bricolage { --c1: #00b894; --c2: #0984e3; }
+.interet--photo     { --c1: #a55eea; --c2: #f368e0; }
+.interet--muscu     { --c1: #ff6b6b; --c2: #ff9f43; }
+.interet--basket    { --c1: #e17055; --c2: #d35400; }
+.interet--musique   { --c1: #e84393; --c2: #6c5ce7; }
+.interet--asso      { --c1: #f7b731; --c2: #fa8231; }
 
 @keyframes interet-wiggle {
   0%, 100% { transform: rotate(0deg); }
@@ -1086,14 +1087,6 @@ a.certification_bouton {
     padding: 20px 12px;
   }
 
-  .interet:last-child {
-    grid-column: 1 / -1;
-    transform: rotate(-1deg);
-  }
-
-  .interet:last-child:hover {
-    transform: translateY(-8px) rotate(0deg) scale(1.02);
-  }
 
   .interet_emoji {
     width: 64px;
