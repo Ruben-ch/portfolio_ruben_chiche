@@ -22,18 +22,17 @@ body {
 }*/
 
 .Titre {
-  /* L'image d'origine (veille_technologie.jpg) n'existait pas : le fond était noir.
-     Remplacé par un maillage réseau (chemins de secours en vert = réseau auto-réparateur)
-     sur un dégradé bleu / violet aux couleurs de la page */
-  background-color: #0d47a1;
+  /* Photo réelle : serveurs de la Wikimedia Foundation, Victor Grigas, CC BY-SA 3.0
+     (crédit affiché dans le bandeau et dans les mentions légales).
+     Voile bleu / violet par-dessus pour garder les couleurs de la page et la lisibilité du titre */
+  position: relative;
+  background-color: #0b2a6f;
   background-image:
-    url('../images/Veille_technologique/reseau-hero.svg'),
-    radial-gradient(circle at 20% 20%, rgba(124, 255, 178, 0.18), transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(194, 146, 222, 0.45), transparent 50%),
-    linear-gradient(135deg, #0b2a6f 0%, #1565c0 45%, #2196f3 70%, #6a3fd0 100%);
-  background-size: 480px 320px, cover, cover, cover;
-  background-position: center, center, center, center;
-  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+    linear-gradient(135deg, rgba(11, 42, 111, 0.82) 0%, rgba(21, 101, 192, 0.55) 50%, rgba(106, 63, 208, 0.72) 100%),
+    url('../images/Veille_technologique/serveurs-wikimedia.jpg');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -429,4 +428,21 @@ input[type=submit].btn-block {
   margin-top: 8px;
   color: #0b5ed7;
   font-weight: 600;
+}
+
+/* Crédit de la photo du bandeau (obligatoire, licence CC BY-SA 3.0) */
+.credit_photo {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  text-align: right;
+  bottom: 8px;
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.credit_photo a {
+  color: inherit;
 }
