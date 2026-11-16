@@ -26,7 +26,7 @@
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px; opacity: 0.2; pointer-events: none;
         }
-        .dhcp-title { font-size: 3rem; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
+        .dhcp-title { font-size: clamp(1.75rem, calc(1rem + 2.91vw), 3rem); font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
         .dhcp-subtitle { font-size: 1.2rem; color: #ffe0b2; margin-top: 15px; font-weight: 300; }
 
         .dhcp-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; position: relative; z-index: 10; }
@@ -34,7 +34,7 @@
         .section-title { font-size: 1.8rem; color: #1e293b; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
 
         /* Grid */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 20px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 25px; margin-top: 20px; }
         .feature-item { background: #fff8f0; padding: 25px; border-radius: 15px; text-align: center; border: 1px solid #ffe0b2; transition: transform 0.3s; }
         .feature-item:hover { transform: translateY(-5px); border-color: #e67e22; background: white; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.15); }
         .feature-icon { font-size: 2.5rem; color: #d35400; margin-bottom: 15px; }
@@ -47,6 +47,8 @@
         .btn-floating { position: fixed; bottom: 30px; right: 30px; background: #e67e22; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4); z-index: 1000; transition: all 0.3s; text-decoration: none; }
         .btn-floating:hover { transform: scale(1.1); background: #d35400; }
     </style>
+    <!-- Couche responsive globale (doit rester en dernier) -->
+    <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
 </head>
 <body>
     <div class="container"><div class="navigation"><div class="menu-toggle"></div><ul class="list"><li class="list-item" style="--color:#67B3E4"><a href="../index.html"><span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span></a></li><li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html"><span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">BTS SIO</span></a></li><li class="list-item" style="--color:#f44336"><a href="../dbcargo.html"><span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span></a></li><li class="list-item" style="--color:#00b894"><a href="../competences.html"><span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span></a></li><li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html"><span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span></a></li><li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html"><span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span></a></li><li class="list-item" style="--color:#b145e9"><a href="../bilan.html"><span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span></a></li></ul></div></div>
@@ -95,6 +97,6 @@
     <a href="../realisations_pro.html" class="btn-floating" title="Retour"><ion-icon name="arrow-undo"></ion-icon></a>
     
     <footer class="footer" id="footer"><div class="inner"><div class="column is-logo"><div class="logo-info"><div class="footer_text">CHICHE Ruben</div><span class="copyright">© 2026. All rights reserved.</span></div></div><div class="column is-nav"><div class="column-title">Navigation</div><ul><li><a href="../index.html" class="footer_a">Accueil</a></li><li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li><li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li></ul></div><div class="column is-nav"><div class="column-title">Contact</div><ul><li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li><li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li><li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li></ul></div><div class="column is-nav"><div class="column-title">Informations</div><ul><li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li><li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li></ul></div></div></footer>
-    <script src="../js/Header.js"></script><script src="../js/MessageRetour.js"></script></button>
+    <script src="../js/Header.js"></script><script src="../js/MessageRetour.js"></script>
 </body>
 </html>

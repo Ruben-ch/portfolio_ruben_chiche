@@ -56,7 +56,8 @@
 
         h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 5vw, 5rem);
+            font-size: clamp(2rem, 5vw, 5rem);
+            overflow-wrap: break-word;
             font-weight: 900;
             line-height: 1;
             margin: 0 0 1rem 0;
@@ -100,6 +101,7 @@
             margin-top: 0;
             border-bottom: var(--border-width) solid var(--border-color);
             padding-bottom: 1rem;
+            overflow-wrap: break-word;
             text-transform: uppercase;
         }
 
@@ -183,6 +185,7 @@
             padding: 0.5rem 1rem;
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 900;
+            overflow-wrap: anywhere; /* chemins type C:\SECURITY\... sans espaces */
             border-bottom: var(--border-width) solid var(--border-color);
             text-transform: uppercase;
         }
@@ -245,7 +248,19 @@
             transform: translate(4px, 4px);
             box-shadow: 2px 2px 0px var(--border-color);
         }
+
+        /* --- Mobile : cartes moins massives, bouton Retour compact --- */
+        @media (max-width: 600px) {
+            .neo-card { padding: 1.5rem; }
+            .neo-card h2 { font-size: clamp(1.35rem, 6vw, 2rem); }
+            .brutal-terminal { padding: 1.1rem; font-size: 0.85rem; }
+            .brutal-terminal .header-bar { margin: -1.1rem -1.1rem 1.1rem -1.1rem; }
+            .back-button-fixed { bottom: 1rem; right: 1rem; }
+            .btn-back { padding: 0.6rem 1rem; gap: 8px; min-height: 44px; }
+        }
     </style>
+    <!-- Couche responsive globale (doit rester en dernier) -->
+    <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
 </head>
 <body>
 

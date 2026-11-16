@@ -25,7 +25,10 @@ h1 {
 
 .Titre {
     line-height: 150%;
-    font-size: xx-large;
+    /* xx-large (2rem) sur desktop, réduit progressivement sur petit écran */
+    font-size: clamp(1.25rem, calc(1rem + 1.3vw), 2rem);
+    overflow-wrap: break-word;
+    min-width: 0;
     font-weight: bold;
     text-align: left;
     padding-right: 6%;
@@ -50,14 +53,14 @@ h1 {
 .Titre3 {
     line-height: 105%;
     padding-top: 15px;
-    font-size: xx-large;
+    font-size: clamp(1.25rem, calc(1rem + 1.3vw), 2rem);
     font-weight: bold;
     text-align: left;
 }
 
 .IMG_Etudiant {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 20px;
 }
 
@@ -81,7 +84,14 @@ h1 {
 
 @media (max-width: 800px) {
     .Titre {
-        padding-right: 0%;
+        /* Gouttières latérales : le titre et le trait ne touchent plus les bords */
+        padding: 48px 20px 32px;
+        width: 100%;
+    }
+
+    .Titre2 {
+        font-size: 150%;
+        padding-top: 15px;
     }
 
     .IMG_Etudiant {
@@ -155,7 +165,6 @@ h1 {
     /*position: relative;*/
     width: var(--sizeX);
     height: var(--sizeY);
-    margin-left: var(sizeX / 2);
     border: calc(var(--sizeX) / 10) solid var(--color);
     border-radius: 50px;
     box-sizing: border-box;
@@ -260,8 +269,26 @@ h1 {
     outline: none;
     background-color: rgb(139, 139, 139);
     cursor: pointer;
-    padding: 19px;
+    padding: 0;
+    width: 44px;
+    height: 44px; /* zone tactile minimale */
     border-radius: 4px;
+    /* Masqué tant que l'on n'a pas défilé (classe ajoutée par Scroll_Up.js) */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+#myBtn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+#myBtn:focus-visible {
+    outline: 3px solid #2A7FB3;
+    outline-offset: 2px;
 }
 
 
@@ -281,7 +308,7 @@ h1 {
 }
 
 .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, calc(1rem + 2.18vw), 2.5rem);
     font-weight: 800;
     color: #333;
     margin-bottom: 1rem;
@@ -320,7 +347,7 @@ h1 {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;

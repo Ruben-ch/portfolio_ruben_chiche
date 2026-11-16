@@ -125,6 +125,35 @@ body {
   line-height: 170%;
 }
 
+/* Tablette / mobile : les <br> manuels créaient des lignes orphelines et
+   un texte collé aux bords de l'écran */
+@media (max-width: 1024px) {
+  .TitrePresentation p {
+    max-width: 70ch;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .TitrePresentation p br {
+    display: none;
+  }
+
+  .TitrePresentation p #CV {
+    display: block;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .TitrePresentation p {
+    font-size: 1rem;
+  }
+
+  .TitrePresentation h1 {
+    font-size: clamp(1.5rem, 1rem + 2.5vw, 2rem);
+  }
+}
+
 
 
 
@@ -153,6 +182,7 @@ body {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  min-height: 44px; /* zone tactile */
 }
 
 .boutons:active,
@@ -195,6 +225,18 @@ body {
   overflow: hidden;
   margin: 40px;
   width: 600px;
+  max-width: calc(100% - 32px);
+}
+
+@media (max-width: 700px) {
+  .certification {
+    margin: 20px 16px;
+  }
+
+  .certification_description {
+    padding: 22px;
+    font-size: 1rem;
+  }
 }
 
 .certification:hover {
@@ -241,6 +283,8 @@ body {
   justify-self: center;
   margin-top: 15px;
   letter-spacing: 1px;
+  min-height: 44px;
+  cursor: pointer;
 }
 
 .icon {
@@ -309,9 +353,11 @@ body {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  min-height: 44px;
 }
 
-#site2 {
+#site2,
+.site2 {
   font-size: medium;
   background-color: #FBCA3E;
   border: none;
@@ -331,6 +377,7 @@ body {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  min-height: 44px;
 }
 
 .frise {

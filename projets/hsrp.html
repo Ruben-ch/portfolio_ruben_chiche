@@ -45,7 +45,7 @@
         }
 
         .infra-title {
-            font-size: 3.5rem; font-weight: 800; margin: 0;
+            font-size: clamp(1.9rem, calc(1rem + 3.64vw), 3.5rem); font-weight: 800; margin: 0;
             text-transform: uppercase; letter-spacing: 2px;
             line-height: 1.2; text-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
@@ -98,7 +98,7 @@
 
         /* GRID FEATURES */
         .arch-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 30px; margin-top: 30px;
         }
 
@@ -136,6 +136,8 @@
             .infra-hero { padding-top: 40px; }
         }
     </style>
+    <!-- Couche responsive globale (doit rester en dernier) -->
+    <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
 </head>
 
 <body>
@@ -301,6 +303,7 @@
         </div>
     </footer>
     
+    <script src="../js/Header.js"></script>
     <script src="../js/MessageRetour.js"></script>
 
 </body>

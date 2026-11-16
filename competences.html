@@ -104,7 +104,7 @@
         }
 
         .header-section h1 {
-            font-size: 3.2rem;
+            font-size: clamp(1.9rem, calc(1rem + 3.2vw), 3.2rem);
             margin-bottom: 20px;
             color: #2d3436;
             font-weight: 800;
@@ -126,7 +126,7 @@
         /* --- CARTES --- */
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto 100px auto;
@@ -285,11 +285,17 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .blob { opacity: 0.6; filter: blur(50px); }
-            .header-section h1 { font-size: 2.5rem; }
+            .header-section h1 { font-size: clamp(1.6rem, calc(1rem + 2.18vw), 2.5rem); }
             .btn-container { flex-direction: column; }
-            .header-section { padding-top: 100px; }
+            /* le body a déjà margin-top: 60px (barre de nav) : évite un double espace vide */
+            .header-section { padding-top: 40px; }
+            .card-header { padding: 28px 22px 10px; }
+            .card-body { padding: 10px 22px 28px; }
+            .content-grid { gap: 28px; margin-bottom: 60px; }
         }
     </style>
+    <!-- Couche responsive globale (doit rester en dernier) -->
+    <link rel="stylesheet" type="text/css" href="css/Responsive.css">
 </head>
 <body>
 
@@ -310,7 +316,6 @@
             </ul>
         </div>
     </div>
-</div>
 
 <section class="header-section">
     <h1>Compétences & <span style="color:#00b894;">Parcours</span></h1>
