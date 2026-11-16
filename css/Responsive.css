@@ -115,3 +115,55 @@ pre {
     padding: 25px;
   }
 }
+
+
+/* ==========================================================================
+   FOND COLORÉ DU SITE
+   Remplace les fonds gris / blancs par un dégradé doux, teinté avec la couleur
+   propre à chaque page (--page-accent-rgb, défini sur la balise <html>).
+   Posé sur un pseudo-élément fixe : fonctionne aussi sur mobile (iOS ignore
+   background-attachment: fixed) et reste derrière tout le contenu.
+   ========================================================================== */
+:root {
+  --page-accent-rgb: 103, 179, 228;
+}
+
+/* Le fond de base passe sur <html> ; le <body> devient transparent, sinon son
+   fond opaque (gris) recouvrirait le dégradé ci-dessous */
+html:not(.fond-original) {
+  background-color: #e6e9fa !important;
+}
+
+html:not(.fond-original) body {
+  background: transparent !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(70vmax 70vmax at -10% -10%, rgba(var(--page-accent-rgb), 0.62), transparent 60%),
+    radial-gradient(60vmax 60vmax at 110% 10%, rgba(103, 179, 228, 0.55), transparent 60%),
+    radial-gradient(50vmax 50vmax at 55% 50%, rgba(var(--page-accent-rgb), 0.22), transparent 70%),
+    radial-gradient(65vmax 65vmax at 105% 110%, rgba(194, 146, 222, 0.60), transparent 60%),
+    radial-gradient(55vmax 55vmax at -5% 105%, rgba(var(--page-accent-rgb), 0.45), transparent 60%),
+    linear-gradient(160deg, #dfe8fb 0%, #eee1fa 100%);
+}
+
+/* La page "projet de fin de BTS" garde son fond papier à pois d'origine */
+html.fond-original body::before {
+  display: none;
+}
+
+/* Sections qui avaient un fond gris opaque : on laisse voir le fond coloré */
+.frise_chronologique,
+.description_veille,
+.articles_veille,
+.grid,
+.Projets,
+.menu_deroulant_projet {
+  background-color: transparent !important;
+}

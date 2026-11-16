@@ -36,7 +36,7 @@ body {
     /*background-color: #ffa117;*/
     /*background-color: #ffeed4;*/
     /*background-image: linear-gradient(144deg, #ffa117, #fcc168 50%, #ffeed4);*/
-    background-image: linear-gradient(to bottom, #ffa117,#ffa117 40%, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffa117,#ffa117 40%, rgba(255, 161, 23, 0));
 }
 
 #DescriptionFormation {
