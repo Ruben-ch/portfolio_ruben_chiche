@@ -2,14 +2,14 @@
 <html lang="fr" style="--page-accent-rgb: 142,68,173">
 <head>
     <meta charset="UTF-8">
-    <title>Formation : Licence Informatique &amp; BTS SIO - Ruben CHICHE</title>
-    <meta name="description" content="Ma formation : Licence Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
+    <title>Formation : Licence générale Informatique &amp; BTS SIO - Ruben CHICHE</title>
+    <meta name="description" content="Ma formation : Licence générale Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
     <!-- Open Graph (aperçu lors du partage du lien) -->
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Portfolio de Ruben CHICHE" />
-    <meta property="og:title" content="Formation : Licence Informatique &amp; BTS SIO - Ruben CHICHE" />
-    <meta property="og:description" content="Ma formation : Licence Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
+    <meta property="og:title" content="Formation : Licence générale Informatique &amp; BTS SIO - Ruben CHICHE" />
+    <meta property="og:description" content="Ma formation : Licence générale Informatique parcours Réseaux &amp; Cybersécurité (Lycée Le Rebours / CNAM Paris) et BTS SIO option SISR obtenu en 2026." />
     <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/presentation_bts.html" />
     <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -261,10 +261,76 @@
             flex-shrink: 0;
         }
         .option-card.sisr li::before { background-color: #2196f3; }
-        .option-card.licence { border-left: 6px solid #00b894; max-width: 760px; }
-        .option-card.licence .watermark-icon { color: #00b894; }
-        .option-card.licence li::before { background-color: #00b894; }
-        .option-card.licence .subtitle { color: #00b894; }
+        .option-card.licence { border-left: 6px solid #8e44ad; max-width: 860px; }
+        .option-card.licence .watermark-icon { color: #8e44ad; }
+        .option-card.licence li::before { background-color: #8e44ad; }
+        .option-card.licence .subtitle { color: #8e44ad; }
+        .option-card.licence h3 ion-icon { color: #8e44ad; }
+        .option-card.licence p + p { margin-top: 12px; }
+        .section-title { hyphens: manual; }
+
+        /* --- BTS : section repliable, en retrait par rapport à la Licence --- */
+        .bts-details {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .bts-details > summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px 30px;
+            font-size: clamp(1.1rem, calc(1rem + 0.6vw), 1.5rem);
+            font-weight: 700;
+            color: #2c3e50;
+            border-left: 6px solid #67B3E4;
+        }
+
+        .bts-details > summary::-webkit-details-marker { display: none; }
+
+        .bts-details > summary small {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #7f8c8d;
+            margin-top: 4px;
+        }
+
+        .bts-details > summary::after {
+            content: '+';
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #67B3E4, #8e44ad);
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .bts-details[open] > summary::after {
+            transform: rotate(45deg);
+        }
+
+        .bts-details > summary:focus-visible {
+            outline: 3px solid #8e44ad;
+            outline-offset: -3px;
+        }
+
+        .bts-contenu {
+            padding: 40px 30px 10px;
+        }
+
+        .bts-contenu .section-title { font-size: clamp(1.3rem, calc(1rem + 1vw), 1.8rem); }
         .section-intro { text-align: center; color: #555; max-width: 700px; margin: -30px auto 40px; line-height: 1.6; }
         .option-card.slam li::before { background-color: #8e44ad; }
 
@@ -373,8 +439,8 @@
 <header class="hero-bts">
     <div class="hero-content">
         <h1>Ma formation</h1>
-        <p>Licence Informatique (Réseaux &amp; Cybersécurité) · BTS SIO option SISR</p>
-        <span class="hero-badge">En alternance chez DB Cargo France</span>
+        <p>Licence générale Informatique · Parcours Réseaux &amp; Cybersécurité</p>
+        <span class="hero-badge">2026-2027 · En alternance chez DB Cargo France</span>
     </div>
     
     <div class="custom-shape-divider-bottom">
@@ -387,7 +453,7 @@
 <section class="main-container">
 
     <!-- Licence -->
-    <h2 class="section-title" id="licence">Licence Informatique (2026-2027)</h2>
+    <h2 class="section-title" id="licence">Licence générale Informatique (2026-2027)</h2>
 
     <div class="cards-wrapper">
         <div class="option-card licence">
@@ -398,6 +464,9 @@
                 <span class="subtitle">Parcours Réseaux &amp; Cybersécurité · Alternance</span>
                 <p>Formation de niveau Bac+3 préparée au <strong>Lycée Le Rebours</strong>, en partenariat avec le
                     <strong>CNAM Paris</strong>, en alternance au service informatique de DB Cargo France.</p>
+                <p><strong>Mon objectif :</strong> consolider mes bases en réseaux et en cybersécurité avant un cycle ingénieur
+                    ou un master Réseaux &amp; Télécoms, pour évoluer vers la conception et la sécurisation d'architectures
+                    réseaux, télécoms et IoT.</p>
                 <ul>
                     <li>Établissement : Lycée Le Rebours, en partenariat avec le CNAM Paris</li>
                     <li>Rythme : alternance chez DB Cargo France</li>
@@ -408,9 +477,29 @@
         </div>
     </div>
 
-    <!-- BTS SIO -->
-    <h2 class="section-title" id="bts">BTS SIO option SISR (2024-2026)</h2>
-    <p class="section-intro">Diplôme obtenu en 2026 au Lycée ORT Daniel Mayer (Montreuil) : 1<sup>re</sup> année en formation initiale,
+    <!-- TODO Ruben : épreuves / unités d'enseignement de la Licence générale.
+         Envoie-moi la liste (intitulé, forme d'évaluation, durée, coefficient ou ECTS) et ce tableau sera activé :
+    <h2 class="section-title">Épreuves de la Licence</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr><th>Unité d'enseignement</th><th>Évaluation</th><th>Durée</th><th>ECTS / Coef.</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    -->
+
+    <!-- BTS SIO : contenu conservé dans une section repliable -->
+    <details class="bts-details" id="bts">
+        <summary>
+            <span>Mon BTS SIO option SISR (2024-2026)
+                <small>Diplômé en 2026 · Lycée ORT Daniel Mayer (Montreuil) · options et épreuves</small></span>
+        </summary>
+        <div class="bts-contenu">
+    <p class="section-intro" style="margin-top:0;">Diplôme obtenu en 2026 au Lycée ORT Daniel Mayer (Montreuil) : 1<sup>re</sup> année en formation initiale,
         2<sup>e</sup> année en alternance chez DB Cargo France.</p>
 
     <div class="intro-text">
@@ -457,7 +546,7 @@
         </div>
     </div>
 
-    <h2 class="section-title">Détail des Épreuves</h2>
+    <h2 class="section-title">Épreuves du BTS SIO</h2>
     <div class="table-wrapper">
         <table>
             <thead>
@@ -479,6 +568,8 @@
             </tbody>
         </table>
     </div>
+        </div>
+    </details>
 
 </section>
 
