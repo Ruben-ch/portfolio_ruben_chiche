@@ -1066,7 +1066,7 @@ a.certification_bouton {
 .interet--photo     { --c1: #a55eea; --c2: #f368e0; }
 .interet--basket    { --c1: #e17055; --c2: #d35400; }
 .interet--musique   { --c1: #e84393; --c2: #6c5ce7; }
-.interet--asso      { --c1: #f7b731; --c2: #fa8231; }
+.interet--voyage    { --c1: #00b4d8; --c2: #f7b731; }
 
 @keyframes interet-wiggle {
   0%, 100% { transform: rotate(0deg); }

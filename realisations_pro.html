@@ -76,6 +76,38 @@
             background: linear-gradient(135deg, #ffa117, #ffcc33);
         }
 
+        /* Liste courte de points clés sur une carte projet */
+        .card-points {
+            list-style: none;
+            margin: -4px 0 14px;
+            padding: 0;
+            display: grid;
+            gap: 6px;
+        }
+
+        .card-points li {
+            position: relative;
+            padding-left: 16px;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: #555;
+        }
+
+        .card-points li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 7px;
+            height: 7px;
+            border-radius: 2px;
+            background: #ffa117;
+        }
+
+        .card-points strong {
+            color: #2c3e50;
+        }
+
         /* Distinction affichée sur une carte projet */
         .card-award {
             display: inline-flex;
@@ -457,7 +489,12 @@
                     <div class="card-image card-image--icon" aria-hidden="true"><ion-icon name="hardware-chip-outline"></ion-icon></div>
                     <div class="card-content">
                         <h3 class="card-title">Contrôleur Arduino × Godot</h3>
-                        <p class="card-desc">Réalisé lors d'une game jam (hackathon) au Lycée Le Rebours : contrôleur matériel sur mesure (Arduino UNO, encodeur, potentiomètre, joystick, LEDs, vibreurs) relié en temps réel au moteur Godot Engine pour un jeu audio-réactif, avec modélisation 3D de la manette sous Autodesk Fusion.</p>
+                        <p class="card-desc">Manette sur mesure conçue en game jam au Lycée Le Rebours, qui pilote en temps réel un jeu audio-réactif sous Godot Engine.</p>
+                        <ul class="card-points">
+                            <li><strong>Électronique</strong> : Arduino UNO, encodeur, potentiomètre, joystick</li>
+                            <li><strong>Retours</strong> : LEDs et moteurs de vibration</li>
+                            <li><strong>Boîtier</strong> : modélisé en 3D sous Autodesk Fusion</li>
+                        </ul>
                         <p class="card-award"><span aria-hidden="true">🥈</span><span>Élue 2<sup>e</sup> meilleure manette de la game jam</span></p>
                         <div class="card-tags">
                             <span class="tag">Game jam</span>
