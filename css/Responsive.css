@@ -167,3 +167,11 @@ html.fond-original body::before {
 .menu_deroulant_projet {
   background-color: transparent !important;
 }
+
+
+/* Le menu latéral doit toujours passer au-dessus du contenu : si une page
+   donne un z-index au bloc qui le contient, on remonte ce bloc au premier plan */
+.container:has(> .navigation) {
+  position: relative;
+  z-index: 1000 !important;
+}

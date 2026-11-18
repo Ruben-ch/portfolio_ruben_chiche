@@ -37,9 +37,28 @@ h1 {
 }
 
 .Titre1 {
-    line-height: 150%;
+    line-height: 130%;
     font-weight: bold;
     text-align: left;
+    /* « Bonjour » un peu plus grand (2em par défaut pour un h1) */
+    font-size: 2.6em;
+}
+
+/* « Je m'appelle » en plus petit pour faire ressortir le prénom et le nom */
+.Titre_intro {
+    display: block;
+    font-size: 0.45em;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+    opacity: 0.85;
+}
+
+.Titre_nom {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 800;
+    line-height: 1.05;
 }
 
 .Titre2 {

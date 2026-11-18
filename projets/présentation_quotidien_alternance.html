@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr" style="--page-accent-rgb: 228,0,5">
+<html lang="fr" style="--page-accent-rgb: 226,0,26">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apprenti IT (DB Cargo France) - Ruben CHICHE</title>
     <meta name="description" content="Mon quotidien d&#x27;apprenti IT chez DB Cargo France : support N1/N2, réseau terrain, gestion de parc et cybersécurité." />
     <!-- Open Graph (aperçu lors du partage du lien) -->
@@ -13,383 +13,179 @@
     <meta property="og:description" content="Mon quotidien d&#x27;apprenti IT chez DB Cargo France : support N1/N2, réseau terrain, gestion de parc et cybersécurité." />
     <meta property="og:url" content="https://ruben-ch.github.io/portfolio_ruben_chiche/projets/pr%C3%A9sentation_quotidien_alternance.html" />
     <meta property="og:image" content="https://ruben-ch.github.io/portfolio_ruben_chiche/images/Acceuil/Hand-reseau.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../images/logo-web-component.webp">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header.css">
+    <link rel="stylesheet" type="text/css" href="../css/Footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/Mission_DB.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
-
-        :root {
-            --db-red: #e40005;
-            --bg-color: #e9ecef;
-            --card-bg: #fafafa;
-            --header-dark: #1a1a1a;
-            --text-main: #333333;
-            --text-on-dark: #f0f0f0;
-            --text-muted: #6c757d;
-            --accent-blue: #0077b5;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        h1, h2, h3, .stat-number, .header-subtitle {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        header {
-            background-image: linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.85)), url(../images/realisations_pro/DBcargotrain.jpg);
-            background-size: cover;
-            background-position: center;
-            border-bottom: 5px solid var(--db-red);
-            padding: 100px 20px;
-            color: var(--text-on-dark);
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .hero-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* TITRE AGRANDI */
-        .header-subtitle {
-            color: var(--db-red);
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: clamp(1.75rem, calc(1rem + 2.91vw), 3rem);
-            margin-bottom: 0;
-            display: block;
-            line-height: 1.2;
-        }
-
-        .hero-text { text-align: center; }
-
-        .hero-role {
-            color: #fff;
-            font-size: clamp(1.4rem, calc(1rem + 1.6vw), 2.2rem);
-            font-weight: 700;
-            margin-top: 12px;
-            line-height: 1.25;
-        }
-
-        .hero-meta {
-            color: #d0d5da;
-            margin-top: 10px;
-            font-size: 1.05rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .personal-quote {
-            background: #ffffff;
-            border-left: 6px solid var(--db-red);
-            padding: 30px 40px;
-            border-radius: 0 12px 12px 0;
-            margin-bottom: 40px;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #4a4a4a;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .personal-quote i {
-            font-size: clamp(1.6rem, calc(1rem + 2.18vw), 2.5rem);
-            color: #e0e4e8;
-            flex-shrink: 0;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border: 1px solid #e0e4e8; 
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-            border-color: rgba(228, 0, 5, 0.5);
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 25px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background: var(--card-bg);
-            flex: 1;
-            min-width: 220px;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border: 1px solid #e0e4e8;
-            border-top: 6px solid var(--db-red);
-        }
-
-        .stat-number {
-            font-size: clamp(1.7rem, calc(1rem + 2.62vw), 2.8rem);
-            font-weight: 700;
-            color: var(--db-red);
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-        }
-
-        h2 {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #1a1a1a;
-        }
-
-        h2 i {
-            color: var(--db-red);
-            background: rgba(228, 0, 5, 0.1); 
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 1.2rem;
-        }
-
-        ul.mission-list {
-            list-style: none;
-        }
-
-        ul.mission-list li {
-            margin-bottom: 18px;
-            padding-left: 30px;
-            position: relative;
-            color: var(--text-main);
-        }
-
-        ul.mission-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--db-red);
-            font-weight: bold;
-            font-size: 1.4rem;
-            top: -4px;
-        }
-
-        /* SECTION LINKEDIN RESTAURÉE */
-        .linkedin-banner {
-            background: linear-gradient(135deg, #0077b5 0%, #005a8a 100%);
-            border-radius: 12px;
-            padding: 50px;
-            text-align: center;
-            margin-top: 50px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.2);
-        }
-
-        .linkedin-banner h2 {
-            color: white;
-            justify-content: center;
-            border-bottom: none;
-            padding: 0;
-            margin-bottom: 15px;
-        }
-
-        .linkedin-banner h2 i {
-            color: white;
-            background: transparent;
-            padding: 0;
-            font-size: 2.2rem;
-        }
-
-        .linkedin-banner p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            background: #fafafa;
-            color: #0077b5;
-            padding: 16px 35px;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            background: #ffffff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-muted);
-            margin-top: 60px;
-            background: #e1e4e7;
-            border-top: 1px solid #e0e4e8;
-        }
-
-        .btn-floating {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--db-red); color: white; width: 50px; height: 50px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 24px; box-shadow: 0 5px 15px rgba(228, 0, 5, 0.4);
-            z-index: 1000; transition: all 0.3s; text-decoration: none;
-        }
-
-        @media (max-width: 900px) {
-            .header-subtitle { font-size: 2rem; }
-            header { padding: 60px 20px; }
-            .personal-quote { flex-direction: column; text-align: center; border-left: none; border-top: 6px solid var(--db-red); border-radius: 12px;}
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Couche responsive globale (doit rester en dernier) -->
     <link rel="stylesheet" type="text/css" href="../css/Responsive.css">
 </head>
+
 <body>
 
-<header>
-    <div class="hero-wrapper">
-        <div class="hero-text">
-            <span class="header-subtitle">DB Cargo France • Alternance</span>
-            <h1 class="hero-role">Apprenti IT</h1>
-            <p class="hero-meta">Support de proximité N1/N2 · Réseau terrain · Continuité d'activité — Aubervilliers, 2025-2027</p>
-        </div>
-    </div>
-</header>
-
-<div class="container">
-
-    <div class="personal-quote">
-        <i class="fas fa-quote-left"></i>
-        <span>"L'informatique ne s'arrête pas derrière un écran. Ma véritable valeur ajoutée, c'est d'aller sur le terrain, d'être à l'écoute des utilisateurs et d'anticiper leurs problèmes de réseau ou de matériel avant même qu'ils n'impactent notre logistique."</span>
-    </div>
-
-    <div class="stats-container">
-        <div class="stat-box">
-            <div class="stat-number">~20</div>
-            <div class="stat-label">Tickets / Sem. (TopDesk)</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Disponibilité Urgences</div>
-        </div>
-        <div class="stat-box">
-            <div class="stat-number">2</div>
-            <div class="stat-label">Ateliers recâblés</div>
-        </div>
-    </div>
-
-    <div class="dashboard-grid">
-        <div class="card">
-            <h2><i class="fas fa-headset"></i> Support Utilisateurs</h2>
-            <ul class="mission-list">
-                <li><strong>Ticketing :</strong> Traçabilité et résolution via <strong>TopDesk</strong>.</li>
-                <li><strong>Assistance à distance :</strong> Support critique pour les conducteurs et équipes terrain.</li>
-                <li><strong>Bureaux virtuels :</strong> Gestion et dépannage des environnements <strong>Citrix</strong>.</li>
-                <li><strong>Support de proximité N1/N2 :</strong> Environ 20 tickets par semaine pour le siège, les ateliers et les conducteurs.</li>
-                <li><strong>Messagerie :</strong> Support des utilisateurs sur <strong>Exchange</strong>.</li>
-            </ul>
-        </div>
-
-        <div class="card" id="terrain">
-            <h2><i class="fas fa-network-wired"></i> Déploiement & Infra Terrain</h2>
-            <ul class="mission-list">
-                <li><strong>Déplacements en agence :</strong> Interventions physiques sur site.</li>
-                <li><strong>Réseau physique :</strong> Recâblage complet et propre des baies de brassage de 2 ateliers.</li>
-                <li><strong>Wi-Fi :</strong> Audit et déploiement Wi-Fi sur le site d'Alizay ; diagnostic et correction de problèmes de connectivité.</li>
-                <li><strong>Documentation :</strong> Mise à jour des synoptiques réseau.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2><i class="fas fa-boxes"></i> Gestion de Parc & Matériel</h2>
-            <ul class="mission-list">
-                <li><strong>Gestion des stocks :</strong> Suivi de l'inventaire physique.</li>
-                <li><strong>Flotte Mobile :</strong> Préparation et attribution des smartphones et tablettes.</li>
-                <li><strong>Postes de travail :</strong> Préparation des postes <strong>Windows 11</strong> et des périphériques.</li>
-                <li><strong>Logistique IT :</strong> S'assurer de la disponibilité matérielle.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2><i class="fas fa-shield-alt"></i> Transverse & Cybersécurité</h2>
-            <ul class="mission-list">
-                <li><strong>Sensibilisation Cyber :</strong> Accompagnement sur les bonnes pratiques de sécurité.</li>
-                <li><strong>Collaboration tech :</strong> Appui technique ponctuel aux développeurs.</li>
-                <li><strong>Automatisation :</strong> Scripts <strong>PowerShell</strong> et utilitaires web internes.</li>
-                <li><strong>FastRoom :</strong> Refonte graphique de l'application interne de réservation des salles (<a href="fastroom.html">voir le projet</a>).</li>
+    <div class="container">    
+        <div class="navigation">
+            <div class="menu-toggle"></div>
+            <ul class="list">
+                <li class="list-item" style="--color:#67B3E4"><a href="../index.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span><span class="text">Accueil</span>
+                </a></li>
+                <li class="list-item" style="--color:#8e44ad"><a href="../presentation_bts.html">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span><span class="text">Formation</span>
+                </a></li>
+                <li class="list-item" style="--color:#f44336"><a href="../dbcargo.html">
+                    <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span><span class="text">Entreprise</span>
+                </a></li>
+                <li class="list-item" style="--color:#00b894"><a href="../competences.html">
+                    <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span><span class="text">Compétences</span>
+                </a></li>
+                <li class="list-item active" style="--color:#ffa117"><a href="../realisations_pro.html">
+                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span><span class="text">Réalisations</span>
+                </a></li>
+                <li class="list-item" style="--color:#2196f3"><a href="../veille_technologique.html">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span><span class="text">Veille</span>
+                </a></li>
+                <li class="list-item" style="--color:#b145e9"><a href="../bilan.html">
+                    <span class="icon"><ion-icon name="accessibility-outline"></ion-icon></span><span class="text">Bilan</span>
+                </a></li>
             </ul>
         </div>
     </div>
 
-    <div class="linkedin-banner">
-        <h2><i class="fab fa-linkedin"></i> Mon Quotidien en Images</h2>
-        <p>DBCargo France a publié un post pour illustrer mes missions quotidiennes. Allez y jeter un œil !</p>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7432418119387656192/" target="_blank" rel="noreferrer" class="btn">
-            Voir le post LinkedIn
-        </a>
-    </div>
+    <header class="m-hero">
+        <div class="m-hero__inner">
+            <nav class="m-fil" aria-label="Fil d'Ariane">
+                <a href="../realisations_pro.html#alternance">Réalisations</a><span aria-hidden="true">/</span><span>DB Cargo France</span>
+            </nav>
+            <p class="m-surtitre">Mission en alternance · Support &amp; infrastructure</p>
+            <h1>Apprenti IT chez DB Cargo France</h1>
+            <p class="m-chapo">Au service informatique d'une entreprise de fret ferroviaire, j'interviens au plus près des utilisateurs : support de proximité, réseau sur le terrain, gestion du parc et sensibilisation à la cybersécurité.</p>
+        </div>
+    </header>
 
-</div>
+    <main class="m-page">
+        <div class="m-grid">
+            <article class="m-contenu">
+            <section class="m-section">
+                <header><span class="m-num">01</span><h2>En bref</h2></header>
+                <dl class="m-chiffres">
+                    <div><dt>~20</dt><dd>tickets traités par semaine (TopDesk)</dd></div>
+                    <div><dt>100 %</dt><dd>disponibilité sur les urgences</dd></div>
+                    <div><dt>2</dt><dd>ateliers recâblés</dd></div>
+                </dl>
+                <blockquote class="m-citation">« L'informatique ne s'arrête pas derrière un écran. Ma véritable valeur ajoutée, c'est d'aller sur le terrain, d'être à l'écoute des utilisateurs et d'anticiper leurs problèmes de réseau ou de matériel avant même qu'ils n'impactent notre logistique. »</blockquote>
+            </section>
+            <section class="m-section">
+                <header><span class="m-num">02</span><h2>Support utilisateurs</h2></header>
+                <ul class="m-points">
+                    <li><strong>Support N1/N2</strong><span>Environ 20 tickets par semaine pour le siège, les ateliers et les conducteurs.</span></li>
+                    <li><strong>Ticketing</strong><span>Traçabilité et résolution des demandes via TopDesk.</span></li>
+                    <li><strong>Assistance à distance</strong><span>Support critique pour les conducteurs et les équipes terrain.</span></li>
+                    <li><strong>Bureaux virtuels</strong><span>Gestion et dépannage des environnements Citrix.</span></li>
+                    <li><strong>Messagerie</strong><span>Support des utilisateurs sur Exchange.</span></li>
+                </ul>
+            </section>
+            <section class="m-section">
+                <header><span class="m-num">03</span><h2>Réseau et infrastructure terrain</h2></header>
+                <div id="terrain"></div>
+                <ul class="m-points">
+                    <li><strong>Interventions sur site</strong><span>Déplacements en agence pour les interventions physiques.</span></li>
+                    <li><strong>Câblage</strong><span>Recâblage complet et propre des baies de brassage de 2 ateliers.</span></li>
+                    <li><strong>Wi-Fi</strong><span>Audit et déploiement Wi-Fi sur le site d'Alizay ; diagnostic et correction des problèmes de connectivité.</span></li>
+                    <li><strong>Documentation</strong><span>Mise à jour des synoptiques réseau.</span></li>
+                </ul>
+            </section>
+            <section class="m-section">
+                <header><span class="m-num">04</span><h2>Gestion du parc</h2></header>
+                <ul class="m-points">
+                    <li><strong>Postes de travail</strong><span>Préparation des postes Windows 11 et des périphériques.</span></li>
+                    <li><strong>Flotte mobile</strong><span>Préparation et attribution des smartphones et tablettes.</span></li>
+                    <li><strong>Stocks</strong><span>Suivi de l'inventaire physique.</span></li>
+                    <li><strong>Logistique IT</strong><span>Disponibilité du matériel pour les équipes.</span></li>
+                </ul>
+            </section>
+            <section class="m-section">
+                <header><span class="m-num">05</span><h2>Transverse et cybersécurité</h2></header>
+                <ul class="m-points">
+                    <li><strong>Sensibilisation</strong><span>Accompagnement des utilisateurs sur les bonnes pratiques de sécurité.</span></li>
+                    <li><strong>Automatisation</strong><span>Scripts PowerShell et utilitaires web internes.</span></li>
+                    <li><strong>FastRoom</strong><span>Refonte graphique de l'application de réservation des salles (<a href="fastroom.html">voir la mission</a>).</span></li>
+                    <li><strong>Collaboration</strong><span>Appui technique ponctuel aux développeurs.</span></li>
+                </ul>
+            </section>
+            <section class="m-section">
+                <header><span class="m-num">06</span><h2>Mon quotidien en images</h2></header>
+                <div class="m-encart">
+                    <p>DB Cargo France a publié un post LinkedIn qui illustre mes missions au quotidien.</p>
+                    <a class="m-bouton" href="https://www.linkedin.com/feed/update/urn:li:activity:7432418119387656192/" target="_blank" rel="noreferrer">Voir le post LinkedIn</a>
+                </div>
+            </section>
+            </article>
 
-<footer>
-    <p>&copy; 2026 - Ruben CHICHE - Portfolio IT Alternance - DB Cargo France</p>
-</footer>
+        <aside class="m-fiche" aria-label="Fiche mission">
+            <h2>Fiche mission</h2>
+            <dl>
+                    <dt>Entreprise</dt><dd>DB Cargo France (fret ferroviaire)</dd>
+                    <dt>Poste</dt><dd>Apprenti IT</dd>
+                    <dt>Période</dt><dd>2025 – 2027</dd>
+                    <dt>Lieu</dt><dd>Siège d'Aubervilliers, ateliers et sites</dd>
+                    <dt>Outils</dt><dd>TopDesk, Citrix, Exchange, Windows 11, PowerShell</dd>
+            </dl>
+            <a class="m-retour" href="../realisations_pro.html#alternance">← Toutes mes réalisations</a>
+        </aside>
+        </div>
 
-<a href="../realisations_pro.html" class="btn-floating" title="Retour">
-    <ion-icon name="arrow-undo"></ion-icon>
-</a>
+    <section class="m-autres" aria-labelledby="autres-titre">
+        <h2 id="autres-titre">Autres missions chez DB Cargo France</h2>
+        <ul>
+            <li><a href="pca_pra.html"><strong>Continuité d'activité (PCA/PRA)</strong><span>Réseau de secours du site critique de Valenton : objectif de reprise en moins de 15 minutes.</span></a></li>
+            <li><a href="migration-intune.html"><strong>Migration Microsoft Intune</strong><span>100 % de la flotte mobile migrée sans perte de données.</span></a></li>
+            <li><a href="fastroom.html"><strong>FastRoom : refonte graphique</strong><span>Refonte front-end de l'application de réservation des salles.</span></a></li>
+        </ul>
+    </section>
+    </main>
 
+    <footer class="footer" id="footer">
+        <div class="inner">
+            <div class="column is-logo">
+                <div class="logo-info">
+                    <div class="footer_text">CHICHE Ruben</div>
+                    <span class="copyright">© 2026. All rights reserved.</span>
+                </div>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Navigation</div>
+                <ul>
+                    <li><a href="../index.html" class="footer_a">Accueil</a></li>
+                    <li><a href="../dbcargo.html" class="footer_a">Mon entreprise</a></li>
+                    <li><a href="../veille_technologique.html" class="footer_a">Ma veille</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Contact</div>
+                <ul>
+                    <li><a href="mailto:rubenjd06@gmail.com" class="footer_a"><i class="fa fa-envelope-open"></i> rubenjd06@gmail.com</a></li>
+                    <li><a href="https://github.com/Ruben-ch" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-github"></i> Mon GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/ruben-chiche-ab5a09355/" target="_blank" rel="noreferrer" class="footer_a"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="column is-nav">
+                <div class="column-title">Informations</div>
+                <ul>
+                    <li><a href="../mentions_legales.html" class="footer_a">Mentions Légales</a></li>
+                    <li><a href="../index.html#" class="footer_a">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/Header.js"></script>
+    <script src="../js/MessageRetour.js"></script>
 </body>
+
 </html>
